@@ -1,0 +1,26 @@
+#############################################################################
+#                            Python Snippets                                #
+#############################################################################
+
+# comments
+snippet cc "Description"
+# ${1:comments}
+endsnippet
+
+snippet cd "Description" b
+"""${1:description}
+"""
+endsnippet
+
+# environment
+snippet pen "Shebang header for python scripts" b
+#!/usr/bin/env ${1:ipython}
+# vim:fileencoding=utf-8
+$0
+endsnippet
+
+# main function
+snippet main "ifmain" b
+if __name__ == '__main__':
+	${1:main()}$0
+endsnippet

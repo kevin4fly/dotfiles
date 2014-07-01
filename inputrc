@@ -1,0 +1,60 @@
+# run the command: man readline for help
+set bell-style none
+
+# filename matching and completion case-insensitive
+set completion-ignore-case on
+# treat hyphens(-) and underscore(_) the same thing
+set completion-map-case on
+# short common prefix with ellipsis(...)
+# set completion-prefix-display-length 5
+# mark symlinked dir with slash appended
+set mark-symlinked-directories on
+# avoid completion duplication
+set skip-completed-text on
+# show filetype when lising possible completions
+set visible-stats on
+# show all possilbe completion without ringing the bell
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+$if mode=vi
+    set keymap vi-command
+    "gg": beginning-of-history
+    "G": end-of-history
+    #notice how the "-movement-mode
+    set keymap vi-insert
+    #after 'set keymap vi-insert'?
+    "jj": vi-movement-mode
+    "\C-l": forward-char
+    "\C-h": backward-char
+    # # mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
+    "\e[1;5C": forward-word
+    "\e[1;5D": backward-word
+    "\C-w": backward-kill-word
+    "\C-p": history-search-backward
+    "\C-n": history-search-forward
+    "\C-a": beginning-of-line
+    "\C-e": end-of-line
+    "\C-u": unix-line-discard
+    "\C-k": kill-line
+    "\C-f": backward-delete-char
+$endif
+
+# for ipython shell
+$if python
+    "\C-l": forward-char
+    "\C-h": backward-char
+    # # mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
+    "\e[1;5C": forward-word
+    "\e[1;5D": backward-word
+    "\C-w": backward-kill-word
+    "\C-p": history-search-backward
+    "\C-n": history-search-forward
+    "\C-a": beginning-of-line
+    "\C-e": end-of-line
+    "\C-u": unix-line-discard
+    "\C-k": kill-line
+    "\C-f": backward-delete-char
+$endif
+
+# vim:tw=78:ts=4:sw=4:sts=4:et:fdm=marker:ft=readline

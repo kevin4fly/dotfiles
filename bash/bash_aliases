@@ -1,0 +1,50 @@
+# some more ls aliases
+if [ `uname` = Linux ]; then
+    alias ls=$'ls -XF --color=auto --time-style="+\e[33m[\e[32m%Y-%m-%d \e[35m%k:%M\e[33m]\e[m"'
+else
+    alias ls="ls -F"
+fi
+alias l='ls -CF'
+alias ll='ls -alF'
+alias la='ls -A'
+alias lh='ls -lh'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+alias cp='cp -iv'
+alias mv='mv -iv'
+alias rm='rm -v' # -d since coreutils-8.19, `rm -rf` is evil
+
+# for aliases works
+# refer to: http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
+#           http://www.shellperson.net/using-sudo-with-an-alias/
+alias sudo='sudo '
+
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias df='df -Th'
+alias dmesg='dmesg -H || dmesg | less'
+alias du='du -h'
+alias du1='du --max-depth 1 | sort -rh | head'
+
+alias tm='tmux attach-session -t default || tmux new-session -s default'
+
+alias psall='ps aux'
+alias psg='ps aux | grep'
+
+alias which='which -a'
+
+alias fname='find . -name'
+alias fpath='find . -path'
+
+# used on /usr/include to generate ctags
+alias autoctags='ctags -R -I __THROW -I __attribute_malloc__ -I __wur -R \
+    --c++-kinds=+p --fields=+iaS --extra=+q'
+alias ctag='ctags -R --c++-kinds=+p --fields=+iaS --extra=+q'
+
+# vim:ts=4:sw=4:sts=4:et:fdm=marker:ft=sh

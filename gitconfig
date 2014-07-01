@@ -1,0 +1,97 @@
+[user]
+	name  = Kevin Yun
+	email = kevin4fly@gmail.com
+
+# set the vim as your default editor
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore
+    # cross platform ending-line handling
+    # eg: convert from windows CRLF to linux/mac LF, or vice visa
+    # autocrlf = true
+
+# suppress advise
+[advice]
+    ; statusHints = false
+
+# colors git's output so that it is easy to read
+[color]
+	ui = true
+
+# set the merge tool to vimdiff and alias it to mg
+# thus, type git df insead of git diff to compare what you want
+[merge]
+	tool = vimdiff
+[mergetool]
+	prompt = false
+
+# set the diff tool to vimdiff and alias it to df
+# thus, type git mg insead of git merge to merge two commits
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+
+[credential]
+	helper = cache --timeout=3600
+
+[alias]
+    # misc
+    a  = add
+    b  = branch -v
+    m  = merge
+	mt = mergetool
+    co = checkout
+    br = branch
+    rs = reset
+    r  = remote
+    pu = push
+    pl = pull
+    t  = tag
+
+    unstage = reset HEAD
+    untrack = rm -r --cached
+
+    fall = fetch -v --all
+
+    # diff
+    d    = diff
+	dt   = difftool
+    dc   = diff --cached
+    last = diff HEAD^
+
+    # stash
+    ss = stash
+    sl = stash list
+    sa = stash apply
+
+    # commit
+    c   = commit
+    ca  = commit -a
+    cv  = commit -v
+    cav = commit -av
+
+    # rebase
+    rb = rebase
+    rc = rebase --continue
+    rs = rebase --skip
+
+    # status
+    s  = status -s
+    st = status
+
+    # log
+    l  = log
+    # git lf to show formated log
+    ll = log --graph --abbrev-commit --date=relative \
+        --pretty=format:'%Cred%h%Creset %C(cyan)%p%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+
+    # submodule
+    # git pall to pull all submodules as well
+	pall = !git pull && git submodule update --init --recursive
+    # pall = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
+
+    # grep
+    gr = grep -Ii
+
+# vim: ts=4:sw=4:sts=4:et:fdm=marker:ft=gitconfig

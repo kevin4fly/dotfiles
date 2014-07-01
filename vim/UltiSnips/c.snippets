@@ -1,0 +1,44 @@
+#############################################################################
+#                            C Snippets                                     #
+#############################################################################
+
+priority -50
+
+snippet { "{}"
+{
+	${1}
+}
+endsnippet
+
+snippet cc "/* comments */"
+/* ${1} */
+endsnippet
+
+snippet cd "/**< comments */" b
+/**< ${1} */
+endsnippet
+
+snippet de "#define ..." b
+#define ${1}
+endsnippet
+
+snippet is "#include <>" b
+#include <${1}>
+endsnippet
+
+snippet in "#include ''" b
+#include "${1:`!p snip.rv = snip.basename + '.h'`}"
+endsnippet
+
+snippet ff "#ifndef ... #define ... #endif" b
+#ifndef ${1:`!p snip.rv = ('_' + snip.basename.upper() + '_H')`}
+#define $1
+
+${2}
+
+
+
+#endif
+endsnippet
+
+# vim:ft=snippets:

@@ -1,0 +1,109 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# set the colors
+RESET='[00m'
+RED='[01;31m'
+GREEN='[01;32m'
+YELLOW='[01;33m'
+BLUE='[01;34m'
+MAGENTA='[01;35m'
+CYAN='[01;36m'
+WHITE='[01;37m'
+UNDERLINE='[04m'
+
+# show more info in PS1 and PS4
+function get_hg_repos_id()
+{
+  hg id -bint 2> /dev/null
+}
+
+function get_git_repos_branch()
+{
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"
+}
+
+function repos_info()
+{
+  HG_REPOS_ID="$(get_hg_repos_id)"
+  if [ "${HG_REPOS_ID}" ]
+  then
+    echo
+    echo -en "\e[\e${CYAN}mercurial]\e${MAGENTA} revision id: \e${YELLOW}${HG_REPOS_ID}"
+  else
+    GIT_REPOS_BRANCH="$(get_git_repos_branch)"
+    if [ "${GIT_REPOS_BRANCH}" ]
+    then
+      echo
+      echo -en "\e${CYAN}[git]\e${MAGENTA} current branch: \e${YELLOW}${GIT_REPOS_BRANCH}"
+    fi
+  fi
+}
+
+export PS1='$(repos_info)\n\
+\e${CYAN}[login] \e${GREEN}\u\e${RESET}@\e${MAGENTA}\h: \e${BLUE}\w\n\
+\[\e${RED}\]\$\[\e${RESET}\] '
+export PS4='(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]} - [${SHLVL},${BASH_SUBSHELL}, $?]'
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+export HISTCONTROL=ignoreboth
+export HISTIGNORE='git*--amend*:ls:cd:git*-m*:git*-am*:git*-f*:rm -rf*'
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+#shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+[[ -f ~/.bash_aliases ]] && . ~/.bash_aliases
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+set -o vi
+export EDITOR=/usr/bin/vim
+export LC_ALL=en_US.utf-8
+export LANG="$LC_ALL"
+export TERM=xterm-256color
+
+# for more software config files loading
+[[ -f ~/.bash_after ]] && . ~/.bash_after
