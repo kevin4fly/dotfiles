@@ -3,12 +3,16 @@
 cur_path=$(pwd)
 
 [ ! -d ~/.vim ] && mkdir ~/.vim
+[ ! -d ~/.config ] && mkdir ~/.config
 
 [ ! -r ~/.bashrc ] && ln -s ${cur_path}/bash/bashrc ~/.bashrc
 [ ! -r ~/.bash_aliases ] && ln -s ${cur_path}/bash/bash_aliases ~/.bash_aliases
 [ ! -r ~/.bash_after ] && ln -s ${cur_path}/bash/bash_after ~/.bash_after
 
 [ ! -r ~/.dircolors ] && ln -s ${cur_path}/dircolors ~/.dircolors
+
+[ ! -d ~/.fonts ] && ln -s ${cur_path}/fonts ~/.fonts
+[ ! -d ~/.config/fontconfig ] && ln -s ${cur_path}/fontconfig ~/.config/fontconfig
 
 [ ! -r ~/.gitignore ] && ln -s ${cur_path}/gitignore ~/.gitignore
 [ ! -r ~/.gitconfig ] && ln -s ${cur_path}/gitconfig ~/.gitconfig
