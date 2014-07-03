@@ -1,33 +1,52 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-cur_path=$(pwd)
+# A simple installer for the dotfiles
 
-[ ! -d ~/.vim ] && mkdir ~/.vim
-[ ! -d ~/.config ] && mkdir ~/.config
+# CONFIGURABLES ================================================================
 
-[ ! -r ~/.bashrc ] && ln -s ${cur_path}/bash/bashrc ~/.bashrc
-[ ! -r ~/.bash_aliases ] && ln -s ${cur_path}/bash/bash_aliases ~/.bash_aliases
-[ ! -r ~/.bash_after ] && ln -s ${cur_path}/bash/bash_after ~/.bash_after
+# new directories if needed
+NEW_DIRS[0]="vimtmp"
+NEW_DIRS[1]="vim"
+NEW_DIRS[2]="config"
 
-[ ! -r ~/.dircolors ] && ln -s ${cur_path}/dircolors ~/.dircolors
+for DIR in "${NEW_DIRS[@]}"; do
+    if [[ ! -d ~/.$DIR ]]; then
+        mkdir -p ~/.$DIR
+    fi
+done
 
-[ ! -d ~/.fonts ] && ln -s ${cur_path}/fonts ~/.fonts
-[ ! -d ~/.config/fontconfig ] && ln -s ${cur_path}/fontconfig ~/.config/fontconfig
+# current path
+CUR_PATH=$(pwd)
 
-[ ! -r ~/.gitignore ] && ln -s ${cur_path}/gitignore ~/.gitignore
-[ ! -r ~/.gitconfig ] && ln -s ${cur_path}/gitconfig ~/.gitconfig
+# a list of files need to be put into $HOME
+SIMPLE_FILES[0]="dircolors"
+SIMPLE_FILES[1]="gitconfig"
+SIMPLE_FILES[2]="gitignore"
+SIMPLE_FILES[3]="inputrc"
+SIMPLE_FILES[4]="pythonstartup"
+SIMPLE_FILES[5]="valgrindrc"
+SIMPLE_FILES[6]="tmux.conf"
+SIMPLE_FILES[7]="bash/bashrc"
+SIMPLE_FILES[8]="bash/bash_aliases"
+SIMPLE_FILES[9]="bash/bash_after"
+SIMPLE_FILES[10]="vim/vimrc"
 
-[ ! -r ~/.inputrc ] && ln -s ${cur_path}/inputrc ~/.inputrc
+for FILE in "${SIMPLE_FILES[@]}"; do
+    FILE_BASENAME=$(basename $FILE)
+    rm -rf "$HOME/.$FILE_BASENAME"
+    ln -s "$CUR_PATH/$FILE" "$HOME/.$FILE_BASENAME"
+done
 
-[ ! -r ~/.pythonstartup ] && ln -s ${cur_path}/pythonstartup ~/.pythonstartup
+# a list of directories need to be put into $HOME
+EXTENDED_DIRS[0]="fonts"
+EXTENDED_DIRS[1]="config/fontconfig"
+EXTENDED_DIRS[2]="vim/spell"
+EXTENDED_DIRS[3]="vim/UltiSnips"
 
-[ ! -r ~/.tmux.conf ] && ln -s ${cur_path}/tmux.conf ~/.tmux.conf
-
-[ ! -r ~/.valgrindrc ] && ln -s ${cur_path}/valgrindrc ~/.valgrindrc
-
-[ ! -r ~/.vimrc ] && ln -s ${cur_path}/vim/vimrc ~/.vimrc
-[ ! -r ~/.vim/spell ] && ln -s ${cur_path}/vim/spell ~/.vim/spell
-[ ! -r ~/.vim/UltiSnips ] && ln -s ${cur_path}/vim/UltiSnips ~/.vim/UltiSnips
+for DIR in ${EXTENDED_DIRS[@]}; do
+    rm -rf "$HOME/.$DIR"
+    ln -s "$CUR_PATH/$DIR" "$HOME/.$DIR"
+done
 
 # set the terminal ui
 ./gnome-terminal-profile.sh
