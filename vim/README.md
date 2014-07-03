@@ -16,14 +16,14 @@ The vim plugins also need the additional software to make them work normally
 such as: git, ruby, python support and so on. And now, let's install them:
 
 1. software version control:
-   [git](https://github.com/kevin4fly/dotvimrc/wiki/Building-git-from-source)
+   [git](https://gist.github.com/kevin4fly/f74344649d09f903eb1b)
 2. web browser: [chrome](https://www.google.com/intl/en/chrome/browser/)
    - [set chrome as the default browser](http://superuser.com/questions/281488/how-to-set-default-browser-on-ubuntu-from-command-line)
 3. ruby environment: [rbenv](https://github.com/sstephenson/rbenv)
 4. node.js environment: [nvm](https://github.com/creationix/nvm)
 5. python environment: [pyenv](https://github.com/yyuu/pyenv)
 6. llvm and clange enviroment:
-   [libclang](https://github.com/kevin4fly/dotvimrc/wiki/Building-llvm-and-clang-from-source)
+   [libclang](https://gist.github.com/kevin4fly/e3de744266c98294b21e)
 7. Exuberant Ctags: [tag](http://ctags.sourceforge.net/)
    - install ctags via package manager: `sudo apt-get install ctags`
 
@@ -51,4 +51,5 @@ productive.
 Launch vim and run: `:PluginInstall` to install all plugins via vundle.
 
 ###Tunig plugins
-[Tuning some plugins](https://github.com/kevin4fly/dotvimrc/wiki/Tuning-plugins) to suit for my flavor.
+[Tuning some
+plugins](https://github.com/kevin4fly/dotfiles/wiki/Tuning-plugins) to suit for my flavor.
