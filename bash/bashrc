@@ -48,7 +48,7 @@ function repos_info()
 export PS1='\
 $(repos_info)\n\
 \e${RESET}[login] \u@\h: \e${BLUE}\w\n\
-\e${RED}\$\[\e${RESET}\] '
+\[\e${RED}\]\$\[\e${RESET}\] '
 export PS4='\
 (${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]} - [${SHLVL},${BASH_SUBSHELL}, $?]'
 
