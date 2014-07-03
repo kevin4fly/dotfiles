@@ -37,7 +37,9 @@ $if mode=vi
     "\C-e": end-of-line
     "\C-u": unix-line-discard
     "\C-k": kill-line
+    "\C-x": kill-whole-line
     "\C-f": backward-delete-char
+    "\C-o": clear-screen
 $endif
 
 # for ipython shell
