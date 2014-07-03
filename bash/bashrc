@@ -34,21 +34,23 @@ function repos_info()
   if [ "${HG_REPOS_ID}" ]
   then
     echo
-    echo -en "\e[\e${CYAN}mercurial]\e${MAGENTA} revision id: \e${YELLOW}${HG_REPOS_ID}"
+    echo -en "[mercurial] revision id: \e${YELLOW}${HG_REPOS_ID}"
   else
     GIT_REPOS_BRANCH="$(get_git_repos_branch)"
     if [ "${GIT_REPOS_BRANCH}" ]
     then
       echo
-      echo -en "\e${CYAN}[git]\e${MAGENTA} current branch: \e${YELLOW}${GIT_REPOS_BRANCH}"
+      echo -en "[git] current branch: \e${YELLOW}${GIT_REPOS_BRANCH}"
     fi
   fi
 }
 
-export PS1='$(repos_info)\n\
-\e${CYAN}[login] \e${GREEN}\u\e${RESET}@\e${MAGENTA}\h: \e${BLUE}\w\n\
-\[\e${RED}\]\$\[\e${RESET}\] '
-export PS4='(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]} - [${SHLVL},${BASH_SUBSHELL}, $?]'
+export PS1='\
+$(repos_info)\n\
+\e${RESET}[login] \u@\h: \e${BLUE}\w\n\
+\e${RED}\$\[\e${RESET}\] '
+export PS4='\
+(${BASH_SOURCE}:${LINENO}): ${FUNCNAME[0]} - [${SHLVL},${BASH_SUBSHELL}, $?]'
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
