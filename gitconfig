@@ -57,6 +57,7 @@
     # diff
     d    = diff
 	dt   = difftool
+    dtc  = difftool --cached
     dc   = diff --cached
     last = diff HEAD^
 
