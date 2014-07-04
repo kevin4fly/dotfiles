@@ -1,0 +1,30 @@
+# arrowstyle options: short, long and highlight
+set arrowstyle = highlight
+set ignorecase
+set showtgdbcommands
+set tabstop=2
+set winsplit=top_big
+
+imap jj <ESC>
+
+# t : temp breakpoint
+# f : finish<cr>
+map f :finish<cr>
+# l : list locals
+map l iinfo<space>locals<cr><esc>
+# a : list args
+map a iinfo<space>args<cr><esc>
+# r : run
+map r :run<cr>
+# s : step
+map s :step<cr>
+# n : next
+map n :next<cr>
+# S : backtrace Stack
+map S ibt<cr><esc>
+# c : continue
+map c :continue<cr>
+# u : until
+map u :util<cr>
+
+# vim:tw=78:ts=4:sw=4:sts=4:et:fdm=marker:ft=vim

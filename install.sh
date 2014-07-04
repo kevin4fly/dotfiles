@@ -41,10 +41,11 @@ for FILE in "${SIMPLE_FILES[@]}"; do
 done
 
 # a list of directories need to be put into $HOME
-EXTENDED_DIRS[0]="config/fontconfig"
-EXTENDED_DIRS[1]="fonts"
-EXTENDED_DIRS[2]="vim/spell"
-EXTENDED_DIRS[3]="vim/UltiSnips"
+EXTENDED_DIRS[0]="cgdb/cgdbrc"
+EXTENDED_DIRS[1]="config/fontconfig"
+EXTENDED_DIRS[2]="fonts"
+EXTENDED_DIRS[3]="vim/spell"
+EXTENDED_DIRS[4]="vim/UltiSnips"
 
 for DIR in ${EXTENDED_DIRS[@]}; do
     rm -rf "$HOME/.$DIR"
