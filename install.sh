@@ -19,16 +19,19 @@ done
 CUR_PATH=$(pwd)
 
 # a list of files need to be put into $HOME
-SIMPLE_FILES[0]="dircolors"
-SIMPLE_FILES[1]="gitconfig"
-SIMPLE_FILES[2]="gitignore"
-SIMPLE_FILES[3]="inputrc"
-SIMPLE_FILES[4]="pythonstartup"
-SIMPLE_FILES[5]="valgrindrc"
-SIMPLE_FILES[6]="tmux.conf"
-SIMPLE_FILES[7]="bash/bashrc"
-SIMPLE_FILES[8]="bash/bash_aliases"
-SIMPLE_FILES[9]="bash/bash_after"
+SIMPLE_FILES[0]="bash/bashrc"
+SIMPLE_FILES[1]="bash/bash_aliases"
+SIMPLE_FILES[2]="bash/bash_after"
+
+SIMPLE_FILES[3]="dircolors"
+
+SIMPLE_FILES[4]="git/gitconfig"
+SIMPLE_FILES[5]="git/gitignore"
+
+SIMPLE_FILES[6]="inputrc"
+SIMPLE_FILES[7]="pythonstartup"
+SIMPLE_FILES[8]="tmux.conf"
+SIMPLE_FILES[9]="valgrindrc"
 SIMPLE_FILES[10]="vim/vimrc"
 
 for FILE in "${SIMPLE_FILES[@]}"; do
@@ -38,8 +41,8 @@ for FILE in "${SIMPLE_FILES[@]}"; do
 done
 
 # a list of directories need to be put into $HOME
-EXTENDED_DIRS[0]="fonts"
-EXTENDED_DIRS[1]="config/fontconfig"
+EXTENDED_DIRS[0]="config/fontconfig"
+EXTENDED_DIRS[1]="fonts"
 EXTENDED_DIRS[2]="vim/spell"
 EXTENDED_DIRS[3]="vim/UltiSnips"
 
