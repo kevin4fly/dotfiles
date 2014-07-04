@@ -17,46 +17,32 @@ set visible-stats on
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
+"\C-l": forward-char
+"\C-h": backward-char
+# mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
+"\e[1;5C": forward-word
+"\e[1;5D": backward-word
+"\C-w": backward-kill-word
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+"\C-a": beginning-of-line
+"\C-e": end-of-line
+"\C-u": unix-line-discard
+"\C-k": kill-line
+"\C-x": kill-whole-line
+"\C-f": backward-delete-char
+
 $if mode=vi
     set keymap vi-command
     "gg": beginning-of-history
     "G": end-of-history
-    #notice how the "-movement-mode
-    set keymap vi-insert
-    #after 'set keymap vi-insert'?
-    "jj": vi-movement-mode
-    "\C-l": forward-char
-    "\C-h": backward-char
-    # # mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
-    "\e[1;5C": forward-word
-    "\e[1;5D": backward-word
-    "\C-w": backward-kill-word
-    "\C-p": history-search-backward
-    "\C-n": history-search-forward
-    "\C-a": beginning-of-line
-    "\C-e": end-of-line
-    "\C-u": unix-line-discard
-    "\C-k": kill-line
-    "\C-x": kill-whole-line
-    "\C-f": backward-delete-char
+    "H": beginning-of-line
+    "L": end-of-line
     "\C-o": clear-screen
-$endif
-
-# for ipython shell
-$if python
-    "\C-l": forward-char
-    "\C-h": backward-char
-    # # mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
-    "\e[1;5C": forward-word
-    "\e[1;5D": backward-word
-    "\C-w": backward-kill-word
-    "\C-p": history-search-backward
-    "\C-n": history-search-forward
-    "\C-a": beginning-of-line
-    "\C-e": end-of-line
-    "\C-u": unix-line-discard
-    "\C-k": kill-line
-    "\C-f": backward-delete-char
+    #after 'set keymap vi-insert'?
+    set keymap vi-insert
+    "jj": vi-movement-mode
+    "\C-o": clear-screen
 $endif
 
 # vim:tw=78:ts=4:sw=4:sts=4:et:fdm=marker:ft=readline
