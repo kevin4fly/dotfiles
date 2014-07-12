@@ -118,6 +118,9 @@ Plugin 'amdt/vim-niji'
 " align text
 Plugin 'godlygeek/tabular'
 
+" sytax highlight for nginx
+Plugin 'evanmiller/nginx-vim-syntax'
+
 " required!
 call vundle#end()
 filetype plugin indent on
@@ -134,7 +137,7 @@ set timeout timeoutlen=1000 ttimeoutlen=50
 " fast saving
 nnoremap <leader>w :w!<cr>
 " fast reloading the .vimrc
-nnoremap <silent><leader>rr :source ~/.vimrc<cr>
+nnoremap <silent><leader>vv :source ~/.vimrc<cr>
             \:filetype detect<cr>:exe ":echo 'vimrc reloaded'"<cr>
 " fast editing the .vimr
 nnoremap <silent><leader>v :e ~/.vimrc<cr>
@@ -259,6 +262,9 @@ nnoremap <leader>n :cn<cr>
 " skip to previous error
 nnoremap <leader>p :cp<cr>
 nnoremap <leader>cm :w<cr>:make<cr>
+
+" reload the file(log files may be changed outside)
+nnoremap <leader>rr :edit<cr>:exe ":echo '<c-r>% reloaded'"<cr>
 
 " compile source code
 nnoremap <F5> :w<cr>:make<cr>
