@@ -7,7 +7,8 @@
 # new directories if needed
 NEW_DIRS[0]="vimtmp"
 NEW_DIRS[1]="vim"
-NEW_DIRS[2]="config"
+NEW_DIRS[2]="fonts"
+NEW_DIRS[3]="config/fontconfig/conf.d"
 
 for DIR in "${NEW_DIRS[@]}"; do
     if [[ ! -d ~/.$DIR ]]; then
@@ -40,12 +41,18 @@ for FILE in "${SIMPLE_FILES[@]}"; do
     ln -s "$CUR_PATH/$FILE" "$HOME/.$FILE_BASENAME"
 done
 
+EXTENDED_FILES[0]="fonts/PowerlineSymbols.otf"
+EXTENDED_FILES[1]="config/fontconfig/conf.d/10-powerline-symbols.conf"
+
+for FILE in "${EXTENDED_FILES[@]}"; do
+    rm -rf "$HOME/.$FILE"
+    ln -s "$CUR_PATH/$FILE" "$HOME/.$FILE"
+done
+
 # a list of directories need to be put into $HOME
 EXTENDED_DIRS[0]="cgdb/cgdbrc"
-EXTENDED_DIRS[1]="config/fontconfig"
-EXTENDED_DIRS[2]="fonts"
-EXTENDED_DIRS[3]="vim/spell"
-EXTENDED_DIRS[4]="vim/UltiSnips"
+EXTENDED_DIRS[1]="vim/spell"
+EXTENDED_DIRS[2]="vim/UltiSnips"
 
 for DIR in ${EXTENDED_DIRS[@]}; do
     rm -rf "$HOME/.$DIR"
