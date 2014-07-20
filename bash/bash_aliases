@@ -11,9 +11,12 @@ alias lh='ls -lh'
 
 alias ..='cd ..'
 alias ...='cd ../..'
+# output what has been done (-v, --verbose)
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -v' # -d since coreutils-8.19, `rm -rf` is evil
+alias chgrp='chgrp -v'
+alias chown='chown -v'
 
 # for aliases works
 # refer to: http://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
