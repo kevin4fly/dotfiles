@@ -15,6 +15,9 @@ alias ...='cd ../..'
 alias cp='cp -iv'
 alias mv='mv -iv'
 alias rm='rm -v' # -d since coreutils-8.19, `rm -rf` is evil
+alias ln='ln -v'
+alias mkdir='mkdir -v'
+alias rmdir='rmdir -v'
 alias chgrp='chgrp -v'
 alias chown='chown -v'
 
