@@ -236,6 +236,8 @@ nnoremap N Nzzzv
 " These create newlines like o and O but stay in normal mode
 nnoremap <silent> zj o<Esc>k
 nnoremap <silent> zk O<Esc>j
+nnoremap <silent> zh X
+nnoremap <silent> zl i <Esc>
 
 " cindent is a bit too smart for its own good and triggers in text files when
 " you're typing inside parens and then hit enter; it aligns the text with the
@@ -430,9 +432,9 @@ set incsearch
 set gdefault
 
 " set fold method: marker
-set foldmethod=marker
+" set foldmethod=marker
 " all folds open by default
-" set foldlevelstart=99
+set foldlevelstart=99
 
 " turn magic on for regular expression
 set magic
@@ -468,6 +470,8 @@ set hidden
 
 " move to next buffer
 nnoremap <leader><tab> :bnext<cr>
+" nove to previous buffer
+nnoremap <leader><s-tab> :bprevious<cr>
 " close the current buffer
 nnoremap <leader>dd :Bdelete<cr>
 " close all the buffers: from #1 to #1000
