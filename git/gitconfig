@@ -1,3 +1,6 @@
+# for more details of git: man git ---> NOTES partition ---> git user's manual
+# others about git: man git ---> SEE ALSO partition
+
 [user]
 	name  = Kevin Yun
 	email = kevin4fly@gmail.com
