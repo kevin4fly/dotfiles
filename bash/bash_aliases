@@ -67,7 +67,7 @@ fi
 # pless to make less show pretty
 pless()
 {
-    pygmentize -f terminal256 -g -P style=monokai $* | less -FiMRX
+    pygmentize -f terminal256 -g -P style=monokai $* | less
 }
 
 # pcat to make cat show pretty
