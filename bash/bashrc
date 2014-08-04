@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # ~/.bashrc: executed by bash(1) for non-login shells.
 
 # If not running interactively, don't do anything
@@ -71,6 +72,15 @@ shopt -s checkwinsize
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
+
+# for more details: man less
+# for less syntax highlight
+# -F less exit if the entire file can be displayed on the first screen
+# -i smart ignore case while searching
+# -M prompt more verbosely
+# -R cause "raw" control chars to be displayed
+# -X no init
+export LESS="-FiMRX"
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"

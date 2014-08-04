@@ -1,0 +1,28 @@
+# for more details: man lesskey
+
+#command
+j   forw-line
+k   back-line
+h   left-scroll
+l   right-scroll
+g   goto-line
+G   goto-end
+^d  forw-scroll
+^u  back-scroll
+^f  forw-screen
+^b  back-screen
+^p  prev-file
+^n  next-file
+
+#line-edit
+^a  home
+^e  end
+^h  left
+^l  right
+^n  down
+^p  up
+^f  backspace
+^w  word-backspace
+^u  kill-line
+
+# vim:ft=lesskey:tw=78:ts=4:sw=4:sts=4:et:fdm=marker

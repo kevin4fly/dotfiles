@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # for git bash completion
 # for more commands completion:
 # http://stackoverflow.com/questions/9883851/why-git-ls-files-is-not-shown-on-tab-completion

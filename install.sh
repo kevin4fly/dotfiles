@@ -35,6 +35,10 @@ SIMPLE_FILES[8]="tmux.conf"
 SIMPLE_FILES[9]="valgrindrc"
 SIMPLE_FILES[10]="vim/vimrc"
 
+SIMPLE_FILES[11]="less/less"
+SIMPLE_FILES[12]="less/lesskey"
+SIMPLE_FILES[13]="less/less.sh"
+
 for FILE in "${SIMPLE_FILES[@]}"; do
     FILE_BASENAME=$(basename $FILE)
     rm -rf "$HOME/.$FILE_BASENAME"
