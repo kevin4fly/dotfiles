@@ -217,6 +217,9 @@ set pastetoggle=<F2>
 nnoremap Q gq
 vnoremap Q gq
 
+" chars form pairs
+set matchpairs=(:),[:],{:},<:>,\':\',":",`:`
+
 " jump between braces
 nnoremap <tab> %
 vnoremap <tab> %
@@ -363,6 +366,11 @@ set smartindent
 " copy indent
 set copyindent
 
+" tabs and eols
+set listchars+=tab:▸\ ,eol:$
+" spaces
+set listchars+=trail:⋅,nbsp:⋅
+
 " wrap lines to see the whole line instead of truncation or scroll
 set wrap
 " enforces a specified line-length and auto inserts hard line breaks when we
@@ -462,6 +470,9 @@ set shortmess=a
 " remove a comment leader when joining lines
 set formatoptions+=j
 
+" don't use alt for menu
+set winaltkeys=no
+
 " }}}
 " buffer, window and tab {{{
 
@@ -504,7 +515,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 " new tab
 nnoremap <leader>tn :tabnew<cr>
 " new window
-nnoremap <leader>wn :vnew<cr>
+nnoremap <leader>vn :vnew<cr>
 " tab only
 nnoremap <leader>to :tabonly<cr>
 " window only
@@ -518,6 +529,9 @@ nnoremap <leader>h :help<cr>
 " opens a new tab with the current buffer's path
 " super useful when editing files in the same directory
 nnoremap <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
+nnoremap <leader>ve :vsplit <c-r>=expand("%:p:h")<cr>/
+nnoremap <leader>se :split <c-r>=expand("%:p:h")<cr>/
+nnoremap <leader>ce :split <c-r>=expand("%:p:h")<cr>/
 
 " switch cwd to the directory of the open buffer
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
@@ -590,6 +604,9 @@ autocmd FileType * nnoremap K :Man <cword><cr>
 nnoremap <silent><F6> :make<cr>
 " prevent vim from interpreting Makefile as a modeline
 autocmd FileType make set modelines=0
+
+" mapping to vimgrep
+nnoremap  <leader>/ :vimgrep /
 
 "}}}
 " plugins {{{
