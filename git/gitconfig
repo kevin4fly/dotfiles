@@ -98,4 +98,7 @@
     # grep
     gr = grep -Ii
 
+    # web manual
+    w = !w3m "/usr/local/share/doc/git-doc/user-manual.html"
+
 # vim: ts=4:sw=4:sts=4:et:fdm=marker:ft=gitconfig
