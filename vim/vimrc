@@ -121,6 +121,10 @@ Plugin 'godlygeek/tabular'
 " sytax highlight for nginx
 Plugin 'evanmiller/nginx-vim-syntax'
 
+" sytax highlight for getmailrc/msmtprc
+Plugin 'vim-scripts/getmail.vim'
+Plugin 'wogong/msmtp.vim'
+
 " required!
 call vundle#end()
 filetype plugin indent on

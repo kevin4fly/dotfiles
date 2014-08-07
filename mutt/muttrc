@@ -1,0 +1,61 @@
+# for details of mutt manual
+# please refer to: file:///usr/share/doc/mutt/html/manual.html
+
+# for quick view of rcfile (runtime configuration)
+# please run command: man muttrc
+
+# load options for the first account by default:
+source ~/.mutt/kevin4fly.gmail
+
+# run appropriate script on folder change:
+folder-hook ~/mail/kevin4fly_gmail/* source ~/.mutt/kevin4fly.gmail
+folder-hook ~/mail/kevin4fly_sina/* source ~/.mutt/kevin4fly.sina
+
+# boolean
+set noconfirmappend    # do not ask to append to mailboxes
+set nohelp             # do not show the help line at the top
+set implicit_autoview  # view html email
+
+# quadoptions
+set auto_tag    = yes  # use tags
+set ascii_chars = yes  # use ascii arrows
+set markers     = no   # supress "+" on wrapped lines
+set menu_scroll = yes  # scroll in menus
+set mark_old    = no   # do not mark messages as old if they are not read
+set move        = no   # do not move read messages
+set pager_stop  = yes  # do not go to next message automatically
+set smart_wrap  = yes  # do not split words
+set wait_key    = no   # do not display "press a key continue"
+
+# intergers
+set history          = 200  # set history buffer lines
+set mail_check       = 3    # set times(in seconds) buffy checks new email
+set pager_index_lines= 4    # set index lines at the top of pager
+
+# string value
+set edit_headers                    # allow to edit your message head
+set editor      = "vim"             # set the preferred text editor
+
+# sorting:
+set sort        = threads                       # set mail sort order
+set sort_aux    = reverse-last-date-received    # set thread sort order
+set sort_browser= alpha                         # set file brower sort order
+set sort_alias  = alias                         # set alias sort order
+
+# path
+# set directories for cached headers and bodies, as well as for certificates:
+set header_cache     = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+set sendmail         = "/usr/bin/msmtp"  # set msmtp to send email
+
+auto_view text/html          # view html automatically
+alternative_order text/plain text/enriched text/html # save html for last
+
+set alias_file  = "~/.mutt/aliases" # set aliases folder
+source ~/.mutt/aliases              # add aliases here
+source ~/.mutt/mailboxes            # add mailboxes here
+source ~/.mutt/bindings             # add bindings here
+source ~/.mutt/colors               # add colors here
+source ~/.mutt/macros               # add macros here
+source ~/.mutt/patchs               # add patchs settings here

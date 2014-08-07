@@ -1,0 +1,22 @@
+# use 'b' to toggle sidebar visibility
+macro index b '<enter-command>toggle sidebar_visible<enter>'
+macro pager b '<enter-command>toggle sidebar_visible<enter>'
+
+# view url
+macro index \cb |urlview\n
+macro pager \cb |urlview\n
+
+# allow changing of inbox folder:
+macro index ,f "<change-folder>~/mail/kevin4fly_gmail/linkedin<enter>" \
+                "Go to first mailbox"
+macro index ,s "<change-folder>~/mail/kevin4fly_sina/default<enter>" \
+                "Go to second mailbox"
+# w3m is a console web browser, replace it with whatever you want
+macro generic \cw "!w3m /usr/share/doc/mutt/html/manual.html\n" \
+                "Show Mutt documentation"
+macro index   \cw "!w3m /usr/share/doc/mutt/html/manual.html\n" \
+                "Show Mutt documentation"
+macro pager   \cw "!w3m /usr/share/doc/mutt/html/manual.html\n" \
+                "Show Mutt documentation"
+
+# vim:ft=muttrc:tw=78:ts=4:sw=4:sts=4:et:fdm=marker

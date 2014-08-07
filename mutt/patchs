@@ -1,0 +1,15 @@
+# mutt-patched:
+set sidebar_sort = yes
+set sidebar_width = 35
+set sidebar_delim = '|'
+bind pager >    sidebar-next
+bind index >    sidebar-next
+bind pager <    sidebar-prev
+bind index <    sidebar-prev
+bind pager \co  sidebar-open
+bind index \co  sidebar-open
+
+# use muttprint for pretty printing and send to ghostview (gv):
+set print_command = "muttprint -P A4 -p TO_FILE:/tmp/$USER.ps && gv /tmp/$USER.ps"
+
+# vim:ft=muttrc:ts=4:sw=4:sts=4:et:fdm=marker

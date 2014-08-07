@@ -1,0 +1,20 @@
+# list the available mailboxes:
+# for GMAIL
+mailboxes = "~/mail/kevin4fly_gmail/"
+mailboxes = "~/mail/kevin4fly_gmail/beyondsoft/"
+mailboxes = "~/mail/kevin4fly_gmail/linkedin/"
+mailboxes = "~/mail/kevin4fly_gmail/social/"
+mailboxes = "~/mail/kevin4fly_gmail/bank/"
+mailboxes = "~/mail/kevin4fly_gmail/promotion/"
+mailboxes = "~/mail/kevin4fly_gmail/default/"
+mailboxes = "~/mail/kevin4fly_gmail/sent/"
+mailboxes = "~/mail/kevin4fly_gmail/draft/"
+mailboxes = "~/mail/kevin4fly_gmail/inbox/"
+# for SINA mail
+mailboxes = "~/mail/kevin4fly_sina/"
+mailboxes = "~/mail/kevin4fly_sina/default/"
+mailboxes = "~/mail/kevin4fly_sina/sent/"
+mailboxes = "~/mail/kevin4fly_sina/draft/"
+mailboxes = "~/mail/kevin4fly_sina/inbox/"
+
+# vim:ft=muttrc:tw=78:ts=4:sw=4:sts=4:et:fdm=marker

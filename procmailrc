@@ -1,0 +1,57 @@
+# for details please refer to: man procmailrc/procmail
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin
+SHELL=/bin/bash
+MAILDIR=$HOME/mail/
+DEFAULT=$MAILDIR/default/
+LOGFILE=$HOME/log/procmail.log
+# LOCKFILE=$HOME/.lockfile
+
+# NOTE: the mailbox path must append the slash
+# WRONG mailbox: kevin4fly_sina/default
+# RIGHT mailbox: kevin4fly_sina/default/
+
+# this is for GMAIL{{{1
+:0				                # Anything from beyondsoft
+* ^To:.*@gmail.com
+* ^From:.*@beyondsoft.com
+kevin4fly_gmail/beyondsoft/	    # will go to $MAILDIR/beyondsoft
+
+:0				                # Anything from linkedin/github
+* ^To:.*@gmail.com
+* ^From:.*@(linkedin|github).com
+kevin4fly_gmail/linkedin/		# will go to $MAILDIR/linkedin
+
+:0				                # Anything from facebook/twitter/quora/zhihu
+* ^To:.*@gmail.com
+* ^From:.*@(facebookmail|twitter|quora|mail.zhihu).com
+kevin4fly_gmail/social/			# will go to $MAILDIR/social
+
+:0                              # Anything from the bank
+* ^To:.*@gmail.com
+* ^From:.*@message.cmbchina.com
+kevin4fly_gmail/bank/            # will go to $MAILDIR/bank
+
+:0				                # Anything from jd/stitcher
+* ^To:.*@gmail.com
+* ^From:.*@(jd|stitcher).com
+kevin4fly_gmail/promotion/	    # will go to $MAILDIR/promotion
+
+:0                              # for gmail default
+* ^To:.*@gmail.com
+kevin4fly_gmail/default/
+
+# :0
+# * ^(From|To|Subject|...):.*
+# /dev/null                       # spam email go die. lol...
+# for gmail end}}}
+# this is for SINA mail{{{1
+:0                              # Anything to sina
+* ^To:.*@sina.com
+kevin4fly_sina/default/
+#for sina mail end}}}
+
+# Anything that has not been delivered by now will go to $DEFAULT
+# using LOCKFILE=$DEFAULT$LOCKEXT
+
+# vim:ft=procmail:tw=78:ts=4:sw=4:sts=4:et:fdm=marker

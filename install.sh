@@ -39,6 +39,8 @@ SIMPLE_FILES[11]="less/less"
 SIMPLE_FILES[12]="less/lesskey"
 SIMPLE_FILES[13]="less/less.sh"
 
+SIMPLE_FILES[15]="procmailrc"
+
 for FILE in "${SIMPLE_FILES[@]}"; do
     FILE_BASENAME=$(basename $FILE)
     rm -rf "$HOME/.$FILE_BASENAME"
@@ -57,6 +59,7 @@ done
 EXTENDED_DIRS[0]="cgdb/cgdbrc"
 EXTENDED_DIRS[1]="vim/spell"
 EXTENDED_DIRS[2]="vim/UltiSnips"
+EXTENDED_DIRS[3]="mutt"
 
 for DIR in ${EXTENDED_DIRS[@]}; do
     rm -rf "$HOME/.$DIR"

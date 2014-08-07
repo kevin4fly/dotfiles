@@ -1,0 +1,14 @@
+set realname      = "Kevin Yun"
+set use_from      = "yes"
+set from          = "kevin4fly@sina.com"
+set envelope_from = "yes"
+
+# the default mailbox type used when creating new folders
+set mbox_type     = Maildir
+set folder        = "~/mail/kevin4fly_sina/"
+set spoolfile     = "~/mail/kevin4fly_sina/default"
+set mbox          = +inbox
+set record        = +sent
+set postponed     = +draft
+
+# vim:ft=muttrc:tw=78:ts=4:sw=4:sts=4:et:fdm=marker
