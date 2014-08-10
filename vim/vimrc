@@ -164,6 +164,13 @@ nnoremap 0 ^
 nnoremap H 0
 nnoremap L $
 
+" scroll line without move cursor position
+nnoremap <silent> J 1<c-d>:set scroll=0<cr>
+nnoremap <silent> K 1<c-u>:set scroll=0<cr>
+
+" join line
+nnoremap <leader>j :join<cr>
+
 " treat long lines as break lines
 nnoremap j gj
 nnoremap k gk
@@ -389,9 +396,9 @@ set colorcolumn=+1
 set cursorline
 " set cursorcolumn
 " show cursorline dynamically
-nnoremap <leader>co :if &cursorcolumn <bar> set nocursorcolumn <bar>
-                   \ else <bar> set cursorcolumn <bar>
-                   \ endif<cr>
+nnoremap <silent> <leader>co :if &cursorcolumn <bar> set nocursorcolumn <bar>
+                              \ else <bar> set cursorcolumn <bar>
+                              \ endif<cr>
 
 " set vertical line at the end
 set colorcolumn=78
@@ -484,9 +491,9 @@ set winaltkeys=no
 set hidden
 
 " move to next buffer
-nnoremap <leader><tab> :bnext<cr>
+nnoremap <c-j> :bnext<cr>
 " nove to previous buffer
-nnoremap <leader><s-tab> :bprevious<cr>
+nnoremap <c-k> :bprevious<cr>
 " close the current buffer
 nnoremap <leader>dd :Bdelete<cr>
 " close all the buffers: from #1 to #1000
@@ -500,10 +507,10 @@ nnoremap <silent><leader>z :close<cr>
 nnoremap <silent><leader>ca :wqa!<cr>
 
 " move between windows
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
+" nnoremap <c-j> <c-w>j
+" nnoremap <c-k> <c-w>k
+" nnoremap <c-h> <c-w>h
+" nnoremap <c-l> <c-w>l
 
 " new vertical split file put to right
 "set splitright
@@ -522,6 +529,9 @@ nnoremap <leader>tn :tabnew<cr>
 nnoremap <leader>vn :vnew<cr>
 " tab only
 nnoremap <leader>to :tabonly<cr>
+" tab next/previous
+nnoremap <c-h> :tabprevious<cr>
+nnoremap <c-l> :tabnext<cr>
 " window only
 nnoremap <leader>wo :only<cr>
 " tab close
@@ -602,7 +612,7 @@ nnoremap <c-\>d :cs find d <c-r>=expand("<cword>")<cr><cr>
 " autoload man.vim
 "autocmd bufreadpost,bufnewfile *.c,*.h,*.cpp,*.sh runtime! ftplugin/man.vim
 runtime! ftplugin/man.vim
-autocmd FileType * nnoremap K :Man <cword><cr>
+autocmd FileType * nnoremap <leader>k :Man <cword><cr>
 
 " mapping to run make
 nnoremap <silent><F6> :make<cr>
