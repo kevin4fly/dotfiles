@@ -1,8 +1,8 @@
 # bindings for generail {{{1
-bind   generic j          next-line
-bind   generic k          previous-line
-bind   generic J          next-entry
-bind   generic K          previous-entry
+bind   generic j          next-entry
+bind   generic k          previous-entry
+bind   generic J          next-line
+bind   generic K          previous-line
 bind   generic H          top-page
 bind   generic M          middle-page
 bind   generic L          bottom-page
@@ -15,10 +15,10 @@ bind   generic \cd        half-down
 
 # }}}
 # bindings for index {{{1
-bind   index   j          next-line
-bind   index   k          previous-line
-bind   index   J          next-entry
-bind   index   K          previous-entry
+bind   index   j          next-entry
+bind   index   k          previous-entry
+bind   index   J          next-line
+bind   index   K          previous-line
 bind   index   H          top-page
 bind   index   M          middle-page
 bind   index   L          bottom-page
