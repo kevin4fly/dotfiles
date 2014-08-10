@@ -47,8 +47,11 @@ for FILE in "${SIMPLE_FILES[@]}"; do
     ln -s "$CUR_PATH/$FILE" "$HOME/.$FILE_BASENAME"
 done
 
+# a list of files need to be put into $HOME
 EXTENDED_FILES[0]="fonts/PowerlineSymbols.otf"
 EXTENDED_FILES[1]="config/fontconfig/conf.d/10-powerline-symbols.conf"
+EXTENDED_FILES[2]="w3m/keymap"
+EXTENDED_FILES[3]="w3m/config"
 
 for FILE in "${EXTENDED_FILES[@]}"; do
     rm -rf "$HOME/.$FILE"
