@@ -4,14 +4,16 @@
 # vim /usr/share/doc/w3m/ja/examples/keymap.lynx
 
 # Cursor/Page motion
+keymap    C-f      NEXT_PAGE
+keymap    C-b      PREV_PAGE
+keymap    l        MOVE_RIGHT
+keymap    h        MOVE_LEFT
 keymap    j        MOVE_DOWN
 keymap    k        MOVE_UP
-keymap    h        MOVE_LEFT
-keymap    l        MOVE_RIGHT
-keymap    <        SHIFT_LEFT
-keymap    >        SHIFT_RIGHT
-keymap    J        UP
 keymap    K        DOWN
+keymap    J        UP
+#keymap    <        SHIFT_LEFT
+#keymap    >        SHIFT_RIGHT
 keymap    \^,C-a   LINE_BEGIN
 keymap    $,C-e    LINE_END
 keymap    Z        CENTER_H
@@ -20,37 +22,30 @@ keymap    g        BEGIN
 keymap    G        END
 keymap    w        NEXT_WORD
 keymap    b        PREV_WORD
-keymap    C-f      NEXT_PAGE
-keymap    C-b      PREV_PAGE
 keymap    C-g      LINE_INFO
 keymap    }        REDO
 keymap    {        UNDO
-
-# Hyperlink operation
 keymap    C-n      NEXT_LINK
 keymap    C-p      PREV_LINK
-keymap    d        PEEK_IMG        # peek image url
-keymap    D        VIEW_IMAGE
-keymap    C-d      SAVE_IMAGE
-keymap    u        PEEK_LINK       # peek link url
-keymap    U        PEEK            # peek current url
-keymap    C-u      SAVE_LINK
+
+## Hyperlink operation
+keymap    C-t      TAB_LINK
+keymap    P        PEEK_IMG        # peek image url
+keymap    I        VIEW_IMAGE      # view image
+keymap    A        SAVE_IMAGE      # add image
+keymap    p        PEEK_LINK       # peek link url
+keymap    i        PEEK            # peek current url
+keymap    a        SAVE_LINK       # add link
 keymap    C-o      HISTORY         # opened url in history
-keymap    x        EXTERN          # browse current url using external browser
-keymap    X        EXTERN_LINK     # browse link using external browser
+#Keymap    M        EXTERN          # browse current url using external browser
+#keymap    m        EXTERN_LINK     # browse link using external browser
 keymap    C-k      COOKIE
 keymap    L        LIST            # show all links and images
 
-# Tab operation
-keymap    T        NEW_TAB
-keymap    t        TAB_MENU
-keymap    C-t      TAB_LINK
-keymap    C-h      PREV_TAB
-keymap    C-l      NEXT_TAB
-keymap    C-q      CLOSE_TAB
-
 # Buffer operation
 keymap    B        BACK            # go back to previous buffer
+keymap    <        PREV
+keymap    >        NEXT
 keymap    E        EDIT            # edit buffer source
 keymap    v        VIEW            # view html source
 keymap    s        SELECT_MENU     # select buffer
@@ -58,12 +53,20 @@ keymap    S        SAVE_SCREEN     # save buffer
 keymap    r        REDRAW          # redraw buffer
 keymap    R        RELOAD          # reload buffer
 
+# Tab operation
+keymap    T        NEW_TAB
+keymap    C-q      CLOSE_TAB
+keymap    C-l      NEXT_TAB
+keymap    C-h      PREV_TAB
+keymap    t        TAB_MENU
+
+
 # Bookmark operation
-keymap	  C-@	   MARK
-keymap    m        ADD_BOOKMARK    # add bookmark
-keymap    M        BOOKMARK        # show all bookmarks
+keymap    x        ADD_BOOKMARK    # add bookmark
+keymap    X        BOOKMARK        # show all bookmarks
 
 # Mark operation
+keymap	  C-@	   MARK
 keymap    ]        NEXT_MARK
 keymap    [        PREV_MARK
 
