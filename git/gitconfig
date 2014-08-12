@@ -91,6 +91,9 @@
         --pretty=format:'%Cred%h%Creset %C(cyan)%p%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
     # submodule
+    # for the below 2 aliases, they are equalent. git call = git pall
+    # git call to clone all its submodules within
+    call = !git clone --recursive
     # git pall to pull all submodules as well
 	pall = !git pull && git submodule update --init --recursive
     # pall = "!f(){ git pull \"$@\" && git submodule update --init --recursive; }; f"
