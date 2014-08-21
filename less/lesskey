@@ -13,6 +13,8 @@ G   goto-end
 ^b  back-screen
 ^p  prev-file
 ^n  next-file
+# toggle search highlight
+^h  undo-hilite
 
 #line-edit
 ^a  home
