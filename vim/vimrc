@@ -92,6 +92,12 @@ Plugin 'kshenoy/vim-signature'
 " provides a much simpler way to use some motions
 Plugin 'Lokaltog/vim-easymotion'
 
+" complete python class, function and function's parameters and more
+Plugin 'davidhalter/jedi-vim'
+
+" integrate between Vim and IPython
+" Plugin 'ivanov/vim-ipython'
+
 " fold for python
 Plugin 'tmhedberg/SimpylFold'
 
@@ -161,15 +167,15 @@ cnoremap <c-a> <c-b>
 
 " remap vim 0 to first non-blank character
 nnoremap 0 ^
-nnoremap H 0
+nnoremap H ^
 nnoremap L $
 
 " scroll line without move cursor position
-nnoremap <silent> J 1<c-d>:set scroll=0<cr>
-nnoremap <silent> K 1<c-u>:set scroll=0<cr>
+" nnoremap <silent> J 1<c-d>:set scroll=0<cr>
+" nnoremap <silent> K 1<c-u>:set scroll=0<cr>
 
 " join line
-nnoremap <leader>j :join<cr>
+" nnoremap <leader>j :join<cr>
 
 " treat long lines as break lines
 nnoremap j gj
@@ -612,7 +618,7 @@ nnoremap <c-\>d :cs find d <c-r>=expand("<cword>")<cr><cr>
 " autoload man.vim
 "autocmd bufreadpost,bufnewfile *.c,*.h,*.cpp,*.sh runtime! ftplugin/man.vim
 runtime! ftplugin/man.vim
-autocmd FileType * nnoremap <leader>k :Man <cword><cr>
+autocmd FileType * nnoremap K :Man <cword><cr>
 
 " mapping to run make
 nnoremap <silent><F6> :make<cr>
@@ -700,7 +706,7 @@ let g:Powerline_stl_path_style = 'full'
 " settings for delimitMate
 let delimitMate_autoclose = 1
 au FileType c,cpp let b:delimitMate_autoclose = 0
-let delimitMate_matchpairs = "(:),[:],{:},<:>"
+let delimitMate_matchpairs = "(:),[:],{:}"
 let delimitMate_quotes = "\" ' ` "
 let delimitMate_expand_cr = 1
 let delimitMate_expand_space = 1
@@ -736,9 +742,23 @@ let g:EasyMotion_leader_key = '<leader>e'
 " a character.  has to be 'nmap', 'noremap' doesn't work
 nmap s <Plug>(easymotion-s)
 
-" setting for pydoc
+" settings for pydoc
 let g:pydoc_open_cmd = 'vsplit'
 let g:pydoc_highlight=0
+
+" settings for jedi
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#completions_enabled = 0
+let g:jedi#completions_command = ""
+let g:jedi#show_call_signatures = "1"
+
+let g:jedi#goto_assignments_command = "<leader>pa"
+let g:jedi#goto_definitions_command = "<leader>pd"
+let g:jedi#documentation_command = "<leader>pk"
+let g:jedi#usages_command = "<leader>pu"
+let g:jedi#rename_command = "<leader>pr"
 
 " settings for tcomment
 let g:tcomment_types={'c':'// %s'}
