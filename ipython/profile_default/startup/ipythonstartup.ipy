@@ -1,0 +1,11 @@
+# the ipython commands in this file are executed before the first prompt is
+# displayed in INTERACTIVE mode
+
+# autoreload your modified modules without having to exit
+%load_ext autoreload
+%autoreload 2
+
+# update the alias table with all executable files in $PATH(sys environment)
+%rehashx
+
+# vim:ft=ipython:tw=78:ts=4:sw=4:sts=4:et:fdm=marker

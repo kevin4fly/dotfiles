@@ -9,6 +9,7 @@ NEW_DIRS[0]="vimtmp"
 NEW_DIRS[1]="vim"
 NEW_DIRS[2]="fonts"
 NEW_DIRS[3]="config/fontconfig/conf.d"
+NEW_DIRS[4]="ipython/profile_default/startup"
 
 for DIR in "${NEW_DIRS[@]}"; do
     if [[ ! -d ~/.$DIR ]]; then
@@ -52,6 +53,7 @@ EXTENDED_FILES[0]="fonts/PowerlineSymbols.otf"
 EXTENDED_FILES[1]="config/fontconfig/conf.d/10-powerline-symbols.conf"
 EXTENDED_FILES[2]="w3m/keymap"
 EXTENDED_FILES[3]="w3m/config"
+EXTENDED_FILES[4]="ipython/profile_default/startup/ipythonstartup.ipy"
 
 for FILE in "${EXTENDED_FILES[@]}"; do
     rm -rf "$HOME/.$FILE"
