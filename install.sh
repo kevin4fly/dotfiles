@@ -10,6 +10,8 @@ NEW_DIRS[1]="vim"
 NEW_DIRS[2]="fonts"
 NEW_DIRS[3]="config/fontconfig/conf.d"
 NEW_DIRS[4]="ipython/profile_default/startup"
+NEW_DIRS[5]="w3m"
+NEW_DIRS[6]="cgdb"
 
 for DIR in "${NEW_DIRS[@]}"; do
     if [[ ! -d ~/.$DIR ]]; then
@@ -72,6 +74,6 @@ for DIR in ${EXTENDED_DIRS[@]}; do
 done
 
 # set the terminal ui
-./gnome-terminal-profile.sh
+. gnome-terminal-profile.sh
 
 # vim:ts=4:sw=4:sts=4:et:fdm=marker:ft=sh
