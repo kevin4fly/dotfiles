@@ -45,4 +45,8 @@ $if mode=vi
     "\C-o": clear-screen
 $endif
 
+$if python
+    "\C-o": clear-screen
+$endif
+
 # vim:tw=78:ts=4:sw=4:sts=4:et:fdm=marker:ft=readline
