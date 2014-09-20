@@ -744,6 +744,8 @@ let g:airline_powerline_fonts = 1
 
 " settings for indentline
 nnoremap <silent> <leader>ii :IndentLinesToggle<cr>
+let g:indentLine_fileType = ['c', 'cpp', 'java', 'python', 'php', 'perl',
+            \ 'vim']
 
 " settings for easymotion
 let g:EasyMotion_leader_key = '<leader>e'
