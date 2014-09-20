@@ -147,8 +147,9 @@ set timeout timeoutlen=1000 ttimeoutlen=50
 " fast saving
 nnoremap <leader>w :w!<cr>
 " fast reloading the .vimrc
-nnoremap <silent><leader>vv :source ~/.vimrc<cr>
-            \:filetype detect<cr>:exe ":echo 'vimrc reloaded'"<cr>
+nnoremap <silent><leader>vv  :source ~/.vimrc<cr> <bar>
+                           \ :filetype detect<cr> <bar>
+                           \ :execute ":echo 'vimrc reloaded'"<cr>
 " fast editing the .vimr
 nnoremap <silent><leader>v :e ~/.vimrc<cr>
 " reload the .vimrc automatically if it is modified
@@ -197,8 +198,12 @@ inoremap <c-o> <ESC>o
 nnoremap <space> /
 nnoremap <leader><space> ?
 
-" disable highlight after searching
-nnoremap <silent> <leader><cr> :nohlsearch<cr>
+" trigger highlight or not after searching
+nnoremap <silent> <leader><cr> :if &hlsearch <bar>
+                              \    set nohlsearch <bar>
+                              \ else <bar>
+                              \    set hlsearch <bar>
+                              \ endif<cr>
 
 " uniform copy
 nnoremap Y y$
@@ -212,10 +217,10 @@ if has('unnamedplus')
 " '+' (and this option makes Vim use it by default) and the selection one as
 " '*'.
 " See :h 'clipboard' for details.
-set clipboard=unnamedplus,unnamed
+    set clipboard=unnamedplus,unnamed
 else
 " Vim now also uses the selection system clipboard for default yank/paste.
-set clipboard+=unnamed
+    set clipboard+=unnamed
 endif
 
 " select all text in normal mode
@@ -286,10 +291,12 @@ nnoremap <leader>p :cp<cr>
 nnoremap <leader>cm :w<cr>:make<cr>
 
 " reload the file(log files may be changed outside)
-nnoremap <leader>rr :edit<cr>:exe ":echo '<c-r>% reloaded'"<cr>
+nnoremap <leader>rr :edit<cr> <bar>
+                 \  :exe ":echo '<c-r>% reloaded'"<cr>
 
 " compile source code
-nnoremap <F5> :w<cr>:make<cr>
+nnoremap <F5> :w<cr> <bar>
+            \ :make<cr>
 " run python
 autocmd FileType python nnoremap <F6> :!ipython %<cr>
 
@@ -402,9 +409,11 @@ set colorcolumn=+1
 set cursorline
 " set cursorcolumn
 " show cursorline dynamically
-nnoremap <silent> <leader>co :if &cursorcolumn <bar> set nocursorcolumn <bar>
-                              \ else <bar> set cursorcolumn <bar>
-                              \ endif<cr>
+nnoremap <silent> <leader>co :if &cursorcolumn <bar>
+                            \   set nocursorcolumn <bar>
+                            \ else <bar>
+                            \   set cursorcolumn <bar>
+                            \ endif<cr>
 
 " set vertical line at the end
 set colorcolumn=78
@@ -564,7 +573,7 @@ set switchbuf=useopen,usetab
 " return to last edit position when opening files (you want this!)
 autocmd bufreadpost *
             \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   exe "normal! g`\"" |
+            \   execute "normal! g`\"" |
             \ endif
 
 " }}}
@@ -782,7 +791,9 @@ fun! StripTrailingWhitespace()
     %s/\s\+$//e
 endfun
 autocmd BufWritePre,FileWritePre *
-            \ if &modifiable | call StripTrailingWhitespace() | endif
+            \ if &modifiable |
+            \    call StripTrailingWhitespace() |
+            \ endif
 
 " macro expansion with gcc
 " we have to install gnu indent programme, refer to
