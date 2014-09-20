@@ -767,6 +767,7 @@ let g:jedi#goto_assignments_command = "<leader>pa"
 let g:jedi#goto_definitions_command = "<leader>pd"
 let g:jedi#documentation_command = "<leader>pk"
 let g:jedi#usages_command = "<leader>pu"
+nnoremap <leader>pi :Pyimport
 let g:jedi#rename_command = "<leader>pr"
 
 " settings for tcomment
