@@ -19,6 +19,55 @@ snippet pen "Shebang header for python scripts" b
 $0
 endsnippet
 
+# exception
+snippet ex "try...except" b
+try:
+	${1:pass}
+except ${2:Exception}, ${3:e}:
+	${4:raise $3}
+endsnippet
+
+snippet exe "try...except...else" b
+try:
+	${1:pass}
+except ${2:Exception}, ${3:e}:
+	${4:raise $3}
+else:
+	${5:pass}
+endsnippet
+
+snippet exf "try...except...finally" b
+try:
+	${1:pass}
+except ${2:Exception}, ${3:e}:
+	${4:raise $3}
+finally:
+	${5:pass}
+endsnippet
+
+snippet exef "try...except...else...finally" b
+try:
+	${1:pass}
+except ${2:Exception}, ${3:e}:
+	${4:raise $3}
+else:
+	${5:pass}
+finally:
+	${6:pass}
+endsnippet
+
+# else except
+snippet ele "except" b
+except ${1:Exception}, ${2:e}:
+	${3:raise $2}
+endsnippet
+
+# else if
+snippet eli "elif" b
+elif ${1:contition}:
+	${2:pass}
+endsnippet
+
 # main function
 snippet main "ifmain" b
 if __name__ == '__main__':
