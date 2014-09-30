@@ -48,11 +48,70 @@ productive.
 5. instant show markdown: [vim-instant-markdown](https://github.com/suan/vim-instant-markdown)
 6. misc: `indent`, `wget`, `curl` and `xclip`
     
-    `sudo apt-get install indent wget curl xclip
+    `sudo apt-get install indent wget curl xclip`
 
 ###Runnig&installing plugins
 Launch vim and run: `:PluginInstall` to install all plugins via vundle.
 
 ###Tunig plugins
-[Tuning some
-plugins](https://github.com/kevin4fly/dotfiles/wiki/Tuning-plugins) to suit for my flavor.
+
+There are a couple of plugins needed to be tuned so that they are able to work
+better for me.
+
+#####1. tags
+   - generate system library tags file for tag related plugins to use.   
+
+        ctags -R --c++-kinds=+p --fields=+iaS --extra=+q /usr/include
+
+    add the generated tags file to .vimrc file:
+
+        autocmd FileType c,cpp set tags+=/usr/include/tags
+
+    actually, I run below command to generate tags:
+
+        ctags -I __THROW -I __attribute_malloc__ -I __wur -R --c++-kinds=+p \ 
+              --fields=+iaS --extra=+q /usr/include
+
+    the `-I` stuff is used to generate special tags, such as malloc related.
+    if some functions cannot find with ctags, go to the related head file,
+    `stdlib.h` as an instance for malloc, and find the malloc function
+    prototype, at last, add the stuff after the function as an argument to
+    `-I` to include that function.
+
+    plus, adding tags in /lib/modules/$(uname -r)/build/include/linux for
+    modules API:
+
+        ctags -R --c++-kinds=+p --fields=+iaS --extra=+q \
+            /lib/modules/$(uname -r)/build/include/linux
+
+    add the generated tags file to .vimrc file also:
+        
+        autocmd FileType c,cpp,h
+        \ set tags+=/lib/modules/$(uname -r)/build/include/linux/
+
+
+   - change Autotag plugin to make it generate appropriate tags that is suit for
+     Code_Complete plugin to use.   
+
+        vim ~/.vim/bundle/vim-autotag/plugin/autotag.py
+    
+    comment out the line 25: `#CtagsCmd = "ctags",` and add 
+    line `CtagsCmd = "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q",`
+
+    for more details, refer to [ctags details](http://www.cppblog.com/peakflys/archive/2012/12/17/196373.html)
+
+#####2.YouCompleteMe
+   - for semantic completion support, we have to copy the generated
+       libclang.so to the correct path
+       
+        cp LLVM_DIR/Release+Asserts/lib/libclang.so ~/ycm_build/
+        cd ~/ycm_build
+        cmake -G "Unix Makefiles" -DEXTERNAL_LIBCLANG_PATH=libclang.so ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+        
+   - for different language semantic code complete engine, we need to change the
+   flags to reflect this.
+
+        vim .vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py
+
+   for c language, change line 55: from `'-std=c++11',` to `'-std=c99',` and
+   change line 62: from `'c++',` to `'c',`. or vice visa for C++ language.
