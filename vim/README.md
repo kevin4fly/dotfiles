@@ -46,6 +46,9 @@ productive.
      ~/.vim/bundle/vim-snippets/UltiSnips/
 4. status line: [airline with powerline fancy](http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin)
 5. instant show markdown: [vim-instant-markdown](https://github.com/suan/vim-instant-markdown)
+6. misc: `indent`, `wget`, `curl` and `xclip`
+    
+    `sudo apt-get install indent wget curl xclip
 
 ###Runnig&installing plugins
 Launch vim and run: `:PluginInstall` to install all plugins via vundle.
