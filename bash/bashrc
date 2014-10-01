@@ -115,7 +115,7 @@ set -o vi
 export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
-export TERM=xterm-256color
+export TERM=xterm-256color-italic
 
 # for more software config files loading
 [[ -f ~/.bash_after ]] && . ~/.bash_after
