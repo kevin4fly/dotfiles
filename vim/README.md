@@ -43,9 +43,14 @@ productive.
 2. code complete engine: [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#full-installation-guide)
 3. status line: [airline with powerline fancy](http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin)
 4. instant show markdown: [vim-instant-markdown](https://github.com/suan/vim-instant-markdown)
-5. misc: `indent`, `wget`, `curl` and `xclip`
+5. build vimproc:
+
+        cd ~/.vim/bundle/vimproc/
+        make
+
+6. misc: `indent`, `wget`, `curl` and `xclip`
     
-    `sudo apt-get install indent wget curl xclip`
+        sudo apt-get install indent wget curl xclip
 
 ###Runnig&installing plugins
 Launch vim and run: `:PluginInstall` to install all plugins via vundle.
