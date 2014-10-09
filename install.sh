@@ -66,7 +66,8 @@ done
 EXTENDED_DIRS[0]="cgdb/cgdbrc"
 EXTENDED_DIRS[1]="vim/spell"
 EXTENDED_DIRS[2]="vim/UltiSnips"
-EXTENDED_DIRS[3]="mutt"
+EXTENDED_DIRS[3]="vim/after"
+EXTENDED_DIRS[4]="mutt"
 
 for DIR in ${EXTENDED_DIRS[@]}; do
     rm -rf "$HOME/.$DIR"
