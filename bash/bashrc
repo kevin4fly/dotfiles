@@ -116,6 +116,8 @@ export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
 export TERM=xterm-256color-italic
+# details: http://unix.stackexchange.com/questions/12107/how-to-unfreeze-after-accidentally-pressing-ctrl-s-in-a-terminal
+stty -ixon
 
 # for more software config files loading
 [[ -f ~/.bash_after ]] && . ~/.bash_after
