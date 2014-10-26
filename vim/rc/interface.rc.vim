@@ -151,6 +151,9 @@ set completeopt=menu,menuone,longest
 " set minimal number of lines to keep above and below the cursor
 set scrolloff=7
 
+" keep the same colume when moving
+set nostartofline
+
 " When you type the first tab, it will complete as much as possible, the
 " second tab hit will provide a list, the third and subsequent tabs will cycle
 " through completion options so you can complete the file without further keys
