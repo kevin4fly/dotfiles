@@ -258,7 +258,7 @@ if neobundle#tap('vimfiler')
     function! s:vimfiler_settings()
       nnoremap <silent><buffer> <c-j> :bprevious<cr>
       nnoremap <silent><buffer> <c-l> :tabnext<cr>
-      nnoremap <silent><buffer> <c-o> <Plug>(vimfiler_redraw_screen)
+      nnoremap <silent><buffer> <c-o> <plug>(vimfiler_redraw_screen)
     endfunction
     autocmd filetype vimfiler call s:vimfiler_settings()
   endfunction
@@ -489,8 +489,8 @@ endif
 
 " for niceblock
 if neobundle#tap('niceblock') "{{{
-  xmap I  <Plug>(niceblock-I)
-  xmap A  <Plug>(niceblock-A)
+  xmap I  <plug>(niceblock-I)
+  xmap A  <plug>(niceblock-A)
 
   call neobundle#untap()
 endif

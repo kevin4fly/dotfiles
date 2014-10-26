@@ -202,7 +202,7 @@ NeoBundleLazy 'Shougo/vimfiler.vim', {
             \       'VimFilerExplorer', 'VimFilerClose',],
             \      'complete' : 'customlist,vimfiler#complete' },
             \      'Read', 'Source'],
-            \ 'mappings': '<Plug>',
+            \ 'mappings': '<plug>',
             \ 'explorer': 1,
             \ 'name': 'vimfiler',
             \ }
