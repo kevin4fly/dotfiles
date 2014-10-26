@@ -268,7 +268,7 @@ NeoBundleLazy 'godlygeek/tabular', {
             \ 'name': 'tabular',
             \ }
 NeoBundleLazy 'junegunn/vim-easy-align', {
-            \ 'mappings': '<plug>',
+            \ 'mappings': '<plug>(EasyAlign)',
             \ 'name': 'easy-align',
             \ }
 
