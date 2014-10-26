@@ -338,6 +338,10 @@ NeoBundleLazy 'rhysd/vim-textobj-anyblock', {
             \ 'autoload': {'mappings': [['ox', '<plug>(textobj-anyblock-']]},
             \ 'name': 'textobj-anyblock',
             \ }
+NeoBundleLazy 'kana/vim-niceblock', {
+            \ 'mappings': '<plug>(niceblock-',
+            \ 'name': 'niceblock',
+            \ }
 NeoBundleLazy 'sgur/vim-textobj-parameter', {
             \ 'depends' : 'textobj-user',
             \ 'autoload': {'mappings': [['ox', 'i,', 'a,']]},

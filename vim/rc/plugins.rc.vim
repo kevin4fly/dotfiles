@@ -247,11 +247,12 @@ if neobundle#tap('vimfiler')
   let g:vimfiler_file_icon                  = ' '
   let g:vimfiler_readonly_file_icon         = '✗'
   let g:vimfiler_marked_file_icon           = '✓'
+  let g:vimfiler_safe_mode_by_default       = 0
   " show airline's statusline
 	let g:vimfiler_force_overwrite_statusline = 0
   " toggle vimfiler and vimfilerexplorer
-  nnoremap <silent> <leader>tt   :<C-u>VimFiler<CR>
-  nnoremap <silent> <leader>tr   :<C-u>VimFilerExplorer<CR>
+  nnoremap <silent> <leader>tr   :<C-u>VimFiler<CR>
+  nnoremap <silent> <leader>tt   :<C-u>VimFilerExplorer<CR>
   " change mappings <c-j> <c-l> to avoid confliction
   function! neobundle#hooks.on_post_source(bundle)
     function! s:vimfiler_settings()
@@ -482,6 +483,14 @@ if neobundle#tap('textobj-anyblock')
 	omap ib	<plug>(textobj-anyblock-i)
 	xmap ab	<plug>(textobj-anyblock-a)
 	xmap ib	<plug>(textobj-anyblock-i)
+
+  call neobundle#untap()
+endif
+
+" for niceblock
+if neobundle#tap('niceblock') "{{{
+  xmap I  <Plug>(niceblock-I)
+  xmap A  <Plug>(niceblock-A)
 
   call neobundle#untap()
 endif
