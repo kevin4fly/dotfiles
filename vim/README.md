@@ -39,21 +39,16 @@ experiences, we highly recommend to [__install vim from source code__](https://g
 It is pretty nice thing to install the plugins which make our job more
 productive.
 
-1. vim plugin manager: [Vundle](https://github.com/gmarik/Vundle.vim)
+1. vim plugin manager: [neobundle](https://github.com/Shougo/neobundle.vim#quick-start)
 2. code complete engine: [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#full-installation-guide)
 3. status line: [airline with powerline fancy](http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin)
 4. instant show markdown: [vim-instant-markdown](https://github.com/suan/vim-instant-markdown)
-5. build vimproc:
-
-        cd ~/.vim/bundle/vimproc/
-        make
-
-6. misc: `indent`, `wget`, `curl` and `xclip`
+5. misc: `trash-cli`, `indent`, `wget`, `curl` and `xclip`
     
-        sudo apt-get install indent wget curl xclip
+        sudo apt-get install trash-cli indent wget curl xclip
 
 ###Runnig&installing plugins
-Launch vim and run: `:PluginInstall` to install all plugins via vundle.
+Launch vim and run: `:Unite neobundle/install` to install all plugins via `neobundle`.
 
 ###Tunig plugins
 
@@ -63,16 +58,22 @@ better for me.
 #####1. tags
    - generate system library tags file for tag related plugins to use.   
 
-        ctags -R --c++-kinds=+p --fields=+iaS --extra=+q /usr/include
+    ```bash
+    ctags -R --c++-kinds=+p --fields=+iaS --extra=+q /usr/include
+    ```
 
     add the generated tags file to .vimrc file:
 
-        autocmd FileType c,cpp set tags+=/usr/include/tags
+    ```vim
+    autocmd FileType c,cpp set tags+=/usr/include/tags
+    ```
 
     actually, I run below command to generate tags:
 
-        ctags -I __THROW -I __attribute_malloc__ -I __wur -R --c++-kinds=+p \ 
-              --fields=+iaS --extra=+q /usr/include
+    ```bash
+    ctags -I __THROW -I __attribute_malloc__ -I __wur -R --c++-kinds=+p \ 
+        --fields=+iaS --extra=+q /usr/include
+    ```
 
     the `-I` stuff is used to generate special tags, such as malloc related.
     if some functions cannot find with ctags, go to the related head file,
@@ -83,19 +84,23 @@ better for me.
     plus, adding tags in /lib/modules/$(uname -r)/build/include/linux for
     modules API:
 
-        ctags -R --c++-kinds=+p --fields=+iaS --extra=+q \
-            /lib/modules/$(uname -r)/build/include/linux
+    ```bash
+    ctags -R --c++-kinds=+p --fields=+iaS --extra=+q \
+        /lib/modules/$(uname -r)/build/include/linux
+    ```
 
-    add the generated tags file to .vimrc file also:
+     add the generated tags file to .vimrc file also:
         
-        autocmd FileType c,cpp,h
-        \ set tags+=/lib/modules/$(uname -r)/build/include/linux/
-
+    ```vim
+    autocmd FileType c,cpp,h set tags+=/lib/modules/$(uname -r)/build/include/linux/
+    ```
 
    - change Autotag plugin to make it generate appropriate tags that is suit for
      Code_Complete plugin to use.   
 
-        vim ~/.vim/bundle/vim-autotag/plugin/autotag.py
+    ```bash
+    vim ~/.vim/bundle/vim-autotag/plugin/autotag.py
+    ```
     
     comment out the line 25: `#CtagsCmd = "ctags",` and add 
     line `CtagsCmd = "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q",`
@@ -106,14 +111,20 @@ better for me.
    - for semantic completion support, we have to copy the generated
        libclang.so to the correct path
        
-        cp LLVM_DIR/Release+Asserts/lib/libclang.so ~/ycm_build/
-        cd ~/ycm_build
-        cmake -G "Unix Makefiles" -DEXTERNAL_LIBCLANG_PATH=libclang.so ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+    ```bash
+    cp LLVM_DIR/Release+Asserts/lib/libclang.so ~/ycm_build/
+    cd ~/ycm_build
+    # generate makefile
+    cmake -G "Unix Makefiles" -DEXTERNAL_LIBCLANG_PATH=libclang.so ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+    make ycm_support_libs
+    ```
         
    - for different language semantic code complete engine, we need to change the
-   flags to reflect this.
+     flags to reflect this.
+        
+    ```bash
+    vim .vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py
+    ```
 
-        vim .vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py
-
-   for c language, change line 55: from `'-std=c++11',` to `'-std=c99',` and
-   change line 62: from `'c++',` to `'c',`. or vice visa for C++ language.
+    for c language, change line 55: from `'-std=c++11',` to `'-std=c99',` and
+    change line 62: from `'c++',` to `'c',`. or vice visa for C++ language.
