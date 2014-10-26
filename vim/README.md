@@ -44,8 +44,10 @@ productive.
 3. status line: [airline with powerline fancy](http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin)
 4. instant show markdown: [vim-instant-markdown](https://github.com/suan/vim-instant-markdown)
 5. misc: `trash-cli`, `indent`, `wget`, `curl` and `xclip`
-    
-        sudo apt-get install trash-cli indent wget curl xclip
+
+    ```bash
+    sudo apt-get install trash-cli indent wget curl xclip
+    ``` 
 
 ###Runnig&installing plugins
 Launch vim and run: `:Unite neobundle/install` to install all plugins via `neobundle`.
