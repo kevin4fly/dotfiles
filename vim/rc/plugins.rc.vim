@@ -10,6 +10,7 @@ autocmd bufwritepost neobundle.rc.vim NeoBundleClearCache
 
 " }}}
 " c family related{{{
+
 " settings for YouCompleteme plugin
 inoremap <expr><Enter> pumvisible() ? "\<c-y>" : "\<Enter>"
 " the python module used to compile the editing file
@@ -488,7 +489,7 @@ if neobundle#tap('textobj-anyblock')
 endif
 
 " for niceblock
-if neobundle#tap('niceblock') "{{{
+if neobundle#tap('niceblock')
   xmap I  <plug>(niceblock-I)
   xmap A  <plug>(niceblock-A)
 
