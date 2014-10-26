@@ -15,7 +15,7 @@ autocmd bufwritepost neobundle.rc.vim NeoBundleClearCache
 inoremap <expr><Enter> pumvisible() ? "\<c-y>" : "\<Enter>"
 " the python module used to compile the editing file
 let g:ycm_global_ycm_extra_conf              =
-\ '~/.vim/bundle/youcompleteme/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+  \ '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_min_num_identifier_candidate_chars = 4
 let g:ycm_seed_identifiers_with_syntax       = 1
 let g:ycm_complete_in_comments               = 1
