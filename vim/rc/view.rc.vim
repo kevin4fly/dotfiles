@@ -13,7 +13,8 @@ nnoremap <silent> <c-j> :bprevious<cr>
 " quit windows without saving
 nnoremap <silent> <leader>x :quit!<cr>
 " close tab or window
-nnoremap <silent> <leader>z :close<cr>
+nnoremap <silent> <c-q> :close<cr>
+inoremap <silent> <c-q> <esc>:close<cr>
 " save all the files and then quit
 nnoremap <silent> <leader>ca :wqa!<cr>
 
@@ -22,14 +23,11 @@ nnoremap <silent> <leader>ca :wqa!<cr>
 
 " useful mappings for managing tab and window
 " new tab
-nnoremap <silent> <leader>tn :tabnew<cr>
 nnoremap <silent> <c-w>t :tabnew<cr>
 " new window
-nnoremap <silent> <leader>vn :vnew<cr>
-nnoremap <silent> <c-w>\| :vnew<cr>
-nnoremap <silent> <c-w>- :new<cr>
+nnoremap <silent> <c-w>v :vnew<cr>:wincmd L<cr>
+nnoremap <silent> <c-w>s :new<cr>:wincmd J<cr>
 " new buffer
-nnoremap <silent> <leader>en :enew<cr>
 nnoremap <silent> <c-w>b :enew<cr>
 " tab only
 nnoremap <silent> <leader>to :tabonly<cr>
@@ -48,7 +46,7 @@ nnoremap <leader>wo :only<cr>
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " open help text
-nnoremap <silent> <leader>h :help<cr>
+nnoremap <silent> <leader>h :help<cr>:wincmd L<cr>
 
 " return to last edit position when opening files (you want this!)
 autocmd bufreadpost *
