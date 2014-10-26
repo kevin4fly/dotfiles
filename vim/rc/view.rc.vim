@@ -36,6 +36,9 @@ nnoremap <silent> <leader>to :tabonly<cr>
 " tab next/previous
 nnoremap <silent> <c-h> :tabprevious<cr>
 nnoremap <silent> <c-l> :tabnext<cr>
+" swap tabs
+nnoremap <silent> <c-w>< :tabmove -1<cr>
+nnoremap <silent> <c-w>> :tabmove +1<cr>
 " window only
 nnoremap <leader>wo :only<cr>
 " tab close
