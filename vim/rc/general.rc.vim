@@ -98,8 +98,6 @@ nnoremap <leader>rr :edit<cr> \|
 " compile source code
 nnoremap <F5> :w<cr> \|
             \ :make<cr>
-" run python
-autocmd filetype python nnoremap <F6> :!ipython %<cr>
 
 " write the file to disk even if we forget to 'sudo'
 nnoremap <silent> <leader>so :w !sudo tee % >/dev/null<cr>
