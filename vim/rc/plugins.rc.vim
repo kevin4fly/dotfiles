@@ -124,7 +124,7 @@ if neobundle#tap('tagbar')
 endif
 
 " settings for autotag
-" ctags: ~/.vim/bundle/vim-autotag/plugin/autotag.py
+" ctags: ~/.vim/bundle/autotag/plugin/autotag.py
 " change line 25 to:
 "   CtagsCmd = "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q",
 
