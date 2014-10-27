@@ -34,15 +34,9 @@ set timeout timeoutlen=1000 ttimeoutlen=50
 set background=dark
 colorscheme molokai
 " popup menu for terminal: red frontgroud and black backgroud
-hi PmenuSel        ctermfg=red ctermbg=16    cterm=bold
-
-" for solarized
-"colorscheme solarized
-"let g:solarized_termcolors=256
-
-" for tomorrow-night
-"colorscheme Tomorrow-Night
-"colorscheme Tomorrow-Night-Eighties
+highlight PmenuSel        ctermfg=red ctermbg=16    cterm=bold
+" set comment font to italic
+highlight Comment                                   cterm=italic
 
 " make a backup before overwriting a file
 set writebackup
