@@ -68,7 +68,8 @@ EXTENDED_DIRS[1]="vim/spell"
 EXTENDED_DIRS[2]="vim/UltiSnips"
 EXTENDED_DIRS[3]="vim/after"
 EXTENDED_DIRS[4]="vim/rc"
-EXTENDED_DIRS[5]="mutt"
+EXTENDED_DIRS[5]="vim/local_bundle"
+EXTENDED_DIRS[6]="mutt"
 
 for DIR in ${EXTENDED_DIRS[@]}; do
     rm -rf "$HOME/.$DIR"

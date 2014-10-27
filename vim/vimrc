@@ -27,6 +27,8 @@ else
   NeoBundleSaveCache
 endif
 
+NeoBundleLocal ~/.vim/local_bundle
+
 call neobundle#end()
 
 " required!
