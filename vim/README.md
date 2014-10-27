@@ -5,8 +5,8 @@ software, thus we have to install a bunch of software to make these plugins
 work well as we expected. Following below steps to accomplish the vim
 environment:
 
-*note: I use the __Ubuntu 14.04__ Linux Distribution, therefor
-I am able to easy install sofeware via Package Management System such as
+*__Note__: I am using the __Ubuntu 14.04__ Linux Distribution, therefor
+I am able to easily install sofeware via Package Management System such as
 `apt-get install` as apposed to install software by compiling from the source
 code.*
 
@@ -57,59 +57,7 @@ Launch vim and run: `:Unite neobundle/install` to install all plugins via `neobu
 There are a couple of plugins needed to be tuned so that they are able to work
 better for me.
 
-#####1. tags
-   - generate system library tags file for tag related plugins to use.   
-
-    ```bash
-    ctags -R --c++-kinds=+p --fields=+iaS --extra=+q /usr/include
-    ```
-
-    add the generated tags file to .vimrc file:
-
-    ```vim
-    autocmd FileType c,cpp set tags+=/usr/include/tags
-    ```
-
-    actually, I run below command to generate tags:
-
-    ```bash
-    ctags -I __THROW -I __attribute_malloc__ -I __wur -R --c++-kinds=+p \ 
-        --fields=+iaS --extra=+q /usr/include
-    ```
-
-    the `-I` stuff is used to generate special tags, such as malloc related.
-    if some functions cannot find with ctags, go to the related head file,
-    `stdlib.h` as an instance for malloc, and find the malloc function
-    prototype, at last, add the stuff after the function as an argument to
-    `-I` to include that function.
-
-    plus, adding tags in /lib/modules/$(uname -r)/build/include/linux for
-    modules API:
-
-    ```bash
-    ctags -R --c++-kinds=+p --fields=+iaS --extra=+q \
-        /lib/modules/$(uname -r)/build/include/linux
-    ```
-
-     add the generated tags file to .vimrc file also:
-        
-    ```vim
-    autocmd FileType c,cpp,h set tags+=/lib/modules/$(uname -r)/build/include/linux/
-    ```
-
-   - change Autotag plugin to make it generate appropriate tags that is suit for
-     Code_Complete plugin to use.   
-
-    ```bash
-    vim ~/.vim/bundle/vim-autotag/plugin/autotag.py
-    ```
-    
-    comment out the line 25: `#CtagsCmd = "ctags",` and add 
-    line `CtagsCmd = "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q",`
-
-    for more details, refer to [ctags details](http://www.cppblog.com/peakflys/archive/2012/12/17/196373.html)
-
-#####2.YouCompleteMe
+#####1.YouCompleteMe
    - for semantic completion support, we have to copy the generated
        libclang.so to the correct path
        

@@ -156,8 +156,10 @@ NeoBundle 'Shougo/neomru.vim', {
             \ }
 
 " show outputs of all kinds of tag files
-" pretty slow due to /usr/include/tags approx 37M
-" NeoBundleLazy 'tsukkee/unite-tag'
+NeoBundleLazy 'tsukkee/unite-tag', {
+            \ 'depends': 'unite',
+            \ 'name': 'unite-tag',
+            \ }
 
 " show outputs of quickfix and location-list
 NeoBundleLazy 'osyo-manga/unite-quickfix', {

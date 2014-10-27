@@ -112,10 +112,12 @@ endif
 if neobundle#tap('tagbar')
   function! neobundle#hooks.on_source(bundle)
     " omitting the short help
-    let g:tagbar_compact     = 1
+    let g:tagbar_compact          = 1
+    " show line numbers
+    let g:tagbar_show_linenumbers = 1
     " auto focus when opening tagbar
-    let g:tagbar_autofocus   = 1
-    let g:tagbar_autoshowtag = 1
+    let g:tagbar_autofocus        = 1
+    let g:tagbar_autoshowtag      = 1
   endfunction
   " toggle tagbar
   nnoremap <silent> <leader>ta :TagbarToggle<cr>
@@ -163,7 +165,7 @@ if neobundle#tap('unite')
   call unite#custom#profile('default', 'context',
                           \ { 'prompt': '» ',
                           \   'start_insert' : '0'})
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  " call unite#filters#matcher_default#use(['matcher_fuzzy'])
   call unite#filters#sorter_default#use(['sorter_rank'])
   nnoremap [unite]   <Nop>
   nmap     <leader>f [unite]
