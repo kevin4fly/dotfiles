@@ -424,8 +424,8 @@ if neobundle#tap('over')
           \	"\n" : '\\n',
           \	"\r" : '\\r',
           \}
-  nnoremap <silent> <c-s> :OverCommandLine<cr>
-  vnoremap <silent> <c-s> :OverCommandLine<cr>
+  nnoremap <silent> <c-x> :OverCommandLine<cr>
+  vnoremap <silent> <c-x> :OverCommandLine<cr>
 
   call neobundle#untap()
 endif
@@ -565,6 +565,13 @@ if neobundle#tap('surround')
 
   call neobundle#untap()
 endif
+
+" settings for drag-visual
+vmap  <expr>  <LEFT>   DVB_Drag('left')
+vmap  <expr>  <RIGHT>  DVB_Drag('right')
+vmap  <expr>  <DOWN>   DVB_Drag('down')
+vmap  <expr>  <UP>     DVB_Drag('up')
+vmap  <expr>  D        DVB_Duplicate()
 
 " }}}
 " mark, marker and highlight{{{

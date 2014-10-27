@@ -13,8 +13,7 @@ nnoremap <silent> <c-j> :bprevious<cr>
 " quit windows without saving
 nnoremap <silent> <leader>x :quit!<cr>
 " close tab or window
-nnoremap <silent> <c-q> :close<cr>
-inoremap <silent> <c-q> <esc>:close<cr>
+nnoremap <silent> <leader>z :close<cr>
 " save all the files and then quit
 nnoremap <silent> <leader>ca :wqa!<cr>
 

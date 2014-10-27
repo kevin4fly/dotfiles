@@ -50,7 +50,13 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
 "             \ }}
 
 " integrate between Vim and IPython
-" NeoBundleLazy 'ivanov/vim-ipython'
+NeoBundleLazy 'ivanov/vim-ipython', {
+            \ 'commands': [
+            \   {'name': ['IPython', 'IPythonClipboard', 'IPythonXSelection',
+            \          'IPythonNew', 'IPythonInterrupt', 'IPythonTerminate']
+            \   } ],
+            \ 'name': 'ipython',
+            \ }
 
 " show python documantation
 NeoBundleLazy 'fs111/pydoc.vim', {
