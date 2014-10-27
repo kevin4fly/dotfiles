@@ -2,17 +2,15 @@
 
 " generating tags in current directory
 nnoremap <silent> <leader>o
-                \ :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
+  \ :!ctags -R --sort=foldcase --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
 " adding tags in current directory or above and in all subdirectories
 set tags=./tags,tags;
 
-" adding tags in /usr/include for system API using
-autocmd filetype c,cpp set tags+=/usr/include/tags
+" set tags for the standard C library libc6
+autocmd filetype c,cpp set tags+=~/.vim/tags/libc6
 
-" adding tags in /lib/modules/$(uname -r)/build/include/linux
-" for modules API using
-autocmd filetype c,cpp,h
-    \ set tags+=/lib/modules/2.6.32-38-generic/build/include/linux/tags
+" set tags for the standard C++ library libc6-4.7-dev
+autocmd filetype cpp,hpp,cxx set tags+=~/.vim/tags/stdlibcpp6-4.7-dev
 
 " mapping for generating cscope files
 nnoremap <c-F11> :!cscope -Rbkq<cr>

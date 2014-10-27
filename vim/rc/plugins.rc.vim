@@ -126,8 +126,7 @@ endif
 " settings for autotag
 " ctags: ~/.vim/bundle/autotag/plugin/autotag.py
 " change line 25 to:
-"   CtagsCmd = "ctags -R --c++-kinds=+p --fields=+iaS --extra=+q",
-
+"   CtagsCmd = "ctags -R --sort=foldcase --c++-kinds=+p --fields=+iaS --extra=+q"
 " }}}
 " markdown related{{{
 
