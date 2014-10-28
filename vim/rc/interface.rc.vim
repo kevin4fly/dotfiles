@@ -192,9 +192,9 @@ nnoremap <silent> <leader><cr> :if &hlsearch      \|
 set gdefault
 
 " set fold method: marker
-set foldmethod=marker
+" set foldmethod=marker
 " all folds open by default
-" set foldlevelstart=99
+set foldlevelstart=99
 
 " turn magic on for regular expression
 set magic

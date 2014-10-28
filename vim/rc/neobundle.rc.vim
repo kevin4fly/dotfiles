@@ -482,6 +482,14 @@ NeoBundle 'kshenoy/vim-signature', {
             \ 'name': 'signature',
             \ }
 
+" provide incremental highlighting for all pattern matches
+NeoBundleLazy 'haya14busa/incsearch.vim', {
+            \ 'autoload' : {
+            \     'mappings' : ['<Plug>(incsearch-']
+            \  },
+            \ 'name': 'incsearch',
+            \ }
+
 " sytax highlight for nginx
 NeoBundleLazy 'evanmiller/nginx-vim-syntax', {
             \ 'filetypes': 'nginx',

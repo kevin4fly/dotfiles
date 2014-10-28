@@ -107,7 +107,7 @@ endif
 
 " settings for simply-fold
 if neobundle#tap('simply-fold')
-  let g:SimpylFold_docstring_preview = 1
+  " let g:SimpylFold_docstring_preview = 1
   let g:SimpylFold_fold_docstring    = 0
 
   call neobundle#untap()
@@ -640,6 +640,23 @@ if neobundle#tap('indent-line')
   let g:indentLine_fileType = ['c', 'cpp', 'java', 'python', 'php', 'perl',
         \ 'ruby']
   nnoremap <silent> <leader>ii :IndentLinesToggle<cr>
+
+  call neobundle#untap()
+endif
+
+" settings for incsearch
+if neobundle#tap('incsearch')
+
+  let g:incsearch#auto_nohlsearch = 1
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
+  map n  <Plug>(incsearch-nohl-n)
+  map N  <Plug>(incsearch-nohl-N)
+  map *  <Plug>(incsearch-nohl-*)
+  map #  <Plug>(incsearch-nohl-#)
+  map g* <Plug>(incsearch-nohl-g*)
+  map g# <Plug>(incsearch-nohl-g#)
 
   call neobundle#untap()
 endif
