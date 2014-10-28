@@ -105,6 +105,14 @@ if neobundle#tap('pydoc')
   call neobundle#untap()
 endif
 
+" settings for simply-fold
+if neobundle#tap('simply-fold')
+  let g:SimpylFold_docstring_preview = 1
+  let g:SimpylFold_fold_docstring    = 0
+
+  call neobundle#untap()
+endif
+
 " }}}
 " tags related{{{
 

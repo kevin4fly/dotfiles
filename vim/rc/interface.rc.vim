@@ -192,9 +192,9 @@ nnoremap <silent> <leader><cr> :if &hlsearch      \|
 set gdefault
 
 " set fold method: marker
-" set foldmethod=marker
+set foldmethod=marker
 " all folds open by default
-set foldlevelstart=99
+" set foldlevelstart=99
 
 " turn magic on for regular expression
 set magic
@@ -227,10 +227,6 @@ set formatoptions+=j
 
 " don't use alt for menu
 set winaltkeys=no
-
-" make paste works fine
-set pastetoggle=<F2>
-
 
 if has('unnamedplus')
 " By default, Vim will not use the system clipboard when yanking/pasting to

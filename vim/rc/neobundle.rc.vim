@@ -41,7 +41,7 @@ NeoBundleLazy 'davidhalter/jedi-vim', {
             \ 'name': 'jedi',
             \ }
 
-" change python version along with pyenv
+" change python version along with pyenv (conflict with ycm)
 " NeoBundleLazy 'lambdalisue/vim-pyenv', {
 "             \ 'depends': 'jedi',
 "             \ 'autoload': {
@@ -220,16 +220,16 @@ NeoBundle 'zhaocai/GoldenView.Vim', {
             \ 'name': 'golden-view',
             \ }
 
-" dynamic manage windows
-" NeoBundle 'spolu/dwm.vim', {
-"             \ 'name': 'dynamic-window-manager',
-"             \ }
-
 " kill the active buffer without close the window
 NeoBundleLazy 'moll/vim-bbye', {
             \ 'commands': [{'name': ['Bdelete']}],
             \ 'name': 'bbye',
             \ }
+
+NeoBundle 'vim-voom/VOoM', {
+            \ 'name': 'VOom',
+            \ }
+
 " }}}
 " text handling related{{{
 
@@ -536,6 +536,11 @@ NeoBundleLazy 'xolox/vim-misc', {
 NeoBundle 'xolox/vim-notes', {
             \ 'depends': 'xolox-misc',
             \ 'name': 'notes',
+            \ }
+
+" handle paste mode
+NeoBundle 'ConradIrwin/vim-bracketed-paste', {
+            \ 'name': 'bracketed-paste',
             \ }
 
 " }}}
