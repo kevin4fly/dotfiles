@@ -1,8 +1,5 @@
 " buffer, window and tab
 
-" hidden buffer when it is abandoned instead of unload from memory
-set hidden
-
 " move to next buffer
 nnoremap <silent> <c-k> :bnext<cr>
 " nove to previous buffer
@@ -24,7 +21,7 @@ nnoremap <silent> <leader>ca :wqa!<cr>
 " new tab
 nnoremap <silent> <c-w>t :tabnew<cr>
 " new window
-nnoremap <silent> <c-w>v :vnew<cr>:wincmd L<cr>
+nnoremap <silent> <c-w>v :vnew<cr>
 nnoremap <silent> <c-w>s :new<cr>:wincmd J<cr>
 " new buffer
 nnoremap <silent> <c-w>b :enew<cr>

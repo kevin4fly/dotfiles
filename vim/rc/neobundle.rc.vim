@@ -414,7 +414,7 @@ NeoBundleLazy 'tpope/vim-fugitive', {
             \ 'name': 'fugitive',
             \ }
 " abbreviate, substitute and search several variations of a word
-NeoBundleLazy 'tpope/vim-abolish', {
+NeoBundle 'tpope/vim-abolish', {
             \ 'name': 'abolish'
             \ }
 
@@ -485,9 +485,15 @@ NeoBundle 'kshenoy/vim-signature', {
 " provide incremental highlighting for all pattern matches
 NeoBundleLazy 'haya14busa/incsearch.vim', {
             \ 'autoload' : {
-            \     'mappings' : ['<Plug>(incsearch-']
+            \     'mappings' : ['<plug>(incsearch-']
             \  },
             \ 'name': 'incsearch',
+            \ }
+
+" provide star feature in visual-mode
+NeoBundleLazy 'thinca/vim-visualstar', {
+            \ 'mappings': '<plug>(visualstar-',
+            \ 'name': 'visual-star',
             \ }
 
 " sytax highlight for nginx
@@ -549,6 +555,28 @@ NeoBundle 'xolox/vim-notes', {
 " handle paste mode
 NeoBundle 'ConradIrwin/vim-bracketed-paste', {
             \ 'name': 'bracketed-paste',
+            \ }
+
+NeoBundle 'thinca/vim-ref', {
+            \ 'name': 'vim-ref',
+            \ }
+
+" change the content of quickfix
+NeoBundleLazy 'thinca/vim-qfreplace', {
+            \ 'commands': [{'name': 'Qfreplace'}],
+            \ 'name': 'quickfix-replace',
+            \ }
+
+" execute whole or part of the editing file
+NeoBundleLazy 'thinca/vim-quickrun', {
+            \ 'commands': [{'name': ['QuickRun']}],
+            \ 'mappings': '<plug>(quickrun',
+            \ 'name': 'quickrun',
+            \ }
+
+" turn a Vim buffer into a terminal emulator
+NeoBundleLazy 'rosenfeld/conque-term', {
+            \ 'name': 'conque-terminal',
             \ }
 
 " }}}

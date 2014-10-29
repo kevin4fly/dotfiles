@@ -88,6 +88,15 @@ set switchbuf=useopen,usetab
 " show tab page labels always (we have airline tabline)
 "set showtabline=2
 
+" put the new split window on the right side
+set splitright
+
+" put the new split window on the bottom side
+" set splitbelow
+
+" hidden buffer when it is abandoned instead of unload from memory
+set hidden
+
 " copy indent from current line to new line
 set autoindent
 " smart indent

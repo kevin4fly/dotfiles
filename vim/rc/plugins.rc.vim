@@ -91,6 +91,15 @@ if neobundle#tap('jedi')
   call neobundle#untap()
 endif
 
+" settings for ipython
+if neobundle#tap('ipython')
+  autocmd filetype python if bufname("%")=="vim-ipython" |
+                      \       wincmd L                   |
+                      \   endif
+
+  call neobundle#untap()
+endif
+
 " settings for pydoc
 " man: ~/.vim/bundle/pydoc/ftplugin/python_pydoc.vim s:ShowPyDoc
 " line 174: setlocal filetype=man
@@ -175,7 +184,7 @@ if neobundle#tap('unite')
                           \   'start_insert' : '0'})
   " call unite#filters#matcher_default#use(['matcher_fuzzy'])
   call unite#filters#sorter_default#use(['sorter_rank'])
-  nnoremap [unite]   <Nop>
+  nnoremap [unite]   <nop>
   nmap     <leader>f [unite]
   nnoremap <silent>  [unite]a :<c-u>Unite -toggle -buffer-name=files
                                         \ file_rec/async<cr><c-u>
@@ -255,7 +264,7 @@ if neobundle#tap('vimfiler')
   let g:vimfiler_tree_opened_icon           = '▾'
   let g:vimfiler_tree_closed_icon           = '▸'
   let g:vimfiler_file_icon                  = ' '
-  let g:vimfiler_readonly_file_icon         = '✗'
+  let g:vimfiler_readonly_file_icon         = ''
   let g:vimfiler_marked_file_icon           = '✓'
   let g:vimfiler_safe_mode_by_default       = 0
   " show airline's statusline
@@ -419,22 +428,23 @@ endif
 
 " settings for vim-over
 if neobundle#tap('over')
-  let g:over_command_line_prompt             = ">> "
+  let g:over_command_line_prompt                  = ">> "
   " escape characters
-  let g:over#command_line#paste_escape_chars = '/.*$^~'
+  let g:over#command_line#paste_escape_chars      = '/.*$^~'
   " set the key mapping used on the command line
-  let g:over_command_line_key_mappings       = {
+  let g:over_command_line_key_mappings            = {
           \	"\<c-l>" : "\<right>",
           \	"\<c-h>" : "\<left>",
           \ "\<c-f>" : "\<bs>",
-          \}
+          \ "\jj"    : "\<esc>",
+          \ }
   " escape "\n" and "\r" automatically.
-  let g:over#command_line#paste_filters      = {
+  let g:over#command_line#paste_filters           = {
           \	"\n" : '\\n',
           \	"\r" : '\\r',
-          \}
-  nnoremap <silent> <c-x> :OverCommandLine<cr>
-  vnoremap <silent> <c-x> :OverCommandLine<cr>
+          \ }
+  nnoremap <silent> <c-q> :OverCommandLine<cr>
+  vnoremap <silent> <c-q> :OverCommandLine<cr>
 
   call neobundle#untap()
 endif
@@ -602,7 +612,7 @@ if neobundle#tap('airline')
   let g:airline_powerline_fonts              = 1
   let g:airline_section_c                    = '%F'
   let g:airline_section_z                    =
-      \'%3p%% %{g:airline_symbols.linenr}%#__accent_bold#%l/%L%#__restore__#:%3c'
+    \'%3p%% %{g:airline_symbols.linenr}%#__accent_bold#%l/%L%#__restore__#:%3c'
 
   call neobundle#untap()
 endif
@@ -621,7 +631,7 @@ if neobundle#tap('signify')
   nmap <silent> ]c <plug>(signify-next-hunk)\|
           \:call repeat#set("\<plug>(signify-next-hunk)", v:count)<cr>
 
-  " set colors for signiry
+  " set colors for signify
   " highlight lines in Sy and vimdiff etc.)
   highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
   highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
@@ -647,23 +657,26 @@ endif
 " settings for incsearch
 if neobundle#tap('incsearch')
 
-  let g:incsearch#auto_nohlsearch = 1
-  map /  <Plug>(incsearch-forward)
-  map ?  <Plug>(incsearch-backward)
-  map g/ <Plug>(incsearch-stay)
-  map n  <Plug>(incsearch-nohl-n)
-  map N  <Plug>(incsearch-nohl-N)
-  map *  <Plug>(incsearch-nohl-*)
-  map #  <Plug>(incsearch-nohl-#)
-  map g* <Plug>(incsearch-nohl-g*)
-  map g# <Plug>(incsearch-nohl-g#)
+  " let g:incsearch#auto_nohlsearch = 1
+  nmap /  <Plug>(incsearch-forward)
+  nmap ?  <Plug>(incsearch-backward)
+  nmap g/ <Plug>(incsearch-stay)
+  nmap n  <Plug>(incsearch-nohl-n)
+  nmap N  <Plug>(incsearch-nohl-N)
+  nmap *  <Plug>(incsearch-nohl-*)
+  nmap #  <Plug>(incsearch-nohl-#)
+  nmap g* <Plug>(incsearch-nohl-g*)
+  nmap g# <Plug>(incsearch-nohl-g#)
 
   call neobundle#untap()
 endif
 
-" settings for notes
-if neobundle#tap('notes')
-  let g:notes_directories              = ['~/work/Notes']
+" settings for visual-star
+if neobundle#tap('visual-star')
+	vmap * <Plug>(visualstar-*)N
+	vmap # <Plug>(visualstar-#)N
+	vmap g* <Plug>(visualstar-g*)N
+	vmap g# <Plug>(visualstar-g#)N
 
   call neobundle#untap()
 endif
@@ -689,6 +702,24 @@ if neobundle#tap('gista')
   let g:gista#directory                = '~/.vimtmp/gista/'
   let g:gista#default_yank_method      = 'gistid'
   " let g:gista#close_list_after_open = 1
+
+  call neobundle#untap()
+endif
+
+" settings for notes
+if neobundle#tap('notes')
+  let g:notes_directories = ['~/work/Notes']
+
+  call neobundle#untap()
+endif
+
+" settings for quickrun
+if neobundle#tap('quickrun')
+	let b:quickrun_config = {
+        \ 'outputter/buffer/append': 1,
+        \ }
+  nmap <silent> <c-x> <Plug>(quickrun)
+  vmap <silent> <c-x> <Plug>(quickrun)
 
   call neobundle#untap()
 endif
