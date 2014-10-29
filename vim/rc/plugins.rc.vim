@@ -436,7 +436,6 @@ if neobundle#tap('over')
           \	"\<c-l>" : "\<right>",
           \	"\<c-h>" : "\<left>",
           \ "\<c-f>" : "\<bs>",
-          \ "\jj"    : "\<esc>",
           \ }
   " escape "\n" and "\r" automatically.
   let g:over#command_line#paste_filters           = {
