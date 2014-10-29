@@ -1,17 +1,22 @@
 " plugins
 
-" settings for neobundle {{{
+" neobundle related{{{1
 
-" utilize 8 processes for installing/updating async
-let g:neobundle#install_max_processes = 8
+" settings for neobundle {{{2
+if neobundle#tap('neobundle')
+  " utilize 8 processes for installing/updating async
+  let g:neobundle#install_max_processes = 8
 
-" run :NeoBundleClearCache after writing buffer
-autocmd bufwritepost neobundle.rc.vim NeoBundleClearCache
+  " run :NeoBundleClearCache after writing buffer
+  autocmd bufwritepost neobundle.rc.vim NeoBundleClearCache
 
-" }}}
-" c family related{{{
+  call neobundle#untap()
+endif
 
-" settings for YouCompleteme plugin
+" c family related{{{1
+
+" settings for YouCompleteme plugin{{{2
+
 inoremap <expr><Enter> pumvisible() ? "\<c-y>" : "\<Enter>"
 " the python module used to compile the editing file
 let g:ycm_global_ycm_extra_conf              =
@@ -54,7 +59,7 @@ autocmd bufenter *
     \ exec "inoremap <buffer> <silent> " . g:UltiSnipsExpandTrigger .
     \ " <c-r>=g:UltiSnips_Complete()<cr>"
 
-" setting for fswitch
+" setting for fswitch{{{2
 if neobundle#tap('fswitch')
   nmap <silent> <Leader>jj :FSRight<cr>
   nmap <silent> <Leader>jl :FSSplitRight<cr>
@@ -63,7 +68,7 @@ if neobundle#tap('fswitch')
   call neobundle#untap()
 endif
 
-" settings for cpp-enhenced-highlight
+" settings for cpp-enhenced-highlight{{{2
 if neobundle#tap('cpp-enhanced-highlight')
   let g:cpp_class_scope_highlight           = 1
   let g:cpp_experimental_template_highlight = 1
@@ -71,10 +76,9 @@ if neobundle#tap('cpp-enhanced-highlight')
   call neobundle#untap()
 endif
 
-" }}}
-" python related{{{
+" python related{{{1
 
-" settings for jedi
+" settings for jedi{{{2
 if neobundle#tap('jedi')
   let g:jedi#auto_vim_configuration         = 0
   let g:jedi#popup_on_dot                   = 0
@@ -91,7 +95,7 @@ if neobundle#tap('jedi')
   call neobundle#untap()
 endif
 
-" settings for ipython
+" settings for ipython{{{2
 if neobundle#tap('ipython')
   autocmd filetype python if bufname("%")=="vim-ipython" |
                       \       wincmd L                   |
@@ -100,7 +104,7 @@ if neobundle#tap('ipython')
   call neobundle#untap()
 endif
 
-" settings for pydoc
+" settings for pydoc{{{2
 " man: ~/.vim/bundle/pydoc/ftplugin/python_pydoc.vim s:ShowPyDoc
 " line 174: setlocal filetype=man
 if neobundle#tap('pydoc')
@@ -114,7 +118,7 @@ if neobundle#tap('pydoc')
   call neobundle#untap()
 endif
 
-" settings for simply-fold
+" settings for simply-fold{{{2
 if neobundle#tap('simply-fold')
   " let g:SimpylFold_docstring_preview = 1
   let g:SimpylFold_fold_docstring    = 0
@@ -122,10 +126,9 @@ if neobundle#tap('simply-fold')
   call neobundle#untap()
 endif
 
-" }}}
-" tags related{{{
+" tags related{{{1
 
-" settings for tagbar
+" settings for tagbar{{{2
 if neobundle#tap('tagbar')
   function! neobundle#hooks.on_source(bundle)
     " omitting the short help
@@ -142,14 +145,14 @@ if neobundle#tap('tagbar')
   call neobundle#untap()
 endif
 
-" settings for autotag
+" settings for autotag{{{2
 " ctags: ~/.vim/bundle/autotag/plugin/autotag.py
 " change line 25 to:
 "   CtagsCmd = "ctags -R --sort=foldcase --c++-kinds=+p --fields=+iaS --extra=+q"
 " }}}
-" markdown related{{{
+" markdown related{{{1
 
-" settings for instant-markdown
+" settings for instant-markdown{{{2
 if neobundle#tap('instant-markdown')
   " slow the instant markdown
   "let g:instant_markdown_slow = 1
@@ -160,7 +163,7 @@ if neobundle#tap('instant-markdown')
   call neobundle#untap()
 endif
 
-" settings for markdown-syntax
+" settings for markdown-syntax{{{2
 if neobundle#tap('markdown-syntax')
   " diable the folding of markdown
   let g:vim_markdown_folding_disabled = 1
@@ -168,10 +171,9 @@ if neobundle#tap('markdown-syntax')
   call neobundle#untap()
 endif
 
-" }}}
-" file, buffer related{{{
+" file, buffer related{{{1
 
-" settings for unite
+" settings for unite{{{2
 if neobundle#tap('unite')
   " enable yank history
   let g:unite_source_history_yank_enable         = 1
@@ -247,7 +249,7 @@ if neobundle#tap('unite')
   call neobundle#untap()
 endif
 
-" settings for unite-session
+" settings for unite-session{{{2
 if neobundle#tap('unite-session')
   " save session automatically.
   let g:unite_source_session_enable_auto_save = 1
@@ -257,7 +259,7 @@ if neobundle#tap('unite-session')
   call neobundle#untap()
 endif
 
-" settings for vimfiler
+" settings for vimfiler{{{2
 if neobundle#tap('vimfiler')
   " like textmate icons.
   let g:vimfiler_tree_leaf_icon             = ' '
@@ -285,7 +287,7 @@ if neobundle#tap('vimfiler')
   call neobundle#untap()
 endif
 
-" settings for golden-view
+" settings for golden-view{{{2
 if neobundle#tap('golden-view')
   let g:goldenview__enable_default_mapping = 0
   nmap <silent> <c-w>i     <plug>GoldenViewSplit
@@ -295,7 +297,7 @@ if neobundle#tap('golden-view')
   call neobundle#untap()
 endif
 
-" settings for bbye
+" settings for bbye{{{2
 if neobundle#tap('bbye')
   " close the current buffer
   nnoremap <silent> <leader>dd :Bdelete!<cr>
@@ -304,10 +306,10 @@ if neobundle#tap('bbye')
 
   call neobundle#untap()
 endif
-" }}}
-" text handling related{{{
 
-" settings for auto-pairs
+" text handling related{{{1
+
+" settings for auto-pairs{{{2
 if neobundle#tap('auto-pairs')
   let g:AutoPairsShortcutToggle        = '<F3>'
   let g:AutoPairsMapBS                 = 0
@@ -320,7 +322,7 @@ if neobundle#tap('auto-pairs')
   call neobundle#untap()
 endif
 
-" settings for gundo
+" settings for gundo{{{2
 if neobundle#tap('gundo')
   nnoremap <silent> <leader>uu :GundoToggle<cr>
   let g:gundo_help                  = 0
@@ -328,7 +330,7 @@ if neobundle#tap('gundo')
   call neobundle#untap()
 endif
 
-" settings for easy-motion
+" settings for easy-motion{{{2
 if neobundle#tap('easy-motion')
   let g:EasyMotion_smartcase        = 1
   let g:EasyMotion_leader_key       = '<space>'
@@ -340,7 +342,7 @@ if neobundle#tap('easy-motion')
   call neobundle#untap()
 endif
 
-" settings for yank-ring
+" settings for yank-ring{{{2
 if neobundle#tap('yank-ring')
   let g:yankring_history_dir        = '~/.vimtmp/yankring'
   " this is so that single char deletes don't end up in the yankring
@@ -358,7 +360,7 @@ if neobundle#tap('yank-ring')
   call neobundle#untap()
 endif
 
-" settings for tcomment
+" settings for tcomment{{{2
 if neobundle#tap('tcomment')
   " for c language using // instead of /* ... */
   let g:tcomment_types              = {'c':'// %s'}
@@ -375,14 +377,14 @@ if neobundle#tap('tcomment')
   call neobundle#untap()
 endif
 
-" settings for tabular
+" settings for tabular{{{2
 if neobundle#tap('tabular')
   nnoremap <leader>ll :Tabularize /
   vnoremap <leader>ll :Tabularize /
 
   call neobundle#untap()
 endif
-" settings for easy-align
+" settings for easy-align{{{2
 if neobundle#tap('easy-align')
   vmap <enter>   <plug>(EasyAlign)
   nmap <leader>a <plug>(EasyAlign)
@@ -390,7 +392,7 @@ if neobundle#tap('easy-align')
   call neobundle#untap()
 endif
 
-" settings for fugitive
+" settings for fugitive{{{2
 nnoremap <silent> <leader>gg :Gstatus<cr>
 if neobundle#tap('fugitive')
   function! neobundle#tapped.hooks.on_post_source(bundle)
@@ -400,7 +402,7 @@ if neobundle#tap('fugitive')
   call neobundle#untap()
 endif
 
-" settings for narrow region
+" settings for narrow region{{{2
 if neobundle#tap('narrow-region')
   " split narrow region vertically
   let g:nrrw_rgn_vert         = 1
@@ -416,7 +418,7 @@ if neobundle#tap('narrow-region')
 endif
 
 
-" settings for inline edit
+" settings for inline edit{{{2
 if neobundle#tap('inline-edit')
   " normal mode:
   nnoremap <silent> <c-e> :InlineEdit<cr>
@@ -426,7 +428,7 @@ if neobundle#tap('inline-edit')
   call neobundle#untap()
 endif
 
-" settings for vim-over
+" settings for vim-over{{{2
 if neobundle#tap('over')
   let g:over_command_line_prompt                  = ">> "
   " escape characters
@@ -448,21 +450,21 @@ if neobundle#tap('over')
   call neobundle#untap()
 endif
 
-" settings for switch
+" settings for switch{{{2
 if neobundle#tap('switch')
   nnoremap <silent> - :Switch<cr>
 
   call neobundle#untap()
 endif
 
-" settings for line-diff
+" settings for line-diff{{{2
 if neobundle#tap('line-diff')
   vnoremap <silent> <c-l> :Linediff<cr>
 
   call neobundle#untap()
 endif
 
-" settings for join&split lines
+" settings for join&split lines{{{2
 if neobundle#tap('split-join')
   let g:splitjoin_split_mapping = ''
   let g:splitjoin_join_mapping  = ''
@@ -472,7 +474,7 @@ if neobundle#tap('split-join')
   call neobundle#untap()
 endif
 
-" settings for text-object-user
+" settings for text-object-user{{{2
 " for text-object-indent
 if neobundle#tap('textobj-indent')
   let g:textobj_indent_no_default_key_mappings = 1
@@ -547,7 +549,7 @@ if neobundle#tap('textobj-python')
   call neobundle#untap()
 endif
 
-" settings for operator-user
+" settings for operator-user{{{2
 " for operator-surround
 " if neobundle#tap('operator-surround')
 "   " operator mappings
@@ -561,7 +563,7 @@ endif
 "   call neobundle#untap()
 " endif
 
-" settings for surround
+" settings for surround{{{2
 if neobundle#tap('surround')
   function! neobundle#tapped.hooks.on_source(bundle)
     let g:surround_no_mappings        = 1
@@ -584,17 +586,16 @@ if neobundle#tap('surround')
   call neobundle#untap()
 endif
 
-" settings for drag-visual
+" settings for drag-visual{{{2
 vmap  <expr>  <LEFT>   DVB_Drag('left')
 vmap  <expr>  <RIGHT>  DVB_Drag('right')
 vmap  <expr>  <DOWN>   DVB_Drag('down')
 vmap  <expr>  <UP>     DVB_Drag('up')
 vmap  <expr>  D        DVB_Duplicate()
 
-" }}}
-" mark, marker and highlight{{{
+" mark, marker and highlight{{{1
 
-" settings for syntastic
+" settings for syntastic{{{2
 if neobundle#tap('syntastic')
   let g:syntastic_error_symbol               = '✗'
   let g:syntastic_style_error_symbol         = '✠'
@@ -604,7 +605,7 @@ if neobundle#tap('syntastic')
   call neobundle#untap()
 endif
 
-" settings for airline
+" settings for airline{{{2
 if neobundle#tap('airline')
   let g:airline#extensions#tabline#enabled   = 1
   let g:airline#extensions#tabline#fnamemod  = ':t'
@@ -616,7 +617,7 @@ if neobundle#tap('airline')
   call neobundle#untap()
 endif
 
-" settings for signify
+" settings for signify{{{2
 if neobundle#tap('signify')
   let g:signify_vcs_list                     = [ 'git', 'hg' ]
   let g:signify_difftool                     = 'vimdiff'
@@ -643,7 +644,7 @@ if neobundle#tap('signify')
   call neobundle#untap()
 endif
 
-" settings for indentline
+" settings for indentline{{{2
 if neobundle#tap('indent-line')
   let g:indentLine_faster   = 1
   let g:indentLine_fileType = ['c', 'cpp', 'java', 'python', 'php', 'perl',
@@ -653,7 +654,7 @@ if neobundle#tap('indent-line')
   call neobundle#untap()
 endif
 
-" settings for incsearch
+" settings for incsearch{{{2
 if neobundle#tap('incsearch')
 
   " let g:incsearch#auto_nohlsearch = 1
@@ -670,7 +671,7 @@ if neobundle#tap('incsearch')
   call neobundle#untap()
 endif
 
-" settings for visual-star
+" settings for visual-star{{{2
 if neobundle#tap('visual-star')
 	vmap * <Plug>(visualstar-*)N
 	vmap # <Plug>(visualstar-#)N
@@ -680,10 +681,9 @@ if neobundle#tap('visual-star')
   call neobundle#untap()
 endif
 
-"}}}
-" misc {{{
+" misc {{{1
 
-" settings for openbrowser
+" settings for openbrowser{{{2
 if neobundle#tap('open-browser')
   nmap <silent> [b <plug>(openbrowser-open)\|
           \:call repeat#set("\<plug>(openbrowser-open)", v:count)<cr>
@@ -693,7 +693,7 @@ if neobundle#tap('open-browser')
   call neobundle#untap()
 endif
 
-" settings for gista
+" settings for gista{{{2
 if neobundle#tap('gista')
   " help: ~/.vim/bundle/vim-gista/autoload/gista/interface.vim
   " line 170: ? line 177: * line: 235 comment out
@@ -705,14 +705,14 @@ if neobundle#tap('gista')
   call neobundle#untap()
 endif
 
-" settings for notes
+" settings for notes{{{2
 if neobundle#tap('notes')
   let g:notes_directories = ['~/work/Notes']
 
   call neobundle#untap()
 endif
 
-" settings for quickrun
+" settings for quickrun{{{2
 if neobundle#tap('quickrun')
 	let b:quickrun_config = {
         \ 'outputter/buffer/append': 1,
@@ -722,7 +722,5 @@ if neobundle#tap('quickrun')
 
   call neobundle#untap()
 endif
-
-" }}}
 
 " vim:tw=78:ts=2:sw=2:sts=2:et:fdm=marker

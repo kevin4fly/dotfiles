@@ -1,6 +1,6 @@
 " helper function
 
-" strip trailing white space except markdown file
+" strip trailing white space except markdown file{{{1
 function! StripTrailingWhitespace()
   " don't strip on these filetypes
   if &ft =~ 'markdown'
@@ -13,7 +13,7 @@ autocmd bufwritepre,filewritepre *
             \    call StripTrailingWhitespace() |
             \ endif
 
-" macro expansion with gcc
+" macro expansion with gcc{{{1
 " we have to install gnu indent programme, refer to
 " http://vim.wikia.com/wiki/Macro_expansion_C/C%2B%2B for more details
 function! ExpandCMacro()
@@ -62,7 +62,7 @@ endfunction
 
 autocmd filetype c,cpp nnoremap <leader>m :call ExpandCMacro()<cr><cr>
 
-" Highlight Class and Function names
+" Highlight Class and Function names{{{1
 function! s:HighlightFunctionsAndClasses()
   syn match cCustomFunc      "\w\+\s*\((\)\@="
   syn match cCustomClass     "\w\+\s*\(::\)\@="
