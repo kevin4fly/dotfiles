@@ -61,9 +61,9 @@ autocmd bufenter *
 
 " setting for fswitch{{{2
 if neobundle#tap('fswitch')
-  nmap <silent> <Leader>jj :FSRight<cr>
-  nmap <silent> <Leader>jl :FSSplitRight<cr>
-  nmap <silent> <Leader>jh :FSSplitLeft<cr>
+  nmap <silent> <leader>jj :FSRight<cr>
+  nmap <silent> <leader>jl :FSSplitRight<cr>
+  nmap <silent> <leader>jh :FSSplitLeft<cr>
 
   call neobundle#untap()
 endif
@@ -190,14 +190,14 @@ if neobundle#tap('unite')
   nmap     <leader>f [unite]
   nnoremap <silent>  [unite]a :<c-u>Unite -toggle -buffer-name=files
                                         \ file_rec/async<cr><c-u>
-  nnoremap <silent>  [unite]b :<c-u>Unite -toggle -buffer-name=buffer
-                                        \ buffer<cr>
+  nnoremap <silent>  [unite]b :<c-u>Unite -toggle -buffer-name=file
+                                        \ file<cr>
   nnoremap <silent>  [unite]c :<c-u>Unite -toggle -buffer-name=command\ history
                                         \ history/command<cr>
   nnoremap <silent>  [unite]d :<c-u>Unite -toggle -buffer-name=mru\ directory
                                         \ neomru/directory<cr><c-u>
-  nnoremap <silent>  [unite]f :<c-u>Unite -toggle -buffer-name=file
-                                        \ file<cr><c-u>
+  nnoremap <silent>  [unite]f :<c-u>Unite -toggle -buffer-name=buffer
+                                        \ buffer<cr><c-u>
   nnoremap <silent>  [unite]g :<c-u>Unite -toggle -buffer-name=grep
                                         \ grep:.<cr>
   nnoremap <silent>  [unite]h :<c-u>Unite -toggle -buffer-name=yank\ history
@@ -272,8 +272,8 @@ if neobundle#tap('vimfiler')
   " show airline's statusline
 	let g:vimfiler_force_overwrite_statusline = 0
   " toggle vimfiler and vimfilerexplorer
-  nnoremap <silent> <leader>tr   :<C-u>VimFiler<CR>
-  nnoremap <silent> <leader>tt   :<C-u>VimFilerExplorer<CR>
+  nnoremap <silent> <leader>tr   :<c-u>VimFiler<CR>
+  nnoremap <silent> <leader>tt   :<c-u>VimFilerExplorer<CR>
   " change mappings <c-j> <c-l> to avoid confliction
   function! neobundle#hooks.on_post_source(bundle)
     function! s:vimfiler_settings()
@@ -477,7 +477,7 @@ endif
 " settings for text-object-user{{{2
 " for text-object-indent
 if neobundle#tap('textobj-indent')
-  let g:textobj_indent_no_default_key_mappings = 1
+  let g:textobj_indent_no_default_key_mappings   = 1
   omap ai <plug>(textobj-indent-a)
   omap ii <plug>(textobj-indent-i)
   xmap ai <plug>(textobj-indent-a)
@@ -551,7 +551,7 @@ endif
 
 " for text object comment
 if neobundle#tap('textobj-comment')
-  let g:textobj_comment_no_default_key_mappings = 0
+  let g:textobj_comment_no_default_key_mappings = 1
   omap a<c-c> <plug>(textobj-comment-a)
   omap i<c-c> <plug>(textobj-comment-i)
   xmap a<c-c> <plug>(textobj-comment-a)
@@ -562,7 +562,7 @@ endif
 
 " for text object line
 if neobundle#tap('textobj-line')
-  let g:textobj_line_no_default_key_mappings    = 0
+  let g:textobj_line_no_default_key_mappings    = 1
   omap al <plug>(textobj-line-a)
   omap il <plug>(textobj-line-i)
   xmap al <plug>(textobj-line-a)
@@ -573,7 +573,7 @@ endif
 
 " for text object entire
 if neobundle#tap('textobj-entire')
-  let g:textobj_entire_no_default_key_mappings  = 0
+  let g:textobj_entire_no_default_key_mappings  = 1
   omap ae <plug>(textobj-entire-a)
   omap ie <plug>(textobj-entire-i)
   xmap ae <plug>(textobj-entire-a)
@@ -612,9 +612,9 @@ if neobundle#tap('surround')
   nmap ySS    <plug>YSsurround
   xmap s      <plug>VSurround
   xmap gS     <plug>VgSurround
-  imap <C-S>  <plug>Isurround
-  imap <C-G>s <plug>Isurround
-  imap <C-G>S <plug>ISurround
+  imap <c-s>  <plug>Isurround
+  imap <c-g>s <plug>Isurround
+  imap <c-g>S <plug>ISurround
 
   call neobundle#untap()
 endif
@@ -691,27 +691,27 @@ endif
 if neobundle#tap('incsearch')
 
   " let g:incsearch#auto_nohlsearch = 1
-  nmap /  <Plug>(incsearch-forward)
-  nmap ?  <Plug>(incsearch-backward)
-  nmap g/ <Plug>(incsearch-stay)
-  " nmap n  <Plug>(incsearch-nohl-n)
-  " nmap N  <Plug>(incsearch-nohl-N)
-  nmap n  <Plug>(incsearch-nohl-n)zv:ShowSearchIndex<CR>
-  nmap N  <Plug>(incsearch-nohl-N)zv:ShowSearchIndex<CR>
-  nmap *  <Plug>(incsearch-nohl-*)
-  nmap #  <Plug>(incsearch-nohl-#)
-  nmap g* <Plug>(incsearch-nohl-g*)
-  nmap g# <Plug>(incsearch-nohl-g#)
+  nmap /  <plug>(incsearch-forward)
+  nmap ?  <plug>(incsearch-backward)
+  nmap g/ <plug>(incsearch-stay)
+  " nmap n  <plug>(incsearch-nohl-n)
+  " nmap N  <plug>(incsearch-nohl-N)
+  nmap n  <plug>(incsearch-nohl-n)zv:ShowSearchIndex<CR>
+  nmap N  <plug>(incsearch-nohl-N)zv:ShowSearchIndex<CR>
+  nmap *  <plug>(incsearch-nohl-*)
+  nmap #  <plug>(incsearch-nohl-#)
+  nmap g* <plug>(incsearch-nohl-g*)
+  nmap g# <plug>(incsearch-nohl-g#)
 
   call neobundle#untap()
 endif
 
 " settings for visual-star{{{2
 if neobundle#tap('visual-star')
-	vmap * <Plug>(visualstar-*)N
-	vmap # <Plug>(visualstar-#)N
-	vmap g* <Plug>(visualstar-g*)N
-	vmap g# <Plug>(visualstar-g#)N
+	vmap * <plug>(visualstar-*)N
+	vmap # <plug>(visualstar-#)N
+	vmap g* <plug>(visualstar-g*)N
+	vmap g# <plug>(visualstar-g#)N
 
   call neobundle#untap()
 endif
@@ -749,11 +749,11 @@ endif
 
 " settings for quickrun{{{2
 if neobundle#tap('quickrun')
-	let b:quickrun_config = {
+	let g:quickrun_config = {
         \ 'outputter/buffer/append': 1,
         \ }
-  nmap <silent> <c-x> <Plug>(quickrun)
-  vmap <silent> <c-x> <Plug>(quickrun)
+  nmap <silent> <c-x> <plug>(quickrun)
+  vmap <silent> <c-x> <plug>(quickrun)
 
   call neobundle#untap()
 endif
