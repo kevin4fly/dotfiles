@@ -499,10 +499,14 @@ NeoBundle 'kshenoy/vim-signature', {
 
 " provide incremental highlighting for all pattern matches{{{2
 NeoBundleLazy 'haya14busa/incsearch.vim', {
-            \ 'autoload' : {
-            \     'mappings' : ['<plug>(incsearch-']
-            \  },
+            \ 'mappings' : ['<plug>(incsearch-'],
             \ 'name': 'incsearch',
+            \ }
+
+" show details of the position of the search result{{{2
+NeoBundleLazy 'henrik/vim-indexed-search', {
+            \ 'commands': [{'name': 'ShowSearchIndex'}],
+            \ 'name': 'indexed-search',
             \ }
 
 " provide star feature in visual-mode{{{2

@@ -694,8 +694,10 @@ if neobundle#tap('incsearch')
   nmap /  <Plug>(incsearch-forward)
   nmap ?  <Plug>(incsearch-backward)
   nmap g/ <Plug>(incsearch-stay)
-  nmap n  <Plug>(incsearch-nohl-n)
-  nmap N  <Plug>(incsearch-nohl-N)
+  " nmap n  <Plug>(incsearch-nohl-n)
+  " nmap N  <Plug>(incsearch-nohl-N)
+  nmap n  <Plug>(incsearch-nohl-n)zv:ShowSearchIndex<CR>
+  nmap N  <Plug>(incsearch-nohl-N)zv:ShowSearchIndex<CR>
   nmap *  <Plug>(incsearch-nohl-*)
   nmap #  <Plug>(incsearch-nohl-#)
   nmap g* <Plug>(incsearch-nohl-g*)
