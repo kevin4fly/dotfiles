@@ -378,6 +378,21 @@ NeoBundleLazy 'bps/vim-textobj-python', {
             \ 'autoload': {'mappings': [['ox', '<plug>(textobj-python-']]},
             \ 'name': 'textobj-python',
             \ }
+NeoBundleLazy 'thinca/vim-textobj-comment', {
+            \ 'depends': 'textobj-user',
+            \ 'mappings': '<plug>(textobj-comment-',
+            \ 'name': 'textobj-comment',
+            \ }
+NeoBundleLazy 'kana/vim-textobj-line', {
+            \ 'depends': 'textobj-user',
+            \ 'mappings': '<plug>(textobj-line-',
+            \ 'name': 'textobj-line'
+            \ }
+NeoBundleLazy 'kana/vim-textobj-entire', {
+            \ 'depends': 'textobj-user',
+            \ 'mappings': '<plug>(textobj-entire-',
+            \ 'name': 'textobj-entire'
+            \ }
 
 NeoBundleLazy 'kana/vim-operator-user', {
             \ 'functions': 'operator#user#define',

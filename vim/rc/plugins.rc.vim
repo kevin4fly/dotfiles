@@ -549,6 +549,39 @@ if neobundle#tap('textobj-python')
   call neobundle#untap()
 endif
 
+" for text object comment
+if neobundle#tap('textobj-comment')
+  let g:textobj_comment_no_default_key_mappings = 0
+  omap a<c-c> <plug>(textobj-comment-a)
+  omap i<c-c> <plug>(textobj-comment-i)
+  xmap a<c-c> <plug>(textobj-comment-a)
+  xmap i<c-c> <plug>(textobj-comment-i)
+
+  call neobundle#untap()
+endif
+
+" for text object line
+if neobundle#tap('textobj-line')
+  let g:textobj_line_no_default_key_mappings    = 0
+  omap al <plug>(textobj-line-a)
+  omap il <plug>(textobj-line-i)
+  xmap al <plug>(textobj-line-a)
+  xmap il <plug>(textobj-line-i)
+
+  call neobundle#untap()
+endif
+
+" for text object entire
+if neobundle#tap('textobj-entire')
+  let g:textobj_entire_no_default_key_mappings  = 0
+  omap ae <plug>(textobj-entire-a)
+  omap ie <plug>(textobj-entire-i)
+  xmap ae <plug>(textobj-entire-a)
+  xmap ie <plug>(textobj-entire-i)
+
+  call neobundle#untap()
+endif
+
 " settings for operator-user{{{2
 " for operator-surround
 " if neobundle#tap('operator-surround')
