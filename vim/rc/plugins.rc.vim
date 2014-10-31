@@ -619,6 +619,17 @@ if neobundle#tap('surround')
   call neobundle#untap()
 endif
 
+" settings for pencil{{{2
+if neobundle#tap('pencil')
+
+  augroup pencil
+  autocmd!
+  autocmd filetype * call pencil#init({'wrap': 'hard'})
+  augroup END
+
+  call neobundle#untap()
+endif
+
 " settings for drag-visual{{{2
 vmap  <expr>  <LEFT>   DVB_Drag('left')
 vmap  <expr>  <RIGHT>  DVB_Drag('right')

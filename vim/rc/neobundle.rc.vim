@@ -504,6 +504,12 @@ NeoBundleLazy 'tpope/vim-surround', {
             \              ],
             \ }
 
+" format text
+NeoBundleLazy 'reedes/vim-pencil', {
+            \ 'name'   : 'pencil',
+            \ 'insert' : 1,
+            \ }
+
 " repeat your mapping in normal mode{{{2
 NeoBundleLazy 'tpope/vim-repeat', {
             \ 'name'     : 'repeat',
