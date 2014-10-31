@@ -23,16 +23,11 @@ set t_Co=256
 " set timeout for map leader
 set timeout timeoutlen=1000 ttimeoutlen=50
 
-" support italic font
-" http://askubuntu.com/questions/492592/can-i-get-italics-in-gnome-terminal
-" set t_ZH=[3m
-" set t_ZR=[23m
-
-" for molokai
 " color: ~/.vim/bundle/molokai/colors/molokai.vim
 " change line 187 to: hi PmenuSel        ctermfg=red ctermbg=16    cterm=bold
 set background=dark
 colorscheme molokai
+let base16colorspace=256
 " popup menu for terminal: red frontgroud and black backgroud
 highlight PmenuSel        ctermfg=red ctermbg=16    cterm=bold
 " set comment font to italic

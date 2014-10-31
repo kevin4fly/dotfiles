@@ -531,8 +531,18 @@ NeoBundle 'bling/vim-airline', {
 
 " highlight the XML/HTML tags that enclose your cursor location{{{2
 NeoBundleLazy 'valloric/MatchTagAlways', {
-            \ 'filetypes' : ['html', 'xml'],
             \ 'name'      : 'match-tag-always',
+            \ 'filetypes' : ['html', 'xml'],
+            \ }
+
+NeoBundleLazy 'ujihisa/unite-colorscheme', {
+            \ 'name'    : 'unite-colorscheme',
+            \ 'depends' : 'unite',
+            \ }
+
+" waiting for https://github.com/chriskempson/base16-builder/issues/179
+NeoBundle 'chriskempson/base16-vim', {
+            \ 'name' : 'base16-colorscheme',
             \ }
 
 " set the color scheme{{{2
@@ -605,7 +615,7 @@ NeoBundleLazy 'tyru/open-browser.vim', {
 " manipulate gists{{{2
 NeoBundleLazy 'lambdalisue/vim-gista', {
             \ 'name'     : 'gista',
-            \ 'depends'  : ['unite', 'tyru/open-browser.vim'],
+            \ 'depends'  : ['unite', 'open-browser'],
             \ 'autoload' : {
             \	              'commands'      : ['Gista'],
             \	              'mappings'      : '<plug>(gista-',

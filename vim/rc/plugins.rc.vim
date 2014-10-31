@@ -184,7 +184,7 @@ if neobundle#tap('unite')
   call unite#custom#profile('default', 'context',
                           \ { 'prompt': '» ',
                           \   'start_insert' : '0'})
-  " call unite#filters#matcher_default#use(['matcher_fuzzy'])
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
   call unite#filters#sorter_default#use(['sorter_rank'])
   nnoremap [unite]   <nop>
   nmap     <leader>f [unite]
@@ -272,8 +272,8 @@ if neobundle#tap('vimfiler')
   " show airline's statusline
 	let g:vimfiler_force_overwrite_statusline = 0
   " toggle vimfiler and vimfilerexplorer
-  nnoremap <silent> <leader>tr   :<c-u>VimFiler<CR>
-  nnoremap <silent> <leader>tt   :<c-u>VimFilerExplorer<CR>
+  nnoremap <silent> <leader>tr   :<c-u>VimFilerSplit<CR>
+  nnoremap <silent> <leader>ts   :<c-u>VimFilerExplorer<CR>
   " change mappings <c-j> <c-l> to avoid confliction
   function! neobundle#hooks.on_post_source(bundle)
     function! s:vimfiler_settings()
