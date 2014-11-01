@@ -22,9 +22,11 @@ such as: git, ruby, python support and so on. And now, let's install them:
 3. ruby environment: [rbenv](https://github.com/sstephenson/rbenv)
 4. node.js environment: [nvm](https://github.com/creationix/nvm)
 5. python environment: [pyenv](https://github.com/yyuu/pyenv)
-6. llvm and clange enviroment:
+6. lua: [lua](http://www.lua.org/) 
+7. perl: [perl](https://www.perl.org)
+8. llvm and clange enviroment:
    [libclang](https://gist.github.com/kevin4fly/e3de744266c98294b21e)
-7. Exuberant Ctags: [tag](http://ctags.sourceforge.net/)
+9. Exuberant Ctags: [tag](http://ctags.sourceforge.net/)
    - install ctags via package manager: `sudo apt-get install ctags`
 
 
@@ -50,7 +52,8 @@ productive.
     ``` 
 
 ###Runnig&installing plugins
-Launch vim and run: `:Unite neobundle/install` to install all plugins via `neobundle`.
+Launch vim and run: `:Unite neobundle/install` to install all plugins via
+`neobundle`.
 
 ###Tunig plugins
 
@@ -65,12 +68,13 @@ better for me.
     cp LLVM_DIR/Release+Asserts/lib/libclang.so ~/ycm_build/
     cd ~/ycm_build
     # generate makefile
-    cmake -G "Unix Makefiles" -DEXTERNAL_LIBCLANG_PATH=libclang.so ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
+    cmake -G "Unix Makefiles" -DEXTERNAL_LIBCLANG_PATH=libclang.so \
+        ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
     make ycm_support_libs
     ```
         
-   - for different language semantic code complete engine, we need to change the
-     flags to reflect this.
+   - for different language semantic code complete engine,
+     we need to change the flags to reflect this.
         
     ```bash
     vim .vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py

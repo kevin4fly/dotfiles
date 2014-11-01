@@ -622,10 +622,10 @@ endif
 " settings for pencil{{{2
 if neobundle#tap('pencil')
 
-  augroup pencil
-  autocmd!
-  autocmd filetype * call pencil#init({'wrap': 'hard'})
-  augroup END
+  " augroup pencil
+  " autocmd!
+  " autocmd filetype * call pencil#init({'wrap': 'hard'})
+  " augroup END
 
   call neobundle#untap()
 endif
@@ -765,6 +765,13 @@ if neobundle#tap('quickrun')
         \ }
   nmap <silent> <c-x> <plug>(quickrun)
   vmap <silent> <c-x> <plug>(quickrun)
+
+  call neobundle#untap()
+endif
+
+" settings for tmux-complete{{{2
+if neobundle#tap('tmux-complete')
+  let g:tmuxcomplete#trigger = 'omnifunc'
 
   call neobundle#untap()
 endif

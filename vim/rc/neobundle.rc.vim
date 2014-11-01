@@ -128,8 +128,10 @@ NeoBundleLazy 'suan/vim-instant-markdown', {
 " sytax highlight for markdown file{{{2
 NeoBundleLazy 'plasticboy/vim-markdown', {
             \ 'name'      : 'markdown-syntax',
+            \ 'depends'   : 'tabular',
             \ 'filetypes' : ['markdown', 'md'],
             \ }
+
 
 " file, buffer related{{{1
 
@@ -504,7 +506,7 @@ NeoBundleLazy 'tpope/vim-surround', {
             \              ],
             \ }
 
-" format text
+" format text{{{2
 NeoBundleLazy 'reedes/vim-pencil', {
             \ 'name'   : 'pencil',
             \ 'insert' : 1,
@@ -675,6 +677,11 @@ NeoBundleLazy 'thinca/vim-quickrun', {
 " turn a Vim buffer into a terminal emulator{{{2
 NeoBundleLazy 'rosenfeld/conque-term', {
             \ 'name' : 'conque-terminal',
+            \ }
+
+" complete words in adjacent tmux panes
+NeoBundle 'wellle/tmux-complete.vim', {
+            \ 'name' : 'tmux-complete',
             \ }
 
 " vim:tw=78:ts=2:sw=2:sts=2:et:fdm=marker
