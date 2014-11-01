@@ -29,9 +29,9 @@ set background=dark
 colorscheme molokai
 let base16colorspace=256
 " popup menu for terminal: red frontgroud and black backgroud
-highlight PmenuSel        ctermfg=red ctermbg=16    cterm=bold
+highlight PmenuSel ctermfg=red ctermbg=16 cterm=bold
 " set comment font to italic
-highlight Comment                                   cterm=italic
+highlight Comment                         cterm=italic
 
 " make a backup before overwriting a file
 set writebackup

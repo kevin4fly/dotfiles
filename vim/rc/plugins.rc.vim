@@ -272,8 +272,8 @@ if neobundle#tap('vimfiler')
   " show airline's statusline
 	let g:vimfiler_force_overwrite_statusline = 0
   " toggle vimfiler and vimfilerexplorer
-  nnoremap <silent> <leader>tr   :<c-u>VimFilerSplit<CR>
-  nnoremap <silent> <leader>ts   :<c-u>VimFilerExplorer<CR>
+  nnoremap <silent> <leader>ts   :<c-u>VimFilerSplit<CR>
+  nnoremap <silent> <leader>tt   :<c-u>VimFilerExplorer<CR>
   " change mappings <c-j> <c-l> to avoid confliction
   function! neobundle#hooks.on_post_source(bundle)
     function! s:vimfiler_settings()
