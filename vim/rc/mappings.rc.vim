@@ -1,4 +1,4 @@
-" general
+" mappings
 
 " set map leader for easy combination
 let mapleader   = ","

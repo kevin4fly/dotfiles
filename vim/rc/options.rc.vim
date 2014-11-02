@@ -1,4 +1,4 @@
-" interface
+" options
 
 " Unicode support (taken from http://vim.wikia.com/wiki/Working_with_Unicode)
 if has("multi_byte")

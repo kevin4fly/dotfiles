@@ -41,10 +41,10 @@ NeoBundleCheck
 call s:source_rc('helper.rc.vim')
 
 " general
-call s:source_rc('general.rc.vim')
+call s:source_rc('mappings.rc.vim')
 
 " interface
-call s:source_rc('interface.rc.vim')
+call s:source_rc('options.rc.vim')
 
 " view (buffer, windown and tab)
 call s:source_rc('view.rc.vim')

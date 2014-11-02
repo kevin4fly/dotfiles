@@ -7,6 +7,30 @@ NeoBundleFetch 'Shougo/neobundle.vim', {
             \ 'name' : 'neobundle',
             \ }
 
+" colorschem related{{{1
+
+" manage colorscheme with unite{{{2
+NeoBundleLazy 'ujihisa/unite-colorscheme', {
+            \ 'name'    : 'unite-colorscheme',
+            \ 'depends' : 'unite',
+            \ }
+
+" add molokai colorscheme(default)
+NeoBundle 'tomasr/molokai', {
+            \ 'name' : 'molokai-colorscheme',
+            \ }
+
+" waiting for https://github.com/chriskempson/base16-builder/issues/179{{{2
+" add base16-vim colorscheme
+NeoBundle 'chriskempson/base16-vim', {
+            \ 'name' : 'base16-colorscheme',
+            \ }
+
+" add github colorscheme{{{2
+NeoBundle 'endel/vim-github-colorscheme', {
+            \ 'name' : 'github-colorscheme',
+            \ }
+
 " c family related{{{1
 
 " complete identifier for all, semantic completion for c-family language{{{2
@@ -541,21 +565,6 @@ NeoBundle 'bling/vim-airline', {
 NeoBundleLazy 'valloric/MatchTagAlways', {
             \ 'name'      : 'match-tag-always',
             \ 'filetypes' : ['html', 'xml'],
-            \ }
-
-NeoBundleLazy 'ujihisa/unite-colorscheme', {
-            \ 'name'    : 'unite-colorscheme',
-            \ 'depends' : 'unite',
-            \ }
-
-" waiting for https://github.com/chriskempson/base16-builder/issues/179
-NeoBundle 'chriskempson/base16-vim', {
-            \ 'name' : 'base16-colorscheme',
-            \ }
-
-" set the color scheme{{{2
-NeoBundle 'tomasr/molokai', {
-            \ 'name' : 'molokai',
             \ }
 
 " use signs to indicate added, modified and removed lines{{{2
