@@ -24,6 +24,9 @@ let g:ycm_global_ycm_extra_conf              =
 let g:ycm_min_num_identifier_candidate_chars = 4
 let g:ycm_seed_identifiers_with_syntax       = 1
 let g:ycm_complete_in_comments               = 1
+let g:ycm_key_list_select_completion         = ['<tab>', '<down>', '<c-j>']
+let g:ycm_key_list_previous_completion       = ['<s-tab>', '<up>', '<c-k>']
+
 nnoremap [t :YcmCompleter GoTo<cr>
 nnoremap [d :YcmCompleter GoToDefinition<cr>
 nnoremap [r :YcmCompleter GoToDeclaration<cr>
@@ -31,6 +34,15 @@ nnoremap [r :YcmCompleter GoToDeclaration<cr>
 " version of python causing it crash
 " let g:ycm_path_to_python_interpreter = '~/.pyenv/versions/2.7.8/bin/python2.7'
 let g:ycm_path_to_python_interpreter         = '/usr/bin/python2.7'
+let g:ycm_filetype_blacklist = {
+                              \ 'tagbar' : 1,
+                              \ 'qf' : 1,
+                              \ 'unite' : 1,
+                              \ 'vimwiki' : 1,
+                              \ 'pandoc' : 1,
+                              \ 'infolog' : 1,
+                              \ 'mail' : 1
+                              \ }
 
 " set <tab> to trigger snippet, code completion and more
 let g:UltiSnipsExpandTrigger                 = "<tab>"
@@ -226,15 +238,14 @@ if neobundle#tap('unite')
     inoremap <silent> <buffer><expr> <c-v> unite#do_action('right')
     nnoremap <silent> <buffer><expr> s unite#do_action('below')
     inoremap <silent> <buffer><expr> <c-s> unite#do_action('below')
-    nnoremap <silent> <buffer><expr> l unite#do_action('default')
-    inoremap <silent> <buffer><expr> <c-l> unite#do_action('default')
-    nnoremap <silent> <buffer><expr> w unite#do_action('mkdir')
-    nnoremap <silent> <buffer><expr> c unite#do_action('cd')
-    inoremap <silent> <buffer><expr> <c-c> unite#do_action('cd')
+    nnoremap <silent> <buffer><expr> l     unite#do_action('default')
+    inoremap <silent> <buffer>       <c-l> <right>
+    inoremap <silent> <buffer>       <c-h> <left>
+    inoremap <silent> <buffer>       <c-f> <bs>
     nmap <silent> <buffer> h         <plug>(unite_exit)
     nmap <silent> <buffer> H         <plug>(unite_all_exit)
-    nmap <silent> <buffer> <c-o>      <plug>(unite_redraw)
-    imap <silent> <buffer> <c-o>      <plug>(unite_redraw)
+    nmap <silent> <buffer> <c-o>     <plug>(unite_redraw)
+    imap <silent> <buffer> <c-o>     <plug>(unite_redraw)
     imap <silent> <buffer> <c-j>     <plug>(unite_select_next_line)
     imap <silent> <buffer> <c-k>     <plug>(unite_select_previous_line)
 
@@ -625,6 +636,9 @@ vmap  <expr>  <RIGHT>  DVB_Drag('right')
 vmap  <expr>  <DOWN>   DVB_Drag('down')
 vmap  <expr>  <UP>     DVB_Drag('up')
 vmap  <expr>  D        DVB_Duplicate()
+
+" settings for table-cell-selection{{{2
+vnoremap <silent><expr>  c  VTC_select()
 
 " mark, marker and highlight{{{1
 

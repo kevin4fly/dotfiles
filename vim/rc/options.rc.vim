@@ -221,6 +221,9 @@ set noerrorbells
 set novisualbell
 set t_vb=
 
+" square up visual selections
+set virtualedit=block
+
 " tries to avoid those annoying "hit enter to continue" messages
 " if it still doesn't help with certain commands, add a second <cr>
 " at the end of the map command
