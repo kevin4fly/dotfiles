@@ -15,25 +15,21 @@ code.*
 The vim plugins also need the additional software to make them work normally
 such as: git, ruby, python support and so on. And now, let's install them:
 
-1. software version control:
-   [git](https://gist.github.com/kevin4fly/f74344649d09f903eb1b)
-2. web browser: [chrome](https://www.google.com/intl/en/chrome/browser/)
-   - [set chrome as the default browser](http://superuser.com/questions/281488/how-to-set-default-browser-on-ubuntu-from-command-line)
-3. ruby environment: [rbenv](https://github.com/sstephenson/rbenv)
-4. node.js environment: [nvm](https://github.com/creationix/nvm)
-5. python environment: [pyenv](https://github.com/yyuu/pyenv)
-6. lua: [lua](http://www.lua.org/) 
-7. perl: [perl](https://www.perl.org)
-8. llvm and clange enviroment:
-   [libclang](https://gist.github.com/kevin4fly/e3de744266c98294b21e)
-9. Exuberant Ctags: [tag](http://ctags.sourceforge.net/)
+1. software version control: [git]
+2. web browser: [chrome]
+3. ruby environment: [rbenv]
+4. node.js environment: [nvm]
+5. python environment: [pyenv]
+6. llvm and clange enviroment:
+   [libclang]
+7. Exuberant Ctags: [tag]
    - install ctags via package manager: `sudo apt-get install ctags`
 
 
 ###Building Vim from source
 
 Given so many plugins must use the latest vim version and we can get a better
-experiences, we highly recommend to [__install vim from source code__](https://github.com/Valloric/YouCompleteMe/wiki/Building-Vim-from-source).
+experiences, we highly recommend to [__install vim from source code__]
 
 
 ###Installing dependencies of plugins
@@ -41,15 +37,10 @@ experiences, we highly recommend to [__install vim from source code__](https://g
 It is pretty nice thing to install the plugins which make our job more
 productive.
 
-1. vim plugin manager: [neobundle](https://github.com/Shougo/neobundle.vim#quick-start)
-2. code complete engine: [YouCompleteMe](https://github.com/Valloric/YouCompleteMe#full-installation-guide)
-3. status line: [airline with powerline fancy](http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin)
-4. instant show markdown: [vim-instant-markdown](https://github.com/suan/vim-instant-markdown)
-5. misc: `trash-cli`, `indent`, `wget`, `curl` and `xclip`
-
-    ```bash
-    sudo apt-get install trash-cli indent wget curl xclip
-    ``` 
+1. vim plugin manager: [neobundle]
+2. code complete engine: [YouCompleteMe]
+3. status line: [airline with powerline fancy]
+4. instant show markdown: [vim-instant-markdown]
 
 ###Runnig&installing plugins
 Launch vim and run: `:Unite neobundle/install` to install all plugins via
@@ -82,3 +73,16 @@ better for me.
 
     for c language, change line 55: from `'-std=c++11',` to `'-std=c99',` and
     change line 62: from `'c++',` to `'c',`. or vice visa for C++ language.
+
+[git]: https://gist.github.com/kevin4fly/f74344649d09f903eb1b
+[chrome]: https://gist.github.com/kevin4fly/fd9c971278de368ac47b#google-chrome-browser
+[rbenv]: https://github.com/sstephenson/rbenv
+[nvm]: https://github.com/creationix/nvm
+[pyenv]: https://github.com/yyuu/pyenv
+[libclang]: https://gist.github.com/kevin4fly/e3de744266c98294b21e
+[tag]: http://ctags.sourceforge.net/
+[__install vim from source code__]: https://gist.github.com/kevin4fly/f74344649d09f903eb1b
+[neobundle]: https://github.com/Shougo/neobundle.vim#quick-start
+[YouCompleteMe]: https://github.com/Valloric/YouCompleteMe#full-installation-guide
+[airline with powerline fancy]: http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
+[vim-instant-markdown]: https://github.com/suan/vim-instant-markdown
