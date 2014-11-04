@@ -79,4 +79,8 @@ done
 # set the terminal ui
 . gnome-terminal-profile.sh
 
+# support terminal italic font
+cd terminal-italic-font/
+. italic.sh
+
 # vim:ts=4:sw=4:sts=4:et:fdm=marker:ft=sh
