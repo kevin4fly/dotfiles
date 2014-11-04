@@ -35,10 +35,14 @@ nnoremap L $
 nnoremap j gj
 nnoremap k gk
 " easy move around in insert and command mode
-inoremap <c-j> <down>
-inoremap <c-k> <up>
-noremap! <c-h> <left>
-noremap! <c-l> <right>
+inoremap <expr><c-j>    pumvisible() ? "\<c-n>" : "\<down>"
+inoremap <expr><c-k>    pumvisible() ? "\<c-p>" : "\<up>"
+inoremap <expr><c-l>    pumvisible() ? "\<c-y>" : "\<right>"
+inoremap <expr><Enter>  pumvisible() ? "\<c-y>" : "\<Enter>"
+cnoremap <c-l> <right>
+inoremap <c-h> <left>
+cnoremap <c-h> <left>
+
 " move word backward like normal mode
 inoremap <c-b> <esc>bi
 " delete a char in insert and command mode

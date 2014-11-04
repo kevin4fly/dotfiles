@@ -693,4 +693,13 @@ NeoBundle 'wellle/tmux-complete.vim', {
             \ 'name' : 'tmux-complete',
             \ }
 
+" NeoBundle 'vim-scripts/cecutil'
+NeoBundle 'vim-scripts/vis', {
+            \ 'name' : 'vis',
+            \ }
+
+NeoBundle 'navicore/vissort.vim', {
+            \ 'name' : 'vis-sort',
+            \ }
+
 " vim:tw=78:ts=2:sw=2:sts=2:et:fdm=marker

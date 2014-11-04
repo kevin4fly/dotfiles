@@ -17,15 +17,14 @@ endif
 
 " settings for YouCompleteme plugin{{{2
 
-inoremap <expr><Enter> pumvisible() ? "\<c-y>" : "\<Enter>"
 " the python module used to compile the editing file
-let g:ycm_global_ycm_extra_conf              =
+let g:ycm_global_ycm_extra_conf               =
   \ '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
-let g:ycm_min_num_identifier_candidate_chars = 4
-let g:ycm_seed_identifiers_with_syntax       = 1
-let g:ycm_complete_in_comments               = 1
-let g:ycm_key_list_select_completion         = ['<tab>', '<down>', '<c-j>']
-let g:ycm_key_list_previous_completion       = ['<s-tab>', '<up>', '<c-k>']
+let g:ycm_min_num_identifier_candidate_chars  = 4
+let g:ycm_seed_identifiers_with_syntax        = 1
+let g:ycm_complete_in_comments                = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_seed_identifiers_with_syntax        = 1
 
 nnoremap [t :YcmCompleter GoTo<cr>
 nnoremap [d :YcmCompleter GoToDefinition<cr>
@@ -239,7 +238,8 @@ if neobundle#tap('unite')
     nnoremap <silent> <buffer><expr> s unite#do_action('below')
     inoremap <silent> <buffer><expr> <c-s> unite#do_action('below')
     nnoremap <silent> <buffer><expr> l     unite#do_action('default')
-    inoremap <silent> <buffer>       <c-l> <right>
+    inoremap <silent> <buffer><expr> <c-l>
+          \ getcurpos()[1]==1 ? "\<right>" : unite#do_action('default')
     inoremap <silent> <buffer>       <c-h> <left>
     inoremap <silent> <buffer>       <c-f> <bs>
     nmap <silent> <buffer> h         <plug>(unite_exit)
