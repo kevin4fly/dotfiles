@@ -117,9 +117,6 @@ set wrap
 " Qap (mapped Q to gq already)
 set textwidth=78
 
-" this makes the color after the textwidth column highlighted
-set colorcolumn=+1
-
 " highlight cursor line/colomn
 set cursorline
 " set cursorcolumn

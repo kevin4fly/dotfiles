@@ -52,9 +52,9 @@ cnoremap <c-k> <c-\>e getcmdpos() == 1 ?
       \ '' : getcmdline()[:getcmdpos()-2]<cr>
 
 " consistent with readline
-inoremap <c-a> <ESC>I
-inoremap <c-e> <ESC>A
-inoremap <c-o> <ESC>o
+inoremap <c-a> <esc>I
+inoremap <c-e> <esc>A
+inoremap <c-o> <esc>o
 
 " for easy search
 nnoremap <leader>/ ?

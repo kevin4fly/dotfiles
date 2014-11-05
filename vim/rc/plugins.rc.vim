@@ -242,6 +242,8 @@ if neobundle#tap('unite')
           \ getcurpos()[1]==1 ? "\<right>" : unite#do_action('default')
     inoremap <silent> <buffer>       <c-h> <left>
     inoremap <silent> <buffer>       <c-f> <bs>
+    inoremap <silent> <buffer>       <c-e> <end>
+    inoremap <silent> <buffer>       <c-a> <home>
     nmap <silent> <buffer> h         <plug>(unite_exit)
     nmap <silent> <buffer> H         <plug>(unite_all_exit)
     nmap <silent> <buffer> <c-o>     <plug>(unite_redraw)
@@ -283,8 +285,8 @@ if neobundle#tap('vimfiler')
   " show airline's statusline
 	let g:vimfiler_force_overwrite_statusline = 0
   " toggle vimfiler and vimfilerexplorer
-  nnoremap <silent> <leader>ts   :<c-u>VimFilerSplit<CR>
-  nnoremap <silent> <leader>tt   :<c-u>VimFilerExplorer<CR>
+  nnoremap <silent> <leader>ts   :<c-u>VimFilerSplit<cr>
+  nnoremap <silent> <leader>tt   :<c-u>VimFilerExplorer<cr>
   " change mappings <c-j> <c-l> to avoid confliction
   function! neobundle#hooks.on_post_source(bundle)
     function! s:vimfiler_settings()
@@ -631,10 +633,10 @@ if neobundle#tap('surround')
 endif
 
 " settings for drag-visual{{{2
-vmap  <expr>  <LEFT>   DVB_Drag('left')
-vmap  <expr>  <RIGHT>  DVB_Drag('right')
-vmap  <expr>  <DOWN>   DVB_Drag('down')
-vmap  <expr>  <UP>     DVB_Drag('up')
+vmap  <expr>  <left>   DVB_Drag('left')
+vmap  <expr>  <right>  DVB_Drag('right')
+vmap  <expr>  <down>   DVB_Drag('down')
+vmap  <expr>  <up>     DVB_Drag('up')
 vmap  <expr>  D        DVB_Duplicate()
 
 " settings for table-cell-selection{{{2
@@ -704,14 +706,22 @@ endif
 " settings for incsearch{{{2
 if neobundle#tap('incsearch')
 
+  function! neobundle#tapped.hooks.on_post_source(bundle)
+    IncSearchNoreMap <c-a> <home>
+    IncSearchNoreMap <c-e> <end>
+    IncSearchNoreMap <c-l> <right>
+    IncSearchNoreMap <c-h> <left>
+    IncSearchNoreMap <c-f> <bs>
+  endfunction
+
   " let g:incsearch#auto_nohlsearch = 1
   nmap /  <plug>(incsearch-forward)
   nmap ?  <plug>(incsearch-backward)
   nmap g/ <plug>(incsearch-stay)
   " nmap n  <plug>(incsearch-nohl-n)
   " nmap N  <plug>(incsearch-nohl-N)
-  nmap n  <plug>(incsearch-nohl-n)zv:ShowSearchIndex<CR>
-  nmap N  <plug>(incsearch-nohl-N)zv:ShowSearchIndex<CR>
+  nmap n  <plug>(incsearch-nohl-n)zv:ShowSearchIndex<cr>
+  nmap N  <plug>(incsearch-nohl-N)zv:ShowSearchIndex<cr>
   nmap *  <plug>(incsearch-nohl-*)
   nmap #  <plug>(incsearch-nohl-#)
   nmap g* <plug>(incsearch-nohl-g*)
