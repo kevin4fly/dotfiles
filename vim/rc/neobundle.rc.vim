@@ -31,6 +31,75 @@ NeoBundle 'endel/vim-github-colorscheme', {
             \ 'name' : 'github-colorscheme',
             \ }
 
+" version-controlling related{{{1
+
+" set the git wrapper{{{2
+NeoBundleLazy 'tpope/vim-fugitive', {
+            \ 'name'     : 'fugitive',
+            \ 'mappings' : ',gg',
+            \ 'augroup'  : 'fugitive',
+            \ 'commands' : [
+            \               { 'name' : ['Git', 'Gcd', 'Glcd', 'Gstatus',
+            \                           'Gcommit', 'Ggrep', 'Glgrep', 'Glog',
+            \                           'Gllog', 'Gedit', 'Gsplit', 'Gvsplit',
+            \                           'Gtabedit', 'Gpedit', 'Gread',
+            \                           'Gwrite', 'Gwq', 'Gdiff', 'Gsdiff',
+            \                           'Gvdiff', 'Gmove', 'Gremove',
+            \                           'Gblame', 'Gbrowse'],
+            \               }
+            \              ],
+            \ }
+
+" show git log nice way{{{2
+NeoBundleLazy 'gregsexton/gitv', {
+            \ 'name'     : 'gitv',
+            \ 'depends'  : 'fugitive',
+            \ 'commands' : [
+            \               { 'name': ['Gitv']},
+            \              ],
+            \ }
+
+" gather candidates from your git repository
+NeoBundleLazy 'yuku-t/unite-git', {
+            \ 'name'    : 'unite-git',
+            \ 'depends' : 'unite',
+            \ }
+
+" view single or mutilple patch
+NeoBundleLazy 'junkblocker/patchreview-vim', {
+            \ 'name'   : 'patch-review',
+            \ 'commands' : [
+            \               { 'name': ['DiffReview', 'PatchReview',
+            \                          'ReversePatchReview' ],
+            \               }
+            \              ],
+            \ }
+
+" use signs to indicate added, modified and removed lines{{{2
+NeoBundle 'mhinz/vim-signify', {
+            \ 'name' : 'signify',
+            \ }
+" show git diff in the 'gutter' way{{{2
+" NeoBundleLazy 'airblade/vim-gitgutter'
+
+" select your github repos
+NeoBundleLazy 'sorah/unite-ghq', {
+            \ 'name'    : 'unite-ghq',
+            \ 'depends' : 'unite',
+            \ }
+
+" manipulate gists{{{2
+NeoBundleLazy 'lambdalisue/vim-gista', {
+            \ 'name'     : 'gista',
+            \ 'depends'  : ['unite', 'open-browser'],
+            \ 'autoload' : {
+            \	              'commands'      : ['Gista'],
+            \	              'mappings'      : '<plug>(gista-',
+            \	              'unite_sources' : 'gista',
+            \              },
+            \ }
+
+
 " c family related{{{1
 
 " complete identifier for all, semantic completion for c-family language{{{2
@@ -232,6 +301,12 @@ NeoBundleLazy 'Shougo/unite-help', {
             \ 'depends' : 'unite',
             \ }
 
+" change directory of the currect tab
+NeoBundle 'kana/vim-tabpagecd', {
+            \ 'name'          : 'tabpage-cd',
+            \ 'unite_sources' : 'tab',
+            \ }
+
 " explore filesysterm{{{2
 NeoBundleLazy 'Shougo/vimfiler.vim', {
             \ 'name'     : 'vimfiler',
@@ -294,12 +369,6 @@ NeoBundleLazy 'sjl/gundo.vim', {
             \              ],
             \ }
 
-" provides a much simpler way to use some motions{{{2
-NeoBundleLazy 'Lokaltog/vim-easymotion', {
-            \ 'name'     : 'easy-motion',
-            \ 'mappings' : '<plug>',
-            \ }
-
 " manage the yanked text{{{2
 NeoBundle 'vim-scripts/YankRing.vim', {
             \ 'name' : 'yank-ring',
@@ -321,6 +390,9 @@ NeoBundleLazy 'godlygeek/tabular', {
 NeoBundleLazy 'junegunn/vim-easy-align', {
             \ 'name'     : 'easy-align',
             \ 'mappings' : '<plug>(EasyAlign)',
+            \ 'commands' : [
+            \               { 'name' : ['EasyAlign']},
+            \              ],
             \ }
 
 " focuss on a region and make the rest inaccessible (narrow region){{{2
@@ -497,22 +569,6 @@ NeoBundleLazy 'tpope/vim-dispatch', {
             \              ],
             \ }
 
-" set the git wrapper{{{2
-NeoBundleLazy 'tpope/vim-fugitive', {
-            \ 'name'     : 'fugitive',
-            \ 'mappings' : ',gg',
-            \ 'augroup'  : 'fugitive',
-            \ 'commands' : [
-            \               { 'name' : ['Git', 'Gcd', 'Glcd', 'Gstatus',
-            \                           'Gcommit', 'Ggrep', 'Glgrep', 'Glog',
-            \                           'Gllog', 'Gedit', 'Gsplit', 'Gvsplit',
-            \                           'Gtabedit', 'Gpedit', 'Gread',
-            \                           'Gwrite', 'Gwq', 'Gdiff', 'Gsdiff',
-            \                           'Gvdiff', 'Gmove', 'Gremove',
-            \                           'Gblame', 'Gbrowse'],
-            \               }
-            \              ],
-            \ }
 " abbreviate, substitute and search several variations of a word{{{2
 NeoBundle 'tpope/vim-abolish', {
             \ 'name' : 'abolish'
@@ -567,13 +623,10 @@ NeoBundleLazy 'valloric/MatchTagAlways', {
             \ 'filetypes' : ['html', 'xml'],
             \ }
 
-" use signs to indicate added, modified and removed lines{{{2
-NeoBundle 'mhinz/vim-signify', {
-            \ 'name' : 'signify',
+NeoBundleLazy 'vim-scripts/matchit.zip', {
+            \ 'name'     : 'match-it',
+            \ 'mappings' : [['nxo', '%', 'g%']],
             \ }
-
-" show git diff in the 'gutter' way{{{2
-" NeoBundleLazy 'airblade/vim-gitgutter'
 
 " show vertical lines at indentation{{{2
 NeoBundle 'Yggdroot/indentLine', {
@@ -623,29 +676,27 @@ NeoBundleLazy 'wogong/msmtp.vim', {
 
 " misc{{{1
 
+" provides a much simpler way to use some motions{{{2
+NeoBundleLazy 'Lokaltog/vim-easymotion', {
+            \ 'name'     : 'easy-motion',
+            \ 'mappings' : '<plug>',
+            \ }
+
+NeoBundleLazy 'bkad/CamelCaseMotion', {
+            \ 'name'     : 'camelcase-motion',
+            \ 'mappings' : '<plug>CamelCaseMotion_',
+            \ }
+
+" accelerate j/k motion{{{2
+NeoBundleLazy 'rhysd/accelerated-jk', {
+            \ 'name'     : 'accelerated-jk',
+            \ 'mappings' : '<Plug>(accelerated_jk_',
+            \ }
+
 " open URI with your favorite browser{{{2
 NeoBundleLazy 'tyru/open-browser.vim', {
             \ 'name'     : 'open-browser',
             \	'mappings' : '<plug>(openbrowser-',
-            \ }
-
-" manipulate gists{{{2
-NeoBundleLazy 'lambdalisue/vim-gista', {
-            \ 'name'     : 'gista',
-            \ 'depends'  : ['unite', 'open-browser'],
-            \ 'autoload' : {
-            \	              'commands'      : ['Gista'],
-            \	              'mappings'      : '<plug>(gista-',
-            \	              'unite_sources' : 'gista',
-            \              },
-            \ }
-
-" show git log nice way{{{2
-NeoBundleLazy 'gregsexton/gitv', {
-            \ 'name'     : 'gitv',
-            \ 'commands' : [
-            \               { 'name': ['Gitv']},
-            \              ],
             \ }
 
 " manage your notes{{{2

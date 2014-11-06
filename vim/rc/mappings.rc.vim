@@ -37,11 +37,9 @@ nnoremap k gk
 " easy move around in insert and command mode
 inoremap <expr><c-j>    pumvisible() ? "\<c-n>" : "\<down>"
 inoremap <expr><c-k>    pumvisible() ? "\<c-p>" : "\<up>"
-inoremap <expr><c-l>    pumvisible() ? "\<c-y>" : "\<right>"
 inoremap <expr><Enter>  pumvisible() ? "\<c-y>" : "\<Enter>"
-cnoremap <c-l> <right>
-inoremap <c-h> <left>
-cnoremap <c-h> <left>
+noremap! <c-l> <right>
+noremap! <c-h> <left>
 
 " move word backward like normal mode
 inoremap <c-b> <esc>bi

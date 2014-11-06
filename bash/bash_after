@@ -38,4 +38,8 @@ nvm use $NVM_VER 1 > /dev/null
 # for npm completion
 eval "$(npm completion)"
 
+# for go
+export GOPATH="$HOME/work/go"
+export PATH=$PATH:$GOPATH/bin
+
 # vim:tw=78:ts=4:sw=4:sts=4:et:fdm=marker:ft=sh

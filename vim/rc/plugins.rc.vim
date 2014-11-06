@@ -13,6 +13,57 @@ if neobundle#tap('neobundle')
   call neobundle#untap()
 endif
 
+" version-controlling related{{{1
+
+" settings for fugitive{{{2
+if neobundle#tap('fugitive')
+  function! neobundle#tapped.hooks.on_post_source(bundle)
+    nnoremap <silent> <leader>gg :Gstatus<cr>
+    doautoall fugitive BufNewFile
+  endfunction
+
+  call neobundle#untap()
+endif
+
+" settings for signify{{{2
+if neobundle#tap('signify')
+  let g:signify_vcs_list                     = [ 'git', 'hg' ]
+  let g:signify_difftool                     = 'vimdiff'
+  let g:signify_sign_add                     = '+'
+  let g:signify_sign_change                  = '*'
+  let g:signify_sign_delete                  = '-'
+  let g:signify_sign_delete_first_line       = '^'
+  " for [repeat]
+  nmap <silent> [c <plug>(signify-prev-hunk)\|
+          \:call repeat#set("\<plug>(signify-prev-hunk)", v:count)<cr>
+  nmap <silent> ]c <plug>(signify-next-hunk)\|
+          \:call repeat#set("\<plug>(signify-next-hunk)", v:count)<cr>
+
+  " set colors for signify
+  " highlight lines in Sy and vimdiff etc.)
+  highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
+  highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
+  highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
+  " highlight signs in Sy
+  highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
+  highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
+  highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
+
+  call neobundle#untap()
+endif
+
+" settings for gista{{{2
+if neobundle#tap('gista')
+  " help: ~/.vim/bundle/vim-gista/autoload/gista/interface.vim
+  " line 170: ? line 177: * line: 235 comment out
+  let g:gista#github_user              = 'kevin4fly'
+  let g:gista#directory                = '~/.vimtmp/gista/'
+  let g:gista#default_yank_method      = 'gistid'
+  " let g:gista#close_list_after_open = 1
+
+  call neobundle#untap()
+endif
+
 " c family related{{{1
 
 " settings for YouCompleteme plugin{{{2
@@ -212,7 +263,7 @@ if neobundle#tap('unite')
   nnoremap <silent>  [unite]g :<c-u>Unite -toggle -buffer-name=grep
                                         \ grep:.<cr>
   nnoremap <silent>  [unite]h :<c-u>Unite -toggle -buffer-name=yank\ history
-                                        \ history/yank<cr>
+                                        \ history/yank register<cr>
   nnoremap <silent>  [unite]l :<c-u>Unite -toggle -buffer-name=line
                                         \ line<cr>
   nnoremap <silent>  [unite]m :<c-u>Unite -toggle -buffer-name=mark
@@ -244,12 +295,15 @@ if neobundle#tap('unite')
     inoremap <silent> <buffer>       <c-f> <bs>
     inoremap <silent> <buffer>       <c-e> <end>
     inoremap <silent> <buffer>       <c-a> <home>
+    imap <silent> <buffer> ;         <plug>(unite_choose_action)
+    nmap <silent> <buffer> ;         <plug>(unite_choose_action)
     nmap <silent> <buffer> h         <plug>(unite_exit)
     nmap <silent> <buffer> H         <plug>(unite_all_exit)
     nmap <silent> <buffer> <c-o>     <plug>(unite_redraw)
     imap <silent> <buffer> <c-o>     <plug>(unite_redraw)
     imap <silent> <buffer> <c-j>     <plug>(unite_select_next_line)
     imap <silent> <buffer> <c-k>     <plug>(unite_select_previous_line)
+    imap <silent> <buffer> <tab>     <plug>(unite_complete)
 
     let unite = unite#get_current_unite()
     if unite.profile_name ==# 'search'
@@ -343,18 +397,6 @@ if neobundle#tap('gundo')
   call neobundle#untap()
 endif
 
-" settings for easy-motion{{{2
-if neobundle#tap('easy-motion')
-  let g:EasyMotion_smartcase        = 1
-  let g:EasyMotion_leader_key       = '<space>'
-  nmap <silent> s <plug>(easymotion-s)
-  nmap <silent> S <plug>(easymotion-f)
-  omap <silent> z <plug>(easymotion-s)
-  omap <silent> Z <plug>(easymotion-f)
-
-  call neobundle#untap()
-endif
-
 " settings for yank-ring{{{2
 if neobundle#tap('yank-ring')
   let g:yankring_history_dir        = '~/.vimtmp/yankring'
@@ -401,16 +443,6 @@ endif
 if neobundle#tap('easy-align')
   vmap <enter>   <plug>(EasyAlign)
   nmap <leader>a <plug>(EasyAlign)
-
-  call neobundle#untap()
-endif
-
-" settings for fugitive{{{2
-nnoremap <silent> <leader>gg :Gstatus<cr>
-if neobundle#tap('fugitive')
-  function! neobundle#tapped.hooks.on_post_source(bundle)
-    doautoall fugitive BufNewFile
-  endfunction
 
   call neobundle#untap()
 endif
@@ -640,7 +672,7 @@ vmap  <expr>  <up>     DVB_Drag('up')
 vmap  <expr>  D        DVB_Duplicate()
 
 " settings for table-cell-selection{{{2
-vnoremap <silent><expr>  c  VTC_select()
+vnoremap <silent><expr>  b  VTC_select()
 
 " mark, marker and highlight{{{1
 
@@ -662,33 +694,6 @@ if neobundle#tap('airline')
   let g:airline_section_c                    = '%F'
   let g:airline_section_z                    =
     \'%3p%% %{g:airline_symbols.linenr}%#__accent_bold#%l/%L%#__restore__#:%3c'
-
-  call neobundle#untap()
-endif
-
-" settings for signify{{{2
-if neobundle#tap('signify')
-  let g:signify_vcs_list                     = [ 'git', 'hg' ]
-  let g:signify_difftool                     = 'vimdiff'
-  let g:signify_sign_add                     = '+'
-  let g:signify_sign_change                  = '*'
-  let g:signify_sign_delete                  = '-'
-  let g:signify_sign_delete_first_line       = '^'
-  " for [repeat]
-  nmap <silent> [c <plug>(signify-prev-hunk)\|
-          \:call repeat#set("\<plug>(signify-prev-hunk)", v:count)<cr>
-  nmap <silent> ]c <plug>(signify-next-hunk)\|
-          \:call repeat#set("\<plug>(signify-next-hunk)", v:count)<cr>
-
-  " set colors for signify
-  " highlight lines in Sy and vimdiff etc.)
-  highlight DiffAdd           cterm=bold ctermbg=none ctermfg=119
-  highlight DiffDelete        cterm=bold ctermbg=none ctermfg=167
-  highlight DiffChange        cterm=bold ctermbg=none ctermfg=227
-  " highlight signs in Sy
-  highlight SignifySignAdd    cterm=bold ctermbg=237  ctermfg=119
-  highlight SignifySignDelete cterm=bold ctermbg=237  ctermfg=167
-  highlight SignifySignChange cterm=bold ctermbg=237  ctermfg=227
 
   call neobundle#untap()
 endif
@@ -742,24 +747,47 @@ endif
 
 " misc {{{1
 
+" settings for easy-motion{{{2
+if neobundle#tap('easy-motion')
+  let g:EasyMotion_smartcase        = 1
+  let g:EasyMotion_leader_key       = '<space>'
+  nmap <silent> s <plug>(easymotion-s)
+  nmap <silent> S <plug>(easymotion-f)
+  omap <silent> z <plug>(easymotion-s)
+  omap <silent> Z <plug>(easymotion-f)
+
+  call neobundle#untap()
+endif
+
+" settings for camelcase-motion{{{2
+if neobundle#tap('camelcase-motion')
+  nmap <silent> w <plug>CamelCaseMotion_w
+  xmap <silent> w <plug>CamelCaseMotion_w
+  omap <silent> w <plug>CamelCaseMotion_w
+  nmap <silent> b <plug>CamelCaseMotion_b
+  " xmap <silent> b <plug>CamelCaseMotion_b
+  omap <silent> b <plug>CamelCaseMotion_b
+  nmap <silent> e <plug>CamelCaseMotion_e
+  xmap <silent> e <plug>CamelCaseMotion_e
+  omap <silent> e <plug>CamelCaseMotion_e
+
+  call neobundle#untap()
+endif
+
+" settings for accelerated-jk{{{2
+if neobundle#tap('accelerated-jk') "{{{
+  nmap <silent>j <Plug>(accelerated_jk_gj)
+  nmap <silent>k <Plug>(accelerated_jk_gk)
+
+  call neobundle#untap()
+endif "}}}
+
 " settings for openbrowser{{{2
 if neobundle#tap('open-browser')
   nmap <silent> [b <plug>(openbrowser-open)\|
           \:call repeat#set("\<plug>(openbrowser-open)", v:count)<cr>
   " vmap <silent> [b <plug>(openbrowser-open)\|
   "         \:call visualrepeat#set("\<plug>(openbrowser-open)", v:count)<cr>
-
-  call neobundle#untap()
-endif
-
-" settings for gista{{{2
-if neobundle#tap('gista')
-  " help: ~/.vim/bundle/vim-gista/autoload/gista/interface.vim
-  " line 170: ? line 177: * line: 235 comment out
-  let g:gista#github_user              = 'kevin4fly'
-  let g:gista#directory                = '~/.vimtmp/gista/'
-  let g:gista#default_yank_method      = 'gistid'
-  " let g:gista#close_list_after_open = 1
 
   call neobundle#untap()
 endif
