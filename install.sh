@@ -87,4 +87,7 @@ done
 cd terminal-italic-font/
 . italic.sh
 
+# retrieve all submodule(s)
+git pull && git submodule update --init --recursive
+
 # vim:ts=4:sw=4:sts=4:et:fdm=marker:ft=sh
