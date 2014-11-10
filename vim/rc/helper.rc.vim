@@ -62,15 +62,4 @@ endfunction
 
 autocmd filetype c,cpp nnoremap <leader>m :call ExpandCMacro()<cr><cr>
 
-" Highlight Class and Function names{{{1
-function! s:HighlightFunctionsAndClasses()
-  syn match cCustomFunc      "\w\+\s*\((\)\@="
-  syn match cCustomClass     "\w\+\s*\(::\)\@="
-
-  hi def link cCustomFunc      Function
-  hi def link cCustomClass     Function
-endfunction
-
-autocmd Syntax * call s:HighlightFunctionsAndClasses()
-
 " vim:tw=78:ts=2:sw=2:sts=2:et:fdm=marker

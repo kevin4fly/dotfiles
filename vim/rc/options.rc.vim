@@ -17,6 +17,7 @@ set fileformat=unix
 set fileformats=unix,dos,mac
 
 " enable syntax highlighting
+set background=dark
 syntax enable
 set t_Co=256
 
@@ -25,7 +26,6 @@ set timeout timeoutlen=1000 ttimeoutlen=50
 
 " color: ~/.vim/bundle/molokai/colors/molokai.vim
 " change line 187 to: hi PmenuSel        ctermfg=red ctermbg=16    cterm=bold
-set background=dark
 colorscheme molokai
 let base16colorspace=256
 " popup menu for terminal: red frontgroud and black backgroud
@@ -37,23 +37,25 @@ highlight Comment                         cterm=italic
 set writebackup
 " leave it around even after the file has been successfully writen
 " set backup
-set nobackup
+set backup
+" set directory for backup files
+set backupdir=~/.vimtmp/backup/
 " save swap file in case of crash
 set swapfile
 " set directory for swap file
-set dir=~/.vimtmp,/var/tmp,/tmp,$TEMP
+set dir=~/.vimtmp/swap/
 
 " keep undo file
 set undofile
 set undolevels=1000
 " set directory for undo file
-set undodir=~/.vimtmp,/var/tmp,/tmp,$TEMP
+set undodir=~/.vimtmp/undo/
 
 " keep the history of command line
 set history=1000
 
 " set viminfo
-set viminfo='50,<500,s20,h,n~/.vimtmp/viminfo
+set viminfo='50,<500,s20,h,n~/.vimtmp/viminfo/viminfo
 
 " show lines number
 set number
@@ -87,7 +89,10 @@ set switchbuf=useopen,usetab
 set splitright
 
 " put the new split window on the bottom side
-" set splitbelow
+set splitbelow
+
+" diff buffers in vertical way
+set diffopt+=vertical
 
 " hidden buffer when it is abandoned instead of unload from memory
 set hidden
@@ -119,16 +124,17 @@ set textwidth=78
 
 " highlight cursor line/colomn
 set cursorline
-" set cursorcolumn
-" show cursorline dynamically
-nnoremap <silent> <leader>co :if &cursorcolumn     \|
-                            \   set nocursorcolumn \|
-                            \ else                 \|
-                            \   set cursorcolumn   \|
-                            \ endif<cr>
+" trigger cursorcolumn line
+nnoremap <silent> <leader>co :set cursorcolumn!<cr>
 
 " set vertical line at the end
 set colorcolumn=78
+" trigger colorcolumn line
+nnoremap <silent> <leader>cc :if &colorcolumn             \|
+                            \    setlocal colorcolumn=0   \|
+                            \ else                        \|
+                            \    setlocal colorcolumn=78  \|
+                            \ endif<cr>
 
 " don't draw screen while executing macros, registers and commands
 set lazyredraw
@@ -183,11 +189,7 @@ set hlsearch
 set incsearch
 
 " trigger highlight or not after searching
-nnoremap <silent> <leader><cr> :if &hlsearch      \|
-                              \    set nohlsearch \|
-                              \ else              \|
-                              \    set hlsearch   \|
-                              \ endif<cr>
+nnoremap <silent> <cr> :set hlsearch!<cr>
 
 " this makes search/replace global by default
 set gdefault
@@ -204,7 +206,7 @@ set magic
 set showmatch
 
 " chars form pairs
-set matchpairs=(:),[:],{:},<:>,\':\',":",`:`
+set matchpairs=(:),[:],{:},<:>
 
 " without showing matched brackets
 " keep it here since blinking cursor is boring when matched

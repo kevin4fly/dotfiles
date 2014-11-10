@@ -2,16 +2,20 @@
 
 # A simple installer for the dotfiles
 
-# CONFIGURABLES ================================================================
+# CONFIGURABLES ==============================================================
 
 # new directories if needed
 NEW_DIRS[0]="vimtmp"
-NEW_DIRS[1]="vim"
-NEW_DIRS[2]="fonts"
-NEW_DIRS[3]="config/fontconfig/conf.d"
-NEW_DIRS[4]="ipython/profile_default/startup"
-NEW_DIRS[5]="w3m"
-NEW_DIRS[6]="cgdb"
+NEW_DIRS[1]="vimtmp/yankring"
+NEW_DIRS[2]="vimtmp/undo"
+NEW_DIRS[3]="vimtmp/swap"
+NEW_DIRS[4]="vimtmp/backup"
+NEW_DIRS[5]="vimtmp/viminfo"
+NEW_DIRS[6]="vim"
+NEW_DIRS[7]="config/fontconfig/conf.d"
+NEW_DIRS[8]="ipython/profile_default/startup"
+NEW_DIRS[9]="w3m"
+NEW_DIRS[10]="cgdb"
 
 for DIR in "${NEW_DIRS[@]}"; do
     if [[ ! -d ~/.$DIR ]]; then
@@ -51,11 +55,10 @@ for FILE in "${SIMPLE_FILES[@]}"; do
 done
 
 # a list of files need to be put into $HOME
-EXTENDED_FILES[0]="fonts/PowerlineSymbols.otf"
-EXTENDED_FILES[1]="config/fontconfig/conf.d/10-powerline-symbols.conf"
-EXTENDED_FILES[2]="w3m/keymap"
-EXTENDED_FILES[3]="w3m/config"
-EXTENDED_FILES[4]="ipython/profile_default/startup/ipythonstartup.ipy"
+EXTENDED_FILES[0]="config/fontconfig/conf.d/10-powerline-symbols.conf"
+EXTENDED_FILES[1]="w3m/keymap"
+EXTENDED_FILES[2]="w3m/config"
+EXTENDED_FILES[3]="ipython/profile_default/startup/ipythonstartup.ipy"
 
 for FILE in "${EXTENDED_FILES[@]}"; do
     rm -rf "$HOME/.$FILE"
@@ -63,13 +66,14 @@ for FILE in "${EXTENDED_FILES[@]}"; do
 done
 
 # a list of directories need to be put into $HOME
-EXTENDED_DIRS[0]="cgdb/cgdbrc"
-EXTENDED_DIRS[1]="vim/spell"
-EXTENDED_DIRS[2]="vim/UltiSnips"
-EXTENDED_DIRS[3]="vim/rc"
-EXTENDED_DIRS[4]="vim/local_bundle"
-EXTENDED_DIRS[5]="vim/tags"
-EXTENDED_DIRS[6]="mutt"
+EXTENDED_DIRS[0]="fonts"
+EXTENDED_DIRS[1]="cgdb/cgdbrc"
+EXTENDED_DIRS[2]="vim/spell"
+EXTENDED_DIRS[3]="vim/UltiSnips"
+EXTENDED_DIRS[4]="vim/rc"
+EXTENDED_DIRS[5]="vim/local_bundle"
+EXTENDED_DIRS[6]="vim/tags"
+EXTENDED_DIRS[7]="mutt"
 
 for DIR in ${EXTENDED_DIRS[@]}; do
     rm -rf "$HOME/.$DIR"

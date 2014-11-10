@@ -5,15 +5,18 @@
 " hide toolbar and menus.
 set guioptions-=tT
 set guioptions-=m
+set guioptions-=g
 " scrollbar is always off.
 set guioptions-=rL
 " not guitablabel.
 set guioptions-=e
+" not vim icon
+set guioptions-=i
 
 " confirm without window.
 set guioptions+=c
 
-" Views:"{{{
+" Views:"{{{1
 
 " don't highlight search result.
 set nohlsearch
@@ -23,6 +26,7 @@ set guicursor&
 set guicursor+=a:blinkon0
 
 " font&color
+set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 highlight PmenuSel        guifg=red guibg=black gui=bold
 highlight Comment                               gui=italic
 

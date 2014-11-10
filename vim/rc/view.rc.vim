@@ -8,7 +8,7 @@ nnoremap <silent> <c-j> :bprevious<cr>
 " refer to plugins.rc.vim
 
 " quit windows without saving
-nnoremap <silent> <leader>x :quit!<cr>
+nnoremap <silent> <leader>x :qall!<cr>
 " close tab or window
 nnoremap <silent> <leader>z :close<cr>
 " save all the files and then quit
@@ -40,9 +40,6 @@ nnoremap <leader>wo :only<cr>
 
 " switch cwd to the directory of the open buffer
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
-
-" open help text
-nnoremap <silent> <leader>h :help<cr>:wincmd L<cr>
 
 " return to last edit position when opening files (you want this!)
 autocmd bufreadpost *

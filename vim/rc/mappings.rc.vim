@@ -6,14 +6,15 @@ let g:mapleader = ","
 
 " fast saving
 nnoremap <leader>w :w!<cr>
+nnoremap <leader>wa :wall!<cr>
 " fast reloading the .vimrc
-nnoremap <silent> <leader>vv :source ~/.vimrc<cr> \|
+nnoremap <silent> <leader>vv :source $MYVIMRC<cr> \|
                            \ :filetype detect<cr> \|
-                           \ :execute ":echo 'vimrc reloaded'"<cr>
-" fast editing the .vimr
-nnoremap <silent> <leader>v :e ~/.vimrc<cr>
+                           \ :execute ":echo '~/.vimrc reloaded'"<cr>
+" fast editing the .vimrc
+nnoremap <silent> <leader>v :e $MYVIMRC<cr>
 " reload the .vimrc automatically if it is modified
-autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd! bufwritepost .vimrc source $MYVIMRC
 
 " goto command line mode
 nnoremap <leader><leader> :
@@ -29,7 +30,9 @@ cnoremap <c-a> <c-b>
 " remap vim 0 to first non-blank character
 nnoremap 0 ^
 nnoremap H ^
+vnoremap H ^
 nnoremap L $
+vnoremap L $
 
 " treat long lines as break lines
 nnoremap j gj
@@ -38,21 +41,25 @@ nnoremap k gk
 inoremap <expr><c-j>    pumvisible() ? "\<c-n>" : "\<down>"
 inoremap <expr><c-k>    pumvisible() ? "\<c-p>" : "\<up>"
 inoremap <expr><Enter>  pumvisible() ? "\<c-y>" : "\<Enter>"
+inoremap <c-o> <esc>lDa
 noremap! <c-l> <right>
 noremap! <c-h> <left>
+cnoremap <c-j> <down>
+cnoremap <c-k> <up>
 
 " move word backward like normal mode
 inoremap <c-b> <esc>bi
 " delete a char in insert and command mode
 noremap! <c-f> <bs>
-" kill line
-cnoremap <c-k> <c-\>e getcmdpos() == 1 ?
-      \ '' : getcmdline()[:getcmdpos()-2]<cr>
+" kill line from the current position to the last
+cnoremap <c-o> <c-\>e getcmdpos() == 1 ? '' : getcmdline()[:getcmdpos()-2]<cr>
+" kill the whole line
+cnoremap <c-x> <c-\>e ''<cr>
 
 " consistent with readline
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
-inoremap <c-o> <esc>o
+inoremap <c-n> <esc>o
 
 " for easy search
 nnoremap <leader>/ ?
@@ -109,11 +116,9 @@ nnoremap <silent> <leader>so :w !sudo tee % >/dev/null<cr>
 runtime! ftplugin/man.vim
 autocmd filetype * nnoremap <silent> K :Man <cword><cr>
 
-" new vertical split file put to right
-"set splitright
 " show this kinds of file on the right side
-" set the local buftype to help to golden view plugin
-autocmd filetype help,man,qf wincmd L       |
+" set the local buftype for golden view plugin
+autocmd filetype man,qf wincmd L            |
                   \ if &filetype=='man'     |
                   \   setlocal buftype=help |
                   \ endif

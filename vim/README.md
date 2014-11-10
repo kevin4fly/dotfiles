@@ -56,8 +56,9 @@ better for me.
        libclang.so to the correct path
        
     ```bash
-    cp LLVM_DIR/Release+Asserts/lib/libclang.so ~/ycm_build/
-    cd ~/ycm_build
+    mkdir ~/Downloads/ycm_build
+    cd ~/Downloads/ycm_build
+    cp LLVM_DIR/Release+Asserts/lib/libclang.so .
     # generate makefile
     cmake -G "Unix Makefiles" -DEXTERNAL_LIBCLANG_PATH=libclang.so \
         ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
@@ -84,5 +85,5 @@ better for me.
 [__install vim from source code__]: https://gist.github.com/kevin4fly/f74344649d09f903eb1b
 [neobundle]: https://github.com/Shougo/neobundle.vim#quick-start
 [YouCompleteMe]: https://github.com/Valloric/YouCompleteMe#full-installation-guide
-[airline with powerline fancy]: http://askubuntu.com/questions/283908/how-can-i-install-and-use-powerline-plugin
+[airline with powerline fancy]: https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation
 [vim-instant-markdown]: https://github.com/suan/vim-instant-markdown

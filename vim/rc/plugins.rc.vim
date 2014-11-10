@@ -240,8 +240,11 @@ if neobundle#tap('unite')
   " enable yank history
   let g:unite_source_history_yank_enable         = 1
   let g:unite_source_history_yank_save_clipboard = 1
+  let g:unite_source_mark_marks = "abcdefghijklmnopqrstuvwxyz"
+        \ . "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.'`^<>[]{}()\""
   let g:yankring_replace_n_pkey                  = 'gp'
   let g:yankring_replace_n_nkey                  = 'gn'
+  let g:unite_marked_icon                        = '✓'
   " change prompt and start NOT in insert mode
   call unite#custom#profile('default', 'context',
                           \ { 'prompt': '» ',
@@ -340,12 +343,12 @@ if neobundle#tap('vimfiler')
 	let g:vimfiler_force_overwrite_statusline = 0
   " toggle vimfiler and vimfilerexplorer
   nnoremap <silent> <leader>ts   :<c-u>VimFilerSplit<cr>
-  nnoremap <silent> <leader>tt   :<c-u>VimFilerExplorer<cr>
+  nnoremap <silent> <leader>tt   :<c-u>VimFilerCurrentDir -explorer<cr>
   " change mappings <c-j> <c-l> to avoid confliction
   function! neobundle#hooks.on_post_source(bundle)
     function! s:vimfiler_settings()
-      nnoremap <silent><buffer> <c-j> :bprevious<cr>
-      nnoremap <silent><buffer> <c-l> :tabnext<cr>
+      " nnoremap <silent><buffer> <c-j> <nop>
+      nnoremap <silent><buffer> <c-l> <nop>
       nnoremap <silent><buffer> <c-o> <plug>(vimfiler_redraw_screen)
     endfunction
     autocmd filetype vimfiler call s:vimfiler_settings()
@@ -368,7 +371,7 @@ endif
 if neobundle#tap('bbye')
   " close the current buffer
   nnoremap <silent> <leader>dd :Bdelete!<cr>
-  " close all the buffers: from #1 to #1000
+  " close all the buffers
   nnoremap <silent> <leader>da :bufdo :Bdelete<cr>
 
   call neobundle#untap()
@@ -461,7 +464,6 @@ if neobundle#tap('narrow-region')
 
   call neobundle#untap()
 endif
-
 
 " settings for inline edit{{{2
 if neobundle#tap('inline-edit')
@@ -666,9 +668,13 @@ endif
 
 " settings for drag-visual{{{2
 vmap  <expr>  <left>   DVB_Drag('left')
+vmap  <expr>  <c-h>    DVB_Drag('left')
 vmap  <expr>  <right>  DVB_Drag('right')
+vmap  <expr>  <c-l>    DVB_Drag('right')
 vmap  <expr>  <down>   DVB_Drag('down')
+vmap  <expr>  <c-j>    DVB_Drag('down')
 vmap  <expr>  <up>     DVB_Drag('up')
+vmap  <expr>  <c-k>    DVB_Drag('up')
 vmap  <expr>  D        DVB_Duplicate()
 
 " settings for table-cell-selection{{{2
@@ -750,11 +756,15 @@ endif
 " settings for easy-motion{{{2
 if neobundle#tap('easy-motion')
   let g:EasyMotion_smartcase        = 1
-  let g:EasyMotion_leader_key       = '<space>'
-  nmap <silent> s <plug>(easymotion-s)
-  nmap <silent> S <plug>(easymotion-f)
+  let g:EasyMotion_leader_key       = ""
+  nmap <silent> s <plug>(easymotion-f)
+  vmap <silent> s <plug>(easymotion-f)
+  nmap <silent> S <plug>(easymotion-F)
+  vmap <silent> S <plug>(easymotion-F)
   omap <silent> z <plug>(easymotion-s)
   omap <silent> Z <plug>(easymotion-f)
+  nmap ; <plug>(easymotion-next)
+  nmap , <plug>(easymotion-prev)
 
   call neobundle#untap()
 endif

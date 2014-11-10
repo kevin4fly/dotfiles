@@ -23,12 +23,12 @@ set show-all-if-unmodified on
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
 "\C-w": backward-kill-word
-"\C-p": history-search-backward
-"\C-n": history-search-forward
+"\C-k": history-search-backward
+"\C-j": history-search-forward
 "\C-a": beginning-of-line
 "\C-e": end-of-line
 "\C-u": unix-line-discard
-"\C-k": kill-line
+"\C-o": kill-line
 "\C-x": kill-whole-line
 "\C-f": backward-delete-char
 
@@ -38,15 +38,15 @@ $if mode=vi
     "G": end-of-history
     "H": beginning-of-line
     "L": end-of-line
-    "\C-o": clear-screen
+    "\C-p": clear-screen
     #after 'set keymap vi-insert'?
     set keymap vi-insert
     "jj": vi-movement-mode
-    "\C-o": clear-screen
+    "\C-p": clear-screen
 $endif
 
 $if python
-    "\C-o": clear-screen
+    "\C-p": clear-screen
 $endif
 
 # vim:tw=78:ts=4:sw=4:sts=4:et:fdm=marker:ft=readline

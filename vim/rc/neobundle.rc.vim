@@ -67,7 +67,7 @@ NeoBundleLazy 'yuku-t/unite-git', {
 
 " view single or mutilple patch
 NeoBundleLazy 'junkblocker/patchreview-vim', {
-            \ 'name'   : 'patch-review',
+            \ 'name'     : 'patch-review',
             \ 'commands' : [
             \               { 'name': ['DiffReview', 'PatchReview',
             \                          'ReversePatchReview' ],
@@ -623,7 +623,7 @@ NeoBundleLazy 'valloric/MatchTagAlways', {
             \ 'filetypes' : ['html', 'xml'],
             \ }
 
-NeoBundleLazy 'vim-scripts/matchit.zip', {
+NeoBundle 'vim-scripts/matchit.zip', {
             \ 'name'     : 'match-it',
             \ 'mappings' : [['nxo', '%', 'g%']],
             \ }
@@ -719,8 +719,8 @@ NeoBundle 'thinca/vim-ref', {
 
 " change the content of quickfix{{{2
 NeoBundleLazy 'thinca/vim-qfreplace', {
-            \ 'name': 'quickfix-replace',
-            \ 'commands': [
+            \ 'name'     : 'quickfix-replace',
+            \ 'commands' : [
             \              { 'name': 'Qfreplace'},
             \             ],
             \ }
