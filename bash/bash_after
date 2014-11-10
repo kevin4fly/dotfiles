@@ -39,6 +39,8 @@ nvm use $NVM_VER 1 > /dev/null
 eval "$(npm completion)"
 
 # for go
+export PATH="$HOME/.goenv/bin:$PATH"
+eval "$(goenv init -)"
 export GOPATH="$HOME/work/go"
 export PATH=$PATH:$GOPATH/bin
 
