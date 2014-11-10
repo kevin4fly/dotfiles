@@ -35,7 +35,7 @@ silent! vmap     <unique><silent><expr>  <  <SID>ShiftKeepingSelection("<")
 
 " When case changing, retain selection...
 silent! vnoremap <unique><silent><expr>  ~  <SID>OpKeepingSelection("~")
-silent! vnoremap <unique><silent><expr>  L  <SID>OpKeepingSelection("u")
+silent! vnoremap <unique><silent><expr>  u  <SID>OpKeepingSelection("u")
 silent! vnoremap <unique><silent><expr>  U  <SID>OpKeepingSelection("U")
 silent! vnoremap <unique><silent><expr>  J  <SID>OpKeepingSelection("J")
 
@@ -55,7 +55,7 @@ silent! vnoremap <unique><silent>        <CR>   <ESC>
 silent! vnoremap <unique><silent>        ZZ     <ESC>ZZ
 
 " Allow selection to persist through an undo...
-silent! vnoremap <unique><silent>        u      <ESC>ugv
+" silent! vnoremap <unique><silent>        u      <ESC>ugv
 silent! vnoremap <unique><silent>        <C-R>  <ESC><C-R>gv
 
 
