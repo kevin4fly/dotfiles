@@ -178,6 +178,8 @@ set whichwrap=b,s,<,>,h,l
 
 " ignore case when searching
 set ignorecase
+" ignore case when completing file names and directories
+set wildignorecase
 
 " search to be smart about cases
 set smartcase
