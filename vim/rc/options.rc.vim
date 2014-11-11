@@ -89,7 +89,7 @@ set switchbuf=useopen,usetab
 set splitright
 
 " put the new split window on the bottom side
-set splitbelow
+" set splitbelow
 
 " diff buffers in vertical way
 set diffopt+=vertical

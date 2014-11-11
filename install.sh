@@ -12,10 +12,9 @@ NEW_DIRS[3]="vimtmp/swap"
 NEW_DIRS[4]="vimtmp/backup"
 NEW_DIRS[5]="vimtmp/viminfo"
 NEW_DIRS[6]="vim"
-NEW_DIRS[7]="config/fontconfig/conf.d"
-NEW_DIRS[8]="ipython/profile_default/startup"
-NEW_DIRS[9]="w3m"
-NEW_DIRS[10]="cgdb"
+NEW_DIRS[7]="ipython/profile_default/startup"
+NEW_DIRS[8]="w3m"
+NEW_DIRS[9]="cgdb"
 
 for DIR in "${NEW_DIRS[@]}"; do
     if [[ ! -d ~/.$DIR ]]; then
@@ -55,7 +54,6 @@ for FILE in "${SIMPLE_FILES[@]}"; do
 done
 
 # a list of files need to be put into $HOME
-EXTENDED_FILES[0]="config/fontconfig/conf.d/10-powerline-symbols.conf"
 EXTENDED_FILES[1]="w3m/keymap"
 EXTENDED_FILES[2]="w3m/config"
 EXTENDED_FILES[3]="ipython/profile_default/startup/ipythonstartup.ipy"
@@ -86,8 +84,5 @@ done
 # support terminal italic font
 cd terminal-italic-font/
 . italic.sh
-
-# retrieve all submodule(s)
-git pull && git submodule update --init --recursive
 
 # vim:ts=4:sw=4:sts=4:et:fdm=marker:ft=sh
