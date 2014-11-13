@@ -40,8 +40,8 @@ silent! vnoremap <unique><silent><expr>  U  <SID>OpKeepingSelection("U")
 silent! vnoremap <unique><silent><expr>  J  <SID>OpKeepingSelection("J")
 
 " When substituting, retain selection...
-silent! vnoremap <unique><silent><expr>  s  <SID>SubstKeepingSelection("s")
-silent! vnoremap <unique><silent><expr>  S  <SID>SubstKeepingSelection("S")
+" silent! vnoremap <unique><silent><expr>  s  <SID>SubstKeepingSelection("s")
+" silent! vnoremap <unique><silent><expr>  S  <SID>SubstKeepingSelection("S")
 silent! vnoremap <unique><silent><expr>  c  <SID>SubstKeepingSelection("c")
 silent! vnoremap <unique><silent><expr>  C  <SID>SubstKeepingSelection("C")
 
