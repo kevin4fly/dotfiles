@@ -54,7 +54,7 @@ better for me.
 #####1.YouCompleteMe
    - for semantic completion support, we have to copy the generated
        libclang.so to the correct path
-       
+
     ```bash
     mkdir ~/Downloads/ycm_build
     cd ~/Downloads/ycm_build
@@ -64,12 +64,12 @@ better for me.
         ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp
     make ycm_support_libs
     ```
-        
+
    - for different language semantic code complete engine,
      we need to change the flags to reflect this.
-        
+
     ```bash
-    vim .vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py
+    vim ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py
     ```
 
     for c language, change line 55: from `'-std=c++11',` to `'-std=c99',` and
