@@ -7,13 +7,19 @@ NeoBundleFetch 'Shougo/neobundle.vim', {
             \ 'name' : 'neobundle',
             \ }
 
-" colorschem related{{{1
+" colorscheme related{{{1
 
 " manage colorscheme with unite{{{2
-NeoBundleLazy 'ujihisa/unite-colorscheme', {
-            \ 'name'    : 'unite-colorscheme',
-            \ 'depends' : 'unite',
-            \ }
+" NeoBundleLazy 'ujihisa/unite-colorscheme', {
+"             \ 'name'    : 'unite-colorscheme',
+"             \ 'depends' : 'unite',
+"             \ }
+
+" manage font with unite
+" NeoBundleLazy 'ujihisa/unite-font', {
+"             \ 'name' : 'unite-font',
+"             \ 'depends' : 'unite',
+"             \ }
 
 " add molokai colorscheme(default)
 NeoBundle 'tomasr/molokai', {
@@ -22,14 +28,14 @@ NeoBundle 'tomasr/molokai', {
 
 " waiting for https://github.com/chriskempson/base16-builder/issues/179{{{2
 " add base16-vim colorscheme
-NeoBundle 'chriskempson/base16-vim', {
-            \ 'name' : 'base16-colorscheme',
-            \ }
+" NeoBundleLazy 'chriskempson/base16-vim', {
+"             \ 'name' : 'base16-colorscheme',
+"             \ }
 
-" add github colorscheme{{{2
-NeoBundle 'endel/vim-github-colorscheme', {
-            \ 'name' : 'github-colorscheme',
-            \ }
+" add more vim colorscheme
+" NeoBundleLazy 'flazz/vim-colorschemes', {
+"             \ 'name' : 'flazz-colorschemes',
+"             \ }
 
 " version-controlling related{{{1
 
@@ -220,11 +226,10 @@ NeoBundleLazy 'suan/vim-instant-markdown', {
 
 " sytax highlight for markdown file{{{2
 NeoBundleLazy 'plasticboy/vim-markdown', {
-            \ 'name'      : 'markdown-syntax',
+            \ 'name'      : 'plasticboy-markdown-syntax',
             \ 'depends'   : 'tabular',
             \ 'filetypes' : ['markdown', 'md'],
             \ }
-
 
 " file, buffer related{{{1
 
@@ -587,10 +592,9 @@ NeoBundleLazy 'tpope/vim-surround', {
             \ }
 
 " format text{{{2
-" NeoBundleLazy 'reedes/vim-pencil', {
-"             \ 'name'   : 'pencil',
-"             \ 'insert' : 1,
-"             \ }
+NeoBundle 'reedes/vim-pencil', {
+            \ 'name'     : 'pencil',
+            \ }
 
 " repeat your mapping in normal mode{{{2
 NeoBundleLazy 'tpope/vim-repeat', {
@@ -639,10 +643,10 @@ NeoBundle 'kshenoy/vim-signature', {
             \ }
 
 " provide incremental highlighting for all pattern matches{{{2
-NeoBundleLazy 'haya14busa/incsearch.vim', {
-            \ 'name'     : 'incsearch',
-            \ 'mappings' : ['<plug>(incsearch-'],
-            \ }
+" NeoBundleLazy 'haya14busa/incsearch.vim', {
+"             \ 'name'     : 'incsearch',
+"             \ 'mappings' : ['<plug>(incsearch-'],
+"             \ }
 
 " show details of the position of the search result{{{2
 NeoBundleLazy 'henrik/vim-indexed-search', {
@@ -679,7 +683,7 @@ NeoBundleLazy 'wogong/msmtp.vim', {
 " provides a much simpler way to use some motions{{{2
 NeoBundleLazy 'Lokaltog/vim-easymotion', {
             \ 'name'     : 'easy-motion',
-            \ 'mappings' : '<plug>',
+            \ 'mappings' : '<plug>(easymotion-',
             \ }
 
 NeoBundleLazy 'bkad/CamelCaseMotion', {
@@ -721,8 +725,8 @@ NeoBundle 'thinca/vim-ref', {
 NeoBundleLazy 'thinca/vim-qfreplace', {
             \ 'name'     : 'quickfix-replace',
             \ 'commands' : [
-            \              { 'name': 'Qfreplace'},
-            \             ],
+            \               { 'name': 'Qfreplace'},
+            \              ],
             \ }
 
 " execute whole or part of the editing file{{{2
@@ -734,8 +738,19 @@ NeoBundleLazy 'thinca/vim-quickrun', {
             \              ],
             \ }
 
+" shell implemented by pure vim script{{{2
+NeoBundle 'Shougo/vimshell.vim', {
+            \ 'name'     : 'vimshell.vim',
+            \ 'commands' : [
+            \               { 'name'     : 'VimShell',
+            \                 'complete' : 'customlist,vimshell#complete',
+            \               },
+            \              ],
+            \ 'mappings' : '<Plug>'
+            \ }
+
 " turn a Vim buffer into a terminal emulator{{{2
-NeoBundleLazy 'rosenfeld/conque-term', {
+NeoBundle 'rosenfeld/conque-term', {
             \ 'name' : 'conque-terminal',
             \ }
 

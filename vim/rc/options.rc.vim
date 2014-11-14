@@ -10,9 +10,6 @@ if has("multi_byte")
   set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-" set the file format
-set fileformat=unix
-
 " auto detect to determin the end-of-file<EOL> formats
 set fileformats=unix,dos,mac
 
@@ -54,8 +51,12 @@ set undodir=~/.vimtmp/undo/
 " keep the history of command line
 set history=1000
 
-" set viminfo
-set viminfo='50,<500,s20,h,n~/.vimtmp/viminfo/viminfo
+" settings for viminfo
+set viminfo='1000,f1,<500,s20,h,n~/.vimtmp/viminfo/viminfo
+
+" settings for session
+set sessionoptions=buffers,curdir,folds,globals,help,localoptions,options,
+      \tabpages,winsize,unix,slash
 
 " show lines number
 set number
@@ -111,9 +112,7 @@ set laststatus=2
 set showcmd
 
 " tabs and eols
-set listchars+=tab:▸\ ,eol:$
-" spaces
-set listchars+=trail:⋅,nbsp:⋅
+set listchars=eol:$,tab:▸.,trail:-,extends:»,precedes:«,nbsp:%
 
 " wrap lines to see the whole line instead of truncation or scroll
 set wrap
@@ -191,7 +190,7 @@ set hlsearch
 set incsearch
 
 " trigger highlight or not after searching
-nnoremap <silent> <cr> :set hlsearch!<cr>
+nnoremap <silent> <leader><cr> :set hlsearch!<cr>
 
 " this makes search/replace global by default
 set gdefault
@@ -199,7 +198,9 @@ set gdefault
 " set fold method: marker
 " set foldmethod=marker
 " all folds open by default
-set foldlevelstart=99
+set foldlevel=0
+" due to incompatible with simply-fold plugin if set foldlevel to 0
+autocmd filetype python set foldlevel=99
 
 " turn magic on for regular expression
 set magic
@@ -212,10 +213,10 @@ set matchpairs=(:),[:],{:},<:>
 
 " without showing matched brackets
 " keep it here since blinking cursor is boring when matched
-let loaded_matchparen = 1
+" let loaded_matchparen = 1
 
 " set tenths of a second to blink when matching brackets
-set matchtime=1
+set matchtime=10
 
 " set no annoying sound on errors
 set noerrorbells
@@ -231,7 +232,7 @@ set virtualedit=block
 set shortmess=a
 
 " remove a comment leader when joining lines
-set formatoptions+=j
+set formatoptions=croqlj
 
 " don't use alt for menu
 set winaltkeys=no

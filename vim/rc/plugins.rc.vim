@@ -77,9 +77,9 @@ let g:ycm_complete_in_comments                = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax        = 1
 
-nnoremap [t :YcmCompleter GoTo<cr>
+nnoremap [g :YcmCompleter GoTo<cr>
 nnoremap [d :YcmCompleter GoToDefinition<cr>
-nnoremap [r :YcmCompleter GoToDeclaration<cr>
+nnoremap [D :YcmCompleter GoToDeclaration<cr>
 " set a absolute path to path for ycmd server since we use pyenv to change the
 " version of python causing it crash
 " let g:ycm_path_to_python_interpreter = '~/.pyenv/versions/2.7.8/bin/python2.7'
@@ -245,6 +245,14 @@ if neobundle#tap('unite')
   let g:yankring_replace_n_pkey                  = 'gp'
   let g:yankring_replace_n_nkey                  = 'gn'
   let g:unite_marked_icon                        = '✓'
+  " use ag in unite grep source
+  if executable('ag')
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts =
+    \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
+    \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+    let g:unite_source_grep_recursive_opt = ''
+  endif
   " change prompt and start NOT in insert mode
   call unite#custom#profile('default', 'context',
                           \ { 'prompt': '» ',
@@ -258,13 +266,13 @@ if neobundle#tap('unite')
   nnoremap <silent>  [unite]b :<c-u>Unite -toggle -buffer-name=file
                                         \ file<cr>
   nnoremap <silent>  [unite]c :<c-u>Unite -toggle -buffer-name=command\ history
-                                        \ history/command<cr>
+                                        \ history/command history/search<cr>
   nnoremap <silent>  [unite]d :<c-u>Unite -toggle -buffer-name=mru\ directory
                                         \ neomru/directory<cr><c-u>
   nnoremap <silent>  [unite]f :<c-u>Unite -toggle -buffer-name=buffer
                                         \ buffer<cr><c-u>
   nnoremap <silent>  [unite]g :<c-u>Unite -toggle -buffer-name=grep
-                                        \ grep:.<cr>
+                                        \ grep:<cr>
   nnoremap <silent>  [unite]h :<c-u>Unite -toggle -buffer-name=yank\ history
                                         \ history/yank register<cr>
   nnoremap <silent>  [unite]l :<c-u>Unite -toggle -buffer-name=line
@@ -281,6 +289,8 @@ if neobundle#tap('unite')
                                         \ register<cr>
   nnoremap <silent>  [unite]s :<c-u>Unite -toggle -buffer-name=session
                                         \ session<cr>
+  nnoremap <silent>  [unite]t :<c-u>Unite -toggle -buffer-name=tag
+                                        \ tag<cr>
   nnoremap <silent>  [unite]u :<c-u>Unite -toggle -buffer-name=mru\ file
                                         \ neomru/file<cr>
   " add more handy actions
@@ -396,6 +406,7 @@ endif
 if neobundle#tap('gundo')
   nnoremap <silent> <leader>uu :GundoToggle<cr>
   let g:gundo_help                  = 0
+  let g:gundo_width                 = 60
 
   call neobundle#untap()
 endif
@@ -484,6 +495,8 @@ if neobundle#tap('over')
   let g:over_command_line_key_mappings            = {
           \	"\<c-l>" : "\<right>",
           \	"\<c-h>" : "\<left>",
+          \	"\<c-j>" : "\<down>",
+          \	"\<c-k>" : "\<up>",
           \ "\<c-f>" : "\<bs>",
           \ }
   " escape "\n" and "\r" automatically.
@@ -572,6 +585,12 @@ if neobundle#tap('textobj-delimited')
   "   \ ['[:;,.\?]', '\<\%([:;,.\?]\k\+\|\k\+[:;,.\?]\)\%(\k*[:;,.\?]\?\)*\>'],
   "   \ ['\C\ze[A-Z]', '\C\<[A-Z]\?\k\+[A-Z]\%(\k*[A-Z]\?\)*\>'],
   "   \ ]
+  let g:textobj_delimited_patterns = [
+    \ ['[#_-]', '\<\%([#_-]\k\+\|\k\+[#_-]\)\%(\k*[#_-]\?\)*\>'],
+    \ ['[/|]', '\<\%([/|]\k\+\|\k\+[/|]\)\%(\k*[/|]\?\)*\>'],
+    \ ['[\:;,.]', '\<\%([\:;,.]\k\+\|\k\+[\:;,.]\)\%(\k*[\:;,.]\?\)*\>'],
+    \ ['\C\ze[A-Z]', '\C\<[A-Z]\?\k\+[A-Z]\%(\k*[A-Z]\?\)*\>'],
+    \ ]
 	omap ad	<plug>(textobj-delimited-forward-a)
 	omap id	<plug>(textobj-delimited-forward-i)
 	xmap ad	<plug>(textobj-delimited-forward-a)
@@ -722,15 +741,16 @@ if neobundle#tap('incsearch')
     IncSearchNoreMap <c-e> <end>
     IncSearchNoreMap <c-l> <right>
     IncSearchNoreMap <c-h> <left>
+    IncSearchNoreMap <c-j> <down>
+    IncSearchNoreMap <c-k> <up>
     IncSearchNoreMap <c-f> <bs>
+    IncSearchNoreMap <tab> <Over>(buffer-complete)
   endfunction
 
   " let g:incsearch#auto_nohlsearch = 1
   nmap /  <plug>(incsearch-forward)
   nmap ?  <plug>(incsearch-backward)
   nmap g/ <plug>(incsearch-stay)
-  " nmap n  <plug>(incsearch-nohl-n)
-  " nmap N  <plug>(incsearch-nohl-N)
   nmap n  <plug>(incsearch-nohl-n)zv:ShowSearchIndex<cr>
   nmap N  <plug>(incsearch-nohl-N)zv:ShowSearchIndex<cr>
   nmap *  <plug>(incsearch-nohl-*)
@@ -758,13 +778,9 @@ if neobundle#tap('easy-motion')
   let g:EasyMotion_smartcase        = 1
   let g:EasyMotion_leader_key       = ""
   nmap <silent> s <plug>(easymotion-f)
-  vmap <silent> s <plug>(easymotion-f)
   nmap <silent> S <plug>(easymotion-F)
-  vmap <silent> S <plug>(easymotion-F)
   omap <silent> z <plug>(easymotion-s)
   omap <silent> Z <plug>(easymotion-f)
-  nmap ; <plug>(easymotion-next)
-  nmap , <plug>(easymotion-prev)
 
   call neobundle#untap()
 endif
@@ -819,6 +835,48 @@ if neobundle#tap('quickrun')
 
   call neobundle#untap()
 endif
+
+" settings for vimshell{{{2
+" if neobundle#tap('vimshell')
+"
+"   imap <buffer> <cr> <plug>(vimshell_int_execute_line)
+"   nmap <buffer> <cr> <plug>(vimshell_int_execute_line)
+" 	let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+" 	"let g:vimshell_right_prompt = 'vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
+"
+" 	if has('win32') || has('win64')
+" 	  " Display user name on Windows.
+" 	  let g:vimshell_prompt = $USERNAME."% "
+" 	else
+" 	  " Display user name on Linux.
+" 	  let g:vimshell_prompt = $USER."% "
+" 	endif
+"
+" 	" Initialize execute file list.
+" 	let g:vimshell_execute_file_list = {}
+" 	call vimshell#set_execute_file('txt,vim,c,h,cpp,d,xml,java', 'vim')
+" 	let g:vimshell_execute_file_list['rb'] = 'ruby'
+" 	let g:vimshell_execute_file_list['pl'] = 'perl'
+" 	let g:vimshell_execute_file_list['py'] = 'python'
+" 	call vimshell#set_execute_file('html,xhtml', 'gexe firefox')
+"
+" 	autocmd FileType vimshell
+" 	\ call vimshell#altercmd#define('g', 'git')
+" 	\| call vimshell#altercmd#define('i', 'iexe')
+" 	\| call vimshell#altercmd#define('l', 'll')
+" 	\| call vimshell#altercmd#define('ll', 'ls -l')
+" 	\| call vimshell#hook#add('chpwd', 'my_chpwd', 'MyChpwd')
+"
+" 	function! MyChpwd(args, context)
+" 	  call vimshell#execute('ls')
+" 	endfunction
+"
+" 	autocmd FileType int-* call s:interactive_settings()
+" 	function! s:interactive_settings()
+" 	endfunction
+"
+"   call neobundle#untap()
+" endif
 
 " settings for tmux-complete{{{2
 if neobundle#tap('tmux-complete')

@@ -10,7 +10,7 @@ set tags=./tags,tags;
 autocmd filetype c,h set tags+=~/.vim/tags/libc6
 
 " set tags for the standard C++ library libc6-4.7-dev
-autocmd filetype cpp,hpp set tags+=~/.vim/tags/stdlibcpp6-4.7-dev
+" autocmd filetype cpp,hpp set tags+=~/.vim/tags/stdlibcpp6-4.7-dev
 
 " mapping for generating cscope files
 nnoremap <c-F11> :!cscope -Rbkq<cr>

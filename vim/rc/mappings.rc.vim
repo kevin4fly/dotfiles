@@ -14,7 +14,7 @@ nnoremap <silent> <leader>vv :source $MYVIMRC<cr> \|
 " fast editing the .vimrc
 nnoremap <silent> <leader>v :e $MYVIMRC<cr>
 " reload the .vimrc automatically if it is modified
-autocmd! bufwritepost .vimrc source $MYVIMRC
+autocmd! bufwritepost .vimrc,*.rc.vim source $MYVIMRC | redraw
 
 " goto command line mode
 nnoremap <leader><leader> :
@@ -100,6 +100,10 @@ nnoremap <silent>]e :cn<cr>
 " skip to previous item in qf list
 nnoremap <silent>[e :cp<cr>
 
+" swap jump command
+nnoremap ]] ][
+nnoremap ][ ]]
+
 " reload the file(log files may be changed outside)
 nnoremap <leader>rr :edit<cr> \|
                  \  :exe ":echo '<c-r>% reloaded'"<cr>
@@ -118,9 +122,10 @@ autocmd filetype * nnoremap <silent> K :Man <cword><cr>
 
 " show this kinds of file on the right side
 " set the local buftype for golden view plugin
-autocmd filetype man,qf wincmd L            |
-                  \ if &filetype=='man'     |
-                  \   setlocal buftype=help |
+autocmd filetype man,qf wincmd L              |
+                  \ if &filetype=='man'       |
+                  \   setlocal buftype=help   |
+                  \   setlocal colorcolumn=0  |
                   \ endif
 
 " show grep result
@@ -140,5 +145,12 @@ autocmd filetype make set modelines=0
 
 " mapping to vimgrep
 nnoremap <leader><space> :vimgrep /
+
+" mapping to shell
+if executable('gnome-terminal')
+  nnoremap <leader>sh :!gnome-terminal&<cr>
+else
+  nnoremap <leader>sh :shell<cr>
+endif
 
 " vim:tw=78:ts=2:sw=2:sts=2:et:fdm=marker
