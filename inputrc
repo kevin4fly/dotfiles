@@ -7,13 +7,13 @@ set completion-ignore-case on
 set completion-map-case on
 # short common prefix with ellipsis(...)
 # set completion-prefix-display-length 5
-# mark symlinked dir with slash appended
+# mark symbolic linked directories with slash appended
 set mark-symlinked-directories on
 # avoid completion duplication
 set skip-completed-text on
-# show filetype when lising possible completions
+# show filetype when listing possible completions
 set visible-stats on
-# show all possilbe completion without ringing the bell
+# show all possible completion without ringing the bell
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
 
