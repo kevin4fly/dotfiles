@@ -8,7 +8,7 @@ if neobundle#tap('neobundle')
   let g:neobundle#install_max_processes = 8
 
   " run :NeoBundleClearCache after writing buffer
-  autocmd bufwritepost neobundle.rc.vim NeoBundleClearCache
+  autocmd VimConfig bufwritepost neobundle.rc.vim NeoBundleClearCache
 
   call neobundle#untap()
 endif
@@ -83,21 +83,21 @@ nnoremap [D :YcmCompleter GoToDeclaration<cr>
 " set a absolute path to path for ycmd server since we use pyenv to change the
 " version of python causing it crash
 " let g:ycm_path_to_python_interpreter = '~/.pyenv/versions/2.7.8/bin/python2.7'
-let g:ycm_path_to_python_interpreter         = '/usr/bin/python2.7'
-let g:ycm_filetype_blacklist = {
-                              \ 'tagbar' : 1,
-                              \ 'qf' : 1,
-                              \ 'unite' : 1,
-                              \ 'vimwiki' : 1,
-                              \ 'pandoc' : 1,
-                              \ 'infolog' : 1,
-                              \ 'mail' : 1
-                              \ }
+let g:ycm_path_to_python_interpreter = '/usr/bin/python2.7'
+let g:ycm_filetype_blacklist         = {
+                                      \ 'tagbar'  : 1,
+                                      \ 'qf'      : 1,
+                                      \ 'unite'   : 1,
+                                      \ 'vimwiki' : 1,
+                                      \ 'pandoc'  : 1,
+                                      \ 'infolog' : 1,
+                                      \ 'mail'    : 1,
+                                      \ }
 
 " set <tab> to trigger snippet, code completion and more
-let g:UltiSnipsExpandTrigger                 = "<tab>"
-let g:UltiSnipsJumpForwardTrigger            = "<tab>"
-let g:UltiSnipsJumpBackwardTrigger           = "<s-tab>"
+let g:UltiSnipsExpandTrigger         = "<tab>"
+let g:UltiSnipsJumpForwardTrigger    = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger   = "<s-tab>"
 function! g:UltiSnips_Complete()
   if pumvisible()
     return "\<c-n>"
@@ -117,9 +117,9 @@ function! g:UltiSnips_Complete()
   return ""
 endfunction
 
-autocmd bufenter *
-    \ exec "inoremap <buffer> <silent> " . g:UltiSnipsExpandTrigger .
-    \ " <c-r>=g:UltiSnips_Complete()<cr>"
+autocmd VimConfig bufenter *
+      \ execute "inoremap <buffer> <silent> " . g:UltiSnipsExpandTrigger .
+      \ " <c-r>=g:UltiSnips_Complete()<cr>"
 
 " setting for fswitch{{{2
 if neobundle#tap('fswitch')
@@ -159,9 +159,10 @@ endif
 
 " settings for ipython{{{2
 if neobundle#tap('ipython')
-  autocmd filetype python if bufname("%")=="vim-ipython" |
-                      \       wincmd L                   |
-                      \   endif
+  autocmd VimConfig filetype python
+        \ if bufname("%")=="vim-ipython" |
+        \   wincmd L                     |
+        \ endif
 
   call neobundle#untap()
 endif
@@ -173,9 +174,10 @@ if neobundle#tap('pydoc')
   let g:pydoc_open_cmd  = 'vsplit'
   let g:pydoc_highlight = 0
 
-  autocmd bufenter *  if bufname("%")=="__doc__" |
-                    \     setlocal filetype=man  |
-                    \ endif
+  autocmd VimConfig bufenter *
+        \ if bufname("%")=="__doc__" |
+        \     setlocal filetype=man  |
+        \ endif
 
   call neobundle#untap()
 endif
@@ -219,7 +221,6 @@ if neobundle#tap('instant-markdown')
   " slow the instant markdown
   "let g:instant_markdown_slow = 1
   let g:instant_markdown_autostart = 0
-  autocmd bufnewfile,bufreadpost *.md,*.mkd set filetype=markdown
   nnoremap <silent> <leader>md :InstantMarkdownPreview<cr>
 
   call neobundle#untap()
@@ -249,14 +250,15 @@ if neobundle#tap('unite')
   if executable('ag')
     let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts =
-    \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
-    \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
+      \ '-i --line-numbers --nocolor --nogroup --hidden --ignore ' .
+      \  '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'''
     let g:unite_source_grep_recursive_opt = ''
   endif
   " change prompt and start NOT in insert mode
   call unite#custom#profile('default', 'context',
-                          \ { 'prompt': '» ',
-                          \   'start_insert' : '0'})
+                          \ { 'prompt'       : '➤ ',
+                          \   'start_insert' : '0',
+                          \ })
   call unite#filters#matcher_default#use(['matcher_fuzzy'])
   call unite#filters#sorter_default#use(['sorter_rank'])
   nnoremap [unite]   <nop>
@@ -294,7 +296,7 @@ if neobundle#tap('unite')
   nnoremap <silent>  [unite]u :<c-u>Unite -toggle -buffer-name=mru\ file
                                         \ neomru/file<cr>
   " add more handy actions
-  autocmd filetype unite call s:unite_settings()
+  autocmd VimConfig filetype unite call s:unite_settings()
 
   function! s:unite_settings()
     nnoremap <silent> <buffer><expr> v unite#do_action('right')
@@ -334,7 +336,7 @@ if neobundle#tap('unite-session')
   " save session automatically.
   let g:unite_source_session_enable_auto_save = 1
   " load session automatically.
-  " autocmd VimEnter * UniteSessionLoad
+  " autocmd VimConfig VimEnter * UniteSessionLoad
 
   call neobundle#untap()
 endif
@@ -361,7 +363,7 @@ if neobundle#tap('vimfiler')
       nnoremap <silent><buffer> <c-l> <nop>
       nnoremap <silent><buffer> <c-o> <plug>(vimfiler_redraw_screen)
     endfunction
-    autocmd filetype vimfiler call s:vimfiler_settings()
+    autocmd VimConfig filetype vimfiler call s:vimfiler_settings()
   endfunction
 
   call neobundle#untap()
@@ -389,15 +391,27 @@ endif
 
 " text handling related{{{1
 
+" settings for neosnippet{{{2
+if neobundle#tap('neosnippet')
+  let g:neosnippet#disable_runtime_snippets = {
+    \   '_' : 1,
+    \ }
+
+  let g:neosnippet#snippets_directory  = '~/.vim/bundle/snippets/UltiSnips'
+  call neobundle#untap()
+endif
+
 " settings for auto-pairs{{{2
 if neobundle#tap('auto-pairs')
-  let g:AutoPairsShortcutToggle        = '<F3>'
-  let g:AutoPairsMapBS                 = 0
-  let g:AutoPairs                      =
-              \ {'<':'>', '(':')', '[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+  let g:AutoPairsShortcutToggle = '<F3>'
+  let g:AutoPairsMapBS          = 0
+  let g:AutoPairs               = {
+                                 \ '<':'>', '(':')', '[':']', '{':'}',
+                                 \ "'":"'", '"':'"', '`':'`',
+                                 \ }
   inoremap <buffer> <silent> <c-f> <c-r>=AutoPairsDelete()<cr>
-  autocmd filetype c,cpp,python
-              \ let b:AutoPairs = {'[':']', '{':'}',"'":"'",'"':'"', '`':'`'}
+  autocmd VimConfig filetype c,cpp,python
+        \ let b:AutoPairs = { '[':']', '{':'}', "'":"'", '"':'"', '`':'`'}
 
   call neobundle#untap()
 endif
@@ -488,7 +502,7 @@ endif
 
 " settings for vim-over{{{2
 if neobundle#tap('over')
-  let g:over_command_line_prompt                  = ">> "
+  let g:over_command_line_prompt                  = "➤ "
   " escape characters
   let g:over#command_line#paste_escape_chars      = '/.*$^~'
   " set the key mapping used on the command line
@@ -676,7 +690,7 @@ if neobundle#tap('surround')
   nmap yss    <plug>Yssurround
   nmap ySs    <plug>YSsurround
   nmap ySS    <plug>YSsurround
-  xmap s      <plug>VSurround
+  xmap S      <plug>VSurround
   xmap gS     <plug>VgSurround
   imap <c-s>  <plug>Isurround
   imap <c-g>s <plug>Isurround
@@ -777,13 +791,31 @@ endif
 if neobundle#tap('easy-motion')
   let g:EasyMotion_smartcase        = 1
   let g:EasyMotion_leader_key       = ""
-  nmap <silent> s <plug>(easymotion-f)
-  nmap <silent> S <plug>(easymotion-F)
-  omap <silent> z <plug>(easymotion-s)
-  omap <silent> Z <plug>(easymotion-f)
+  nmap <silent> f   <plug>(easymotion-f)
+  vmap <silent> f   <plug>(easymotion-f)
+  nmap <silent> F   <plug>(easymotion-F)
+  vmap <silent> F   <plug>(easymotion-F)
+  nmap <silent> S   <plug>(easymotion-s)
+  nmap <silent> sj  <plug>(easymotion-j)
+  nmap <silent> sk  <plug>(easymotion-k)
+  nmap <silent> ss  <plug>(easymotion-bd-jk)
+  omap <silent> z   <plug>(easymotion-f)
+  omap <silent> Z   <plug>(easymotion-F)
 
   call neobundle#untap()
 endif
+
+" settings for sneak-motion{{{2
+" if neobundle#tap('sneak-motion')
+"   nmap f <Plug>Sneak_f
+"   nmap F <Plug>Sneak_F
+"   xmap f <Plug>Sneak_f
+"   xmap F <Plug>Sneak_F
+"   omap f <Plug>Sneak_f
+"   omap F <Plug>Sneak_F
+"
+"   call neobundle#untap()
+" endif
 
 " settings for camelcase-motion{{{2
 if neobundle#tap('camelcase-motion')
@@ -860,7 +892,7 @@ endif
 " 	let g:vimshell_execute_file_list['py'] = 'python'
 " 	call vimshell#set_execute_file('html,xhtml', 'gexe firefox')
 "
-" 	autocmd FileType vimshell
+" 	autocmd VimConfig FileType vimshell
 " 	\ call vimshell#altercmd#define('g', 'git')
 " 	\| call vimshell#altercmd#define('i', 'iexe')
 " 	\| call vimshell#altercmd#define('l', 'll')
@@ -871,7 +903,7 @@ endif
 " 	  call vimshell#execute('ls')
 " 	endfunction
 "
-" 	autocmd FileType int-* call s:interactive_settings()
+" 	autocmd VimConfig FileType int-* call s:interactive_settings()
 " 	function! s:interactive_settings()
 " 	endfunction
 "

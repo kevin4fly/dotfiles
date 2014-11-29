@@ -42,13 +42,13 @@ nnoremap <leader>wo :only<cr>
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 
 " return to last edit position when opening files (you want this!)
-autocmd bufreadpost *
-            \ if line("'\"") > 0 && line("'\"") <= line("$") |
-            \   execute "normal! g`\""                       |
-            \ endif
+autocmd VimConfig bufreadpost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   execute "normal! g`\""                       |
+      \ endif
 
 " auto wipe out empty buffers
-autocmd bufhidden * call CleanEmptyBuffers()
+autocmd VimConfig bufhidden * call CleanEmptyBuffers()
 
 function! CleanEmptyBuffers()
   let buffers = filter(range(0, bufnr('$')), 'buflisted(v:val) &&

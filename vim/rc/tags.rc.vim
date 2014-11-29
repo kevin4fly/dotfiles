@@ -7,10 +7,10 @@ nnoremap <silent> <leader>o
 set tags=./tags,tags;
 
 " set tags for the standard C library libc6
-autocmd filetype c,h set tags+=~/.vim/tags/libc6
+autocmd VimConfig filetype c,h setlocal tags+=~/.vim/tags/libc6
 
 " set tags for the standard C++ library libc6-4.7-dev
-" autocmd filetype cpp,hpp set tags+=~/.vim/tags/stdlibcpp6-4.7-dev
+" autocmd VimConfig VimConfig filetype cpp,hpp setlocal tags+=~/.vim/tags/stdlibcpp6-4.7-dev
 
 " mapping for generating cscope files
 nnoremap <c-F11> :!cscope -Rbkq<cr>

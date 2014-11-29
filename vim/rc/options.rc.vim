@@ -70,7 +70,7 @@ endif
 set expandtab
 
 " don't expand <tab> in .snippets file
-autocmd bufenter *.snippets set noexpandtab
+autocmd VimConfig bufenter *.snippets setlocal noexpandtab
 
 " be smart when using tabs
 set smarttab
@@ -124,7 +124,7 @@ set textwidth=78
 " highlight cursor line/colomn
 set cursorline
 " trigger cursorcolumn line
-nnoremap <silent> <leader>co :set cursorcolumn!<cr>
+nnoremap <silent> <leader>co :setlocal cursorcolumn!<cr>
 
 " set vertical line at the end
 set colorcolumn=78
@@ -190,7 +190,7 @@ set hlsearch
 set incsearch
 
 " trigger highlight or not after searching
-nnoremap <silent> <leader><cr> :set hlsearch!<cr>
+nnoremap <silent> <leader><cr> :setlocal hlsearch!<cr>
 
 " this makes search/replace global by default
 set gdefault
@@ -200,7 +200,10 @@ set gdefault
 " all folds open by default
 set foldlevel=0
 " due to incompatible with simply-fold plugin if set foldlevel to 0
-autocmd filetype python set foldlevel=99
+autocmd VimConfig filetype python setlocal foldlevel=99
+" auto close/open the folder when get out/in
+" set foldopen=all
+" set foldclose=all
 
 " turn magic on for regular expression
 set magic
@@ -232,7 +235,8 @@ set virtualedit=block
 set shortmess=a
 
 " remove a comment leader when joining lines
-set formatoptions=croqlj
+" set formatoptions=roqlj
+set formatoptions+=j
 
 " don't use alt for menu
 set winaltkeys=no

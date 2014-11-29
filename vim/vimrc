@@ -16,7 +16,9 @@ set runtimepath+=~/.vim/bundle/
 " Use git protocol.
 let g:neobundle#types#git#default_protocol = 'git'
 
-" call s:source_rc('init.rc.vim')
+" initialization
+call s:source_rc('init.rc.vim')
+
 let s:bundles_path = expand('~/.vim/bundle')
 call neobundle#begin(s:bundles_path)
 
@@ -37,22 +39,22 @@ filetype plugin indent on
 " Installation check.
 NeoBundleCheck
 
-" helper function
+" helper functions
 call s:source_rc('helper.rc.vim')
 
-" general
+" mappings
 call s:source_rc('mappings.rc.vim')
 
-" interface
+" options
 call s:source_rc('options.rc.vim')
 
 " view (buffer, windown and tab)
 call s:source_rc('view.rc.vim')
 
-" tag and cscope
+" tags and cscope
 call s:source_rc('tags.rc.vim')
 
-" plugin settings
+" plugins' settings
 call s:source_rc('plugins.rc.vim')
 
 " gui settings

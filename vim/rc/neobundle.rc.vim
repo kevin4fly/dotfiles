@@ -234,7 +234,7 @@ NeoBundleLazy 'plasticboy/vim-markdown', {
 " file, buffer related{{{1
 
 " provide asynchronous execution library for vim{{{2
-NeoBundle 'Shougo/vimproc.vim', {
+NeoBundleLazy 'Shougo/vimproc.vim', {
             \ 'name'  : 'vimproc',
             \ 'build' : {
             \             'linux' : 'make',
@@ -256,7 +256,6 @@ NeoBundleLazy 'Shougo/unite.vim', {
 " show most recently used files{{{2
 NeoBundle 'Shougo/neomru.vim', {
             \ 'name'    : 'unite-neomru',
-            \ 'depends' : 'unite',
             \ }
 
 " show outputs of all kinds of tag files{{{2
@@ -357,7 +356,7 @@ NeoBundle 'SirVer/ultisnips', {
             \ 'name' : 'ulti-snippets',
             \ }
 NeoBundle 'honza/vim-snippets', {
-            \ 'name' : 'snippets',
+            \ 'name' : 'vim-snippets',
             \ }
 
 " insert or delete brackets, parens, quotes in pair{{{2
@@ -740,7 +739,7 @@ NeoBundleLazy 'thinca/vim-quickrun', {
 
 " shell implemented by pure vim script{{{2
 NeoBundle 'Shougo/vimshell.vim', {
-            \ 'name'     : 'vimshell.vim',
+            \ 'name'     : 'vimshell',
             \ 'commands' : [
             \               { 'name'     : 'VimShell',
             \                 'complete' : 'customlist,vimshell#complete',

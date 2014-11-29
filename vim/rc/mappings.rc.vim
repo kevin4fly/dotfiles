@@ -10,11 +10,13 @@ nnoremap <leader>wa :wall!<cr>
 " fast reloading the .vimrc
 nnoremap <silent> <leader>vv :source $MYVIMRC<cr> \|
                            \ :filetype detect<cr> \|
-                           \ :execute ":echo '~/.vimrc reloaded'"<cr>
+                           \ :redraw<cr>          \|
+                           \ :execute 'echo $MYVIMRC . " reloaded"'<cr>
 " fast editing the .vimrc
-nnoremap <silent> <leader>v :e $MYVIMRC<cr>
+nnoremap <silent> <leader>ee :e $MYVIMRC<cr>
 " reload the .vimrc automatically if it is modified
-autocmd! bufwritepost .vimrc,*.rc.vim source $MYVIMRC | redraw
+" autocmd VimConfig bufwritepost .vimrc,*.rc.vim
+"       \ source $MYVIMRC | filetype detect | redraw | echo $MYVIMRC "autoloaded"
 
 " goto command line mode
 nnoremap <leader><leader> :
@@ -32,7 +34,7 @@ nnoremap 0 ^
 nnoremap H ^
 vnoremap H ^
 nnoremap L $
-vnoremap L $
+vnoremap L g_
 
 " treat long lines as break lines
 nnoremap j gj
@@ -47,10 +49,9 @@ noremap! <c-h> <left>
 cnoremap <c-j> <down>
 cnoremap <c-k> <up>
 
-" move word backward like normal mode
-inoremap <c-b> <esc>bi
 " delete a char in insert and command mode
 noremap! <c-f> <bs>
+snoremap <c-f> <bs>i
 " kill line from the current position to the last
 cnoremap <c-o> <c-\>e getcmdpos() == 1 ? '' : getcmdline()[:getcmdpos()-2]<cr>
 " kill the whole line
@@ -67,8 +68,8 @@ nnoremap <leader>/ ?
 " uniform copy
 nnoremap Y y$
 
-" select all text in normal mode
-nnoremap <c-a> ggVG
+" select all text in normal mode (we have textobj_entire)
+" nnoremap <c-a> ggVG
 " utilize '+' register to handle copy and paste on system clipboard
 " copy text in visual mode
 vnoremap <c-c> "+y
@@ -106,7 +107,7 @@ nnoremap ][ ]]
 
 " reload the file(log files may be changed outside)
 nnoremap <leader>rr :edit<cr> \|
-                 \  :exe ":echo '<c-r>% reloaded'"<cr>
+                  \ :execute "echo '<c-r>% reloaded'"<cr>
 
 " compile source code
 nnoremap <F5> :w<cr> \|
@@ -116,32 +117,30 @@ nnoremap <F5> :w<cr> \|
 nnoremap <silent> <leader>so :w !sudo tee % >/dev/null<cr>
 
 " autoload man.vim
-"autocmd bufreadpost,bufnewfile *.c,*.h,*.cpp,*.sh runtime! ftplugin/man.vim
+" autocmd VimConfig bufreadpost,bufnewfile *.c,*.h,*.cpp,*.sh runtime! ftplugin/man.vim
 runtime! ftplugin/man.vim
-autocmd filetype * nnoremap <silent> K :Man <cword><cr>
+autocmd VimConfig filetype * nnoremap <silent> K :Man <cword><cr>
 
 " show this kinds of file on the right side
 " set the local buftype for golden view plugin
-autocmd filetype man,qf wincmd L              |
-                  \ if &filetype=='man'       |
-                  \   setlocal buftype=help   |
-                  \   setlocal colorcolumn=0  |
-                  \ endif
+autocmd VimConfig filetype man,qf
+      \ wincmd L                  |
+      \ if &filetype=='man'       |
+      \   setlocal buftype=help   |
+      \   setlocal colorcolumn=0  |
+      \ endif
 
 " show grep result
-autocmd QuickFixCmdPost *grep* cwindow
+autocmd VimConfig QuickFixCmdPost *grep* cwindow
 
-" cindent is a bit too smart for its own good and triggers in text files when
-" you're typing inside parens and then hit enter; it aligns the text with the
-" opening paren and we do NOT want this in text files!
-autocmd filetype text,markdown,gitcommit set nocindent
-autocmd filetype markdown,gitcommit setlocal spell! spelllang=en_us
+" run spell checking for markdown and gitcommit
+autocmd VimConfig filetype markdown,gitcommit setlocal spell spelllang=en_us
 
 " set the filetype to sh for bash file
-autocmd filetype bash set filetype=sh
+autocmd VimConfig filetype bash setlocal filetype=sh
 
 " prevent vim from interpreting Makefile as a modeline
-autocmd filetype make set modelines=0
+autocmd VimConfig filetype make setlocal modelines=0
 
 " mapping to vimgrep
 nnoremap <leader><space> :vimgrep /

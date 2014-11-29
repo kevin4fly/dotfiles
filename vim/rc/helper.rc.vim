@@ -1,4 +1,4 @@
-" helper function
+" helper functions
 
 " strip trailing white space except markdown file{{{1
 function! StripTrailingWhitespace()
@@ -8,10 +8,11 @@ function! StripTrailingWhitespace()
   endif
   %s/\s\+$//e
 endfunction
-autocmd bufwritepre,filewritepre *
-            \ if &modifiable |
-            \    call StripTrailingWhitespace() |
-            \ endif
+
+autocmd VimConfig bufwritepre,filewritepre *
+      \ if &modifiable |
+      \    call StripTrailingWhitespace() |
+      \ endif
 
 " macro expansion with gcc{{{1
 " we have to install gnu indent programme, refer to
@@ -60,6 +61,7 @@ function! ExpandCMacro()
   let @/ = getline('.')
 endfunction
 
-autocmd filetype c,cpp nnoremap <leader>m :call ExpandCMacro()<cr><cr>
+autocmd VimConfig filetype c,cpp nnoremap <leader>m
+      \ :call ExpandCMacro()<cr>
 
 " vim:tw=78:ts=2:sw=2:sts=2:et:fdm=marker
