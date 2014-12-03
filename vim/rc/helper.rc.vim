@@ -61,7 +61,8 @@ function! ExpandCMacro()
   let @/ = getline('.')
 endfunction
 
+" additional <cr> below for clear "Press Enter or type command to continue"
 autocmd VimConfig filetype c,cpp nnoremap <leader>m
-      \ :call ExpandCMacro()<cr>
+      \ :call ExpandCMacro()<cr><cr>
 
 " vim:tw=78:ts=2:sw=2:sts=2:et:fdm=marker

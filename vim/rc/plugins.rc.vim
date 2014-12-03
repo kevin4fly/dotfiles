@@ -258,7 +258,8 @@ if neobundle#tap('unite')
   call unite#custom#profile('default', 'context',
                           \ { 'prompt'       : '➤ ',
                           \   'start_insert' : '0',
-                          \ })
+                          \ },
+                          \)
   call unite#filters#matcher_default#use(['matcher_fuzzy'])
   call unite#filters#sorter_default#use(['sorter_rank'])
   nnoremap [unite]   <nop>
@@ -266,7 +267,7 @@ if neobundle#tap('unite')
   nnoremap <silent>  [unite]a :<c-u>Unite -toggle -buffer-name=files
                                         \ file_rec/async<cr><c-u>
   nnoremap <silent>  [unite]b :<c-u>Unite -toggle -buffer-name=file
-                                        \ file<cr>
+                                        \ file<cr><c-u>
   nnoremap <silent>  [unite]c :<c-u>Unite -toggle -buffer-name=command\ history
                                         \ history/command history/search<cr>
   nnoremap <silent>  [unite]d :<c-u>Unite -toggle -buffer-name=mru\ directory
@@ -276,25 +277,25 @@ if neobundle#tap('unite')
   nnoremap <silent>  [unite]g :<c-u>Unite -toggle -buffer-name=grep
                                         \ grep:<cr>
   nnoremap <silent>  [unite]h :<c-u>Unite -toggle -buffer-name=yank\ history
-                                        \ history/yank register<cr>
+                                        \ history/yank register<cr><c-u>
   nnoremap <silent>  [unite]l :<c-u>Unite -toggle -buffer-name=line
-                                        \ line<cr>
+                                        \ line<cr><c-u>
   nnoremap <silent>  [unite]m :<c-u>Unite -toggle -buffer-name=mark
-                                        \ mark<cr>
+                                        \ mark<cr><c-u>
   nnoremap <silent>  [unite]o :<c-u>Unite -toggle -buffer-name=outline
-                                        \ outline<cr>
+                                        \ outline<cr><c-u>
   nnoremap <silent>  [unite]p :<c-u>Unite -toggle -buffer-name=help
-                                        \ help<cr>
+                                        \ help<cr><c-u>
   nnoremap <silent>  [unite]k :<c-u>Unite -quick-match -buffer-name=quick\ match
-                                        \ -no-split buffer<cr>
+                                        \ -no-split buffer<cr><c-u>
   nnoremap <silent>  [unite]r :<c-u>Unite -toggle -buffer-name=register
-                                        \ register<cr>
+                                        \ register<cr><c-u>
   nnoremap <silent>  [unite]s :<c-u>Unite -toggle -buffer-name=session
-                                        \ session<cr>
+                                        \ session<cr><c-u>
   nnoremap <silent>  [unite]t :<c-u>Unite -toggle -buffer-name=tag
-                                        \ tag<cr>
+                                        \ tag<cr><c-u>
   nnoremap <silent>  [unite]u :<c-u>Unite -toggle -buffer-name=mru\ file
-                                        \ neomru/file<cr>
+                                        \ neomru/file<cr><c-u>
   " add more handy actions
   autocmd VimConfig filetype unite call s:unite_settings()
 
@@ -326,6 +327,7 @@ if neobundle#tap('unite')
     else
       nnoremap <silent> <buffer><expr> r unite#do_action('rename')
     endif
+    setlocal number
   endfunction
 
   call neobundle#untap()

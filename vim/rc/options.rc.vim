@@ -10,7 +10,7 @@
 
 " list of flags specifying which commands wrap to another line
 " commands: <bs>, <space>, <left>, <right>, h and l keys
-set whichwrap=b,s,<,>,h,l,[,],~
+set whichwrap=b,s,<,>,h,l
 
 " many jump commands move the cursor to the first non-blank
 " character of a line
@@ -78,7 +78,7 @@ set smartcase
 " 4 displaying text{{{1
 
 " number of lines to scroll for CTRL-U and CTRL-D
-" set scr=
+" set scroll=
 
 " number of screen lines to show around the cursor
 set scrolloff=7
@@ -93,13 +93,13 @@ set linebreak
 set breakindent
 
 " adjust breakindent behaviour
-" set briopt=
+" set breakindentopt=
 
 " which characters might cause a line break
-" set brk=
+" set breakat=
 
 " string to put before wrapped screen lines
-" set sbr=
+" set showbreak=
 
 " minimal number of columns to scroll horizontally
 " set sidescroll=
@@ -164,6 +164,12 @@ set t_Co=256
 " "dark" or "light"; the background color brightness
 set background=dark
 
+" type of file; triggers the FileType event when set
+" set filetype=
+
+" name of syntax highlighting used
+syntax enable
+
 " color: ~/.vim/bundle/molokai/colors/molokai.vim
 " change line 187 to: hi PmenuSel        ctermfg=red ctermbg=16    cterm=bold
 colorscheme molokai
@@ -172,12 +178,6 @@ let base16colorspace=256
 highlight PmenuSel ctermfg=red ctermbg=16 cterm=bold
 " set comment font to italic
 highlight Comment                         cterm=italic
-
-" type of file; triggers the FileType event when set
-" set filetype=
-
-" name of syntax highlighting used
-syntax enable
 
 " maximum column to look for syntax items
 " set synmaxcol=
@@ -233,7 +233,10 @@ set spellfile=~/.vim/spell/en.utf-8.add
 
 " 6 multiple windows{{{1
 
-" 0, 1 or 2; when to use a status line for the last window
+" when to use a status line for the last window
+" 0: never
+" 1: only if there are at least two windows
+" 2: always
 set laststatus=2
 
 " alternate format to be used for a status line
@@ -241,10 +244,10 @@ set laststatus=2
 " set statusline=
 
 " make all windows the same size when adding/removing windows
-set equalalways
+" set equalalways
 
 " in which direction 'equalalways' works: "ver", "hor" or "both"
-set eadirection=ver
+" set eadirection=ver
 
 " minimal number of lines used for the current window
 " set winheight=
@@ -276,7 +279,7 @@ set eadirection=ver
 " don't unload a buffer when no longer shown in a window
 set hidden
 
-" "useopen" and/or "split"; which window to use when jumping to a buffer
+"  which window to use when jumping to a buffer
 set switchbuf=useopen,usetab
 
 " a new window is put below the current one
@@ -296,7 +299,10 @@ set splitright
 
 " 7 multiple tab pages{{{1
 
-" 0, 1 or 2; when to use a tab pages line
+" when to use a tab pages line
+" 0: never
+" 1: only if there are at least two tab pages
+" 2: always
 set showtabline=2
 
 " maximum number of tab pages to open for -p and "tab all"
@@ -501,7 +507,7 @@ set undolevels=1000
 " changes to the text are not possible
 " set modifiable
 
-" textwidth	line length above which to break a line
+" line length above which to break a line
 set textwidth=78
 
 " margin from the right in which to break a line
@@ -516,6 +522,8 @@ set backspace=eol,start,indent
 " list of flags that tell how automatic formatting works
 " remove a comment leader when joining lines
 set formatoptions+=j
+" recognize numbered lists
+set formatoptions+=n
 
 " pattern to recognize a numbered list
 " set formatlistpat=
@@ -527,6 +535,12 @@ set formatoptions+=j
 " set complete=
 
 " whether to use a popup menu for Insert mode completion
+" menu:     use a popup menu to show the possible completion
+" menuone:  use a popup menu to show the possible completion even if there is
+"           only one
+" longeset: only insert the longest common text of the matches
+" preview:  show extra information about the currectly selected completion in
+"           the preview window
 set completeopt=menu,menuone,longest
 
 " maximum height of the popup menu
@@ -536,9 +550,11 @@ set completeopt=menu,menuone,longest
 " set completefunc=
 
 " function for filetype-specific Insert mode completion
+" this is used for file type specific completion
 " set omnifunc=
 
 " list of dictionary files for keyword completion
+" this is used for file type specific dictionary
 " set dictionary=
 
 " list of thesaurus files for keyword completion
@@ -560,13 +576,13 @@ set completeopt=menu,menuone,longest
 set showmatch
 
 " tenth of a second to show a match for 'showmatch'
-set matchtime=10
+" set matchtime=
 
 " list of pairs that match for the "%" command
 set matchpairs=(:),[:],{:},<:>
 
 " don't showing matched pairs
-" keep it here since blinking cursor is quite annoyingwhen matched
+" keep it here since blinking cursor is quite annoying when matched
 " let loaded_matchparen = 1
 
 " use two spaces after '.' when joining a line
@@ -648,7 +664,7 @@ set foldlevel=0
 autocmd VimConfig filetype python setlocal foldlevel=99
 
 " value for 'foldlevel' when starting to edit a file
-" set foldlevelstart=-1
+" set foldlevelstart=
 
 " width of the column used to indicate folds
 " set foldcolumn=
@@ -689,9 +705,6 @@ autocmd VimConfig filetype python setlocal foldlevel=99
 " set nodiff
 
 " options for using diff mode
-" set diffopt=
-
-" expression used to obtain a diff file
 " diff buffers in vertical way
 set diffopt+=vertical
 
@@ -855,8 +868,8 @@ set wildignorecase
 " command-line completion shows a list of matches
 set wildmenu
 
-" " key used to open the command-line window
-" set cedit=
+" key used to open the command-line window in command-line mode
+set cedit=<c-q>
 
 " height of the command-line window
 " set cmdwinheight
@@ -1042,11 +1055,16 @@ endif
 " set imactivatekey=
 
 " width of ambiguous width characters
-" set ambiwidth=
+" the CJK characters use twice the width of ASCII width
+set ambiwidth="double"
 
 " 26 various{{{1
 
-" when to use virtual editing: "block", "insert" and/or "all"
+" when to use virtual editing
+" block:   allow virtual editing in Visual block mode.
+" insert:  allow virtual editing in Insert mode.
+" all:	   allow virtual editing in all modes.
+" onemore: allow the cursor to move just past the end of the line
 set virtualedit=block
 
 " list of autocommand events which are to be ignored
@@ -1062,7 +1080,7 @@ set virtualedit=block
 " set nosecure
 
 " use the 'g' flag for ":substitute"
-" set	nogdefault
+" set nogdefault
 
 " 'g' and 'c' flags of ":substitute" toggle
 " set noedcompatible
@@ -1071,8 +1089,7 @@ set virtualedit=block
 " set maxfuncdepth=
 
 " list of words that specifies what to put in a session file
-set sessionoptions=buffers,curdir,folds,globals,help,localoptions,
-      \options,tabpages,winsize,unix,slash
+set sessionoptions=buffers,curdir,folds,localoptions,options,tabpages,winsize
 
 " list of words that specifies what to save for :mkview
 " set viewoptions=folds,options,cursor
@@ -1081,7 +1098,13 @@ set sessionoptions=buffers,curdir,folds,globals,help,localoptions,
 " set viewdir=~/.vimtmp/view/
 
 " list that specifies what to write in the viminfo file
-set viminfo='1000,f1,<500,s20,h,n~/.vimtmp/viminfo/viminfo
+" '1000: marks will be remembered for the last 1000 files you edited
+" f1: all the marks will be stored
+" <3000: registers with more than 3000 lines will be skipped
+" s100: registers with more than 100 KB will be skipped
+" h: the effect of 'hlsearch' will be disabled
+" n: the name(location) of the viminfo file
+set viminfo='1000,f1,<3000,s100,h,n~/.vimtmp/viminfo/viminfo
 
 " what happens with a buffer when it's no longer in a window
 " set bufhidden=
