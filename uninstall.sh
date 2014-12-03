@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-# A simple installer for the dotfiles
+# uninstall the whole dotfiles and generated directories and files
 
-# CONFIGURABLES ==============================================================
-
-# new directories if needed
+# remove all directories except vim and fonts since there may be other things
+# which are not created by ./install.sh, we should not delete that stuff
 NEW_DIRS[0]="vimtmp"
 NEW_DIRS[1]="vimtmp/yankring"
 NEW_DIRS[2]="vimtmp/undo"
@@ -12,20 +11,17 @@ NEW_DIRS[3]="vimtmp/swap"
 NEW_DIRS[4]="vimtmp/backup"
 NEW_DIRS[5]="vimtmp/viminfo"
 NEW_DIRS[6]="vimtmp/view"
-NEW_DIRS[7]="vim"
+# NEW_DIRS[7]="vim"
 NEW_DIRS[8]="ipython/profile_default/startup"
 NEW_DIRS[9]="w3m"
 NEW_DIRS[10]="cgdb"
-NEW_DIRS[11]="fonts"
+# NEW_DIRS[11]="fonts"
 
 for DIR in "${NEW_DIRS[@]}"; do
-    if [[ ! -d ~/.$DIR ]]; then
-        mkdir -p ~/.$DIR
+    if [[ -a ~/.$DIR ]]; then
+        rm -rf ~/.$DIR
     fi
 done
-
-# current path
-CUR_PATH=$(pwd)
 
 # a list of files need to be put into $HOME
 SIMPLE_FILES[0]="bash/bashrc"
@@ -52,7 +48,6 @@ SIMPLE_FILES[15]="procmailrc"
 for FILE in "${SIMPLE_FILES[@]}"; do
     FILE_BASENAME=$(basename $FILE)
     rm -rf "$HOME/.$FILE_BASENAME"
-    ln -s "$CUR_PATH/$FILE" "$HOME/.$FILE_BASENAME"
 done
 
 # a list of files need to be put into $HOME
@@ -62,7 +57,6 @@ EXTENDED_FILES[2]="ipython/profile_default/startup/ipythonstartup.ipy"
 
 for FILE in "${EXTENDED_FILES[@]}"; do
     rm -rf "$HOME/.$FILE"
-    ln -s "$CUR_PATH/$FILE" "$HOME/.$FILE"
 done
 
 # a list of directories need to be put into $HOME
@@ -77,14 +71,6 @@ EXTENDED_DIRS[7]="mutt"
 
 for DIR in ${EXTENDED_DIRS[@]}; do
     rm -rf "$HOME/.$DIR"
-    ln -s "$CUR_PATH/$DIR" "$HOME/.$DIR"
 done
 
-# set the terminal ui
-. gnome-terminal-profile.sh
-
-# support terminal italic font
-cd terminal-italic-font/
-. italic.sh
-
-# vim:ts=4:sw=8:sts=4:et:fdm=marker:ft=sh
+# vim:tw=78:ts=8:sw=4:sts=4:et:fdm=marker
