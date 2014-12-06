@@ -179,6 +179,9 @@ highlight PmenuSel ctermfg=red ctermbg=16 cterm=bold
 " set comment font to italic
 highlight Comment                         cterm=italic
 
+"see also: http://superuser.com/questions/399296/256-color-support-for-vim-background-in-tmux/562423#562423
+set t_ut=
+
 " maximum column to look for syntax items
 " set synmaxcol=
 
