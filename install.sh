@@ -81,10 +81,10 @@ for DIR in ${EXTENDED_DIRS[@]}; do
 done
 
 # set the terminal ui
-. gnome-terminal-profile.sh
+source monokai-gnome-terminal.sh
 
 # support terminal italic font
 cd terminal-italic-font/
-. italic.sh
+source italic.sh
 
 # vim:ts=4:sw=8:sts=4:et:fdm=marker:ft=sh
