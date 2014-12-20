@@ -2,8 +2,6 @@
 #                            C Snippets                                     #
 #############################################################################
 
-priority -50
-
 snippet { "{}"
 {
 	${1}
@@ -38,6 +36,12 @@ ${2}
 
 
 
+#endif
+endsnippet
+
+snippet #if "#if #endif" b
+#if ${1:0}
+${VISUAL}${0}
 #endif
 endsnippet
 

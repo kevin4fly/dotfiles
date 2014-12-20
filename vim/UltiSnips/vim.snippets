@@ -1,10 +1,93 @@
+priority 100
+
 #############################################################################
 #                            Vim Snippets                                   #
 #############################################################################
 
-# vim settings
+snippet header "standard Vim script file header"
+" File: ${1:`expand('%:t')`}
+" Author: ${2:`g:snips_author`}
+" Description: ${3}
+${0:" Last Modified: `strftime("%B %d, %Y")`}
+endsnippet
+
+snippet guard "script reload guard"
+if exists('${1:did_`vim_snippets#Filename()`}') || &cp${2: || version < 700}
+	finish
+endif
+let $1 = 1${0}
+endsnippet
+
+snippet fu "function"
+function ${1:`expand('%') =~ 'autoload' ?  substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:function_name}(${3:args})
+	${0}
+endfunction
+endsnippet
+
+snippet fc "function!"
+function! ${1:`expand('%') =~ 'autoload' ?  substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:function_name}(${3:args})
+	${0}
+endfunction
+endsnippet
+
 snippet vim "#vim" b
 vim:tw=78:ts=8:sw=2:sts=2:et:fdm=marker
+endsnippet
+
+snippet try "try ... catch statement" b
+try
+	${1}
+catch ${2}
+	${0}
+endtry
+endsnippet
+
+snippet for "for loop" b
+for ${1:item} in ${2:items}
+	${0}
+endfor
+endsnippet
+
+snippet fork "for [key, value] loop" b
+for [${1:key},${2:value}] in items(${3})
+	${0}
+	unlet $1 $2
+endfor
+endsnippet
+
+snippet wh "while loop" b
+while ${1:condition}
+	${0}
+endwhile
+endsnippet
+
+snippet if "if statement" b
+if ${1:condition}
+	${0}
+endif
+endsnippet
+
+snippet ife "if ... else statement" b
+if ${1:condition}
+	${2}
+else
+	${0}
+endif
+endsnippet
+
+snippet au "augroup ... autocmd block" b
+augroup ${1:AU_NAME}
+" this one is which you're most likely to use?
+autocmd ${2:BufRead,BufNewFile} ${3:*.ext,*.ext3|<buffer[=N]>} ${0}
+augroup end
+endsnippet
+
+snippet neo "neobundle plugin definition" b
+NeoBundle '${0}'
+endsnippet
+
+snippet plug "neobundle plugin definition" b
+NeoBundle '${0}'
 endsnippet
 
 # vim:ft=snippets:
