@@ -72,7 +72,7 @@ endif
 let g:ycm_global_ycm_extra_conf               =
   \ '~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
 let g:ycm_min_num_identifier_candidate_chars  = 4
-let g:ycm_seed_identifiers_with_syntax        = 1
+" let g:ycm_seed_identifiers_with_syntax        = 1
 let g:ycm_complete_in_comments                = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax        = 1
@@ -374,9 +374,14 @@ endif
 " settings for golden-view{{{2
 if neobundle#tap('golden-view')
   let g:goldenview__enable_default_mapping = 0
+  let g:goldenview__enable_at_startup      = 0
   nmap <silent> <c-w>i     <plug>GoldenViewSplit
   nmap <silent> <c-w>u     <plug>GoldenViewSwitchMain
   nmap <silent> <c-w><c-u> <plug>GoldenViewSwitchToggle
+
+  nmap <silent> <c-w><c-e> :EnableGoldenViewAutoResize<cr>
+  nmap <silent> <c-w><c-d> :DisableGoldenViewAutoResize<cr>
+  nmap <silent> <c-w><c-g> :ToggleGoldenViewAutoResize<cr>
 
   call neobundle#untap()
 endif
@@ -447,6 +452,7 @@ endif
 
 " settings for tcomment{{{2
 if neobundle#tap('tcomment')
+  let g:tcommentTextObjectInlineComment = ''
   " for c language using // instead of /* ... */
   let g:tcomment_types              = {'c':'// %s'}
   "nmap <silent> gc <plug>TComment_<c-_>\|
@@ -520,8 +526,8 @@ if neobundle#tap('over')
           \	"\n" : '\\n',
           \	"\r" : '\\r',
           \ }
-  nnoremap <silent> <c-q> :OverCommandLine<cr>
-  vnoremap <silent> <c-q> :OverCommandLine<cr>
+  nnoremap <silent> S :OverCommandLine<cr>
+  vnoremap <silent> S :OverCommandLine<cr>
 
   call neobundle#untap()
 endif
@@ -576,10 +582,10 @@ endif
 " for text-object-anyblock
 if neobundle#tap('textobj-anyblock')
   let g:textobj_anyblock_no_default_key_mappings = 1
-	omap ab	<plug>(textobj-anyblock-a)
-	omap ib	<plug>(textobj-anyblock-i)
-	xmap ab	<plug>(textobj-anyblock-a)
-	xmap ib	<plug>(textobj-anyblock-i)
+	omap aj	<plug>(textobj-anyblock-a)
+	omap ij	<plug>(textobj-anyblock-i)
+	xmap aj	<plug>(textobj-anyblock-a)
+	xmap ij	<plug>(textobj-anyblock-i)
 
   call neobundle#untap()
 endif
@@ -617,27 +623,36 @@ endif
 
 " for text object python
 if neobundle#tap('textobj-python')
-" '<c-f>' stands for python method
-  xmap a<c-f> <plug>(textobj-python-function-a)
-  omap a<c-f> <plug>(textobj-python-function-a)
-  xmap i<c-f> <plug>(textobj-python-function-i)
-  omap i<c-f> <plug>(textobj-python-function-i)
-" <c-c> stands for pyton class
-  xmap a<c-c> <plug>(textobj-python-class-a)
-  omap a<c-c> <plug>(textobj-python-class-a)
-  xmap i<c-c> <plug>(textobj-python-class-i)
-  omap i<c-c> <plug>(textobj-python-class-i)
+  " python Method
+  xmap am <plug>(textobj-python-function-a)
+  omap am <plug>(textobj-python-function-a)
+  xmap im <plug>(textobj-python-function-i)
+  omap im <plug>(textobj-python-function-i)
+  " pyton Class
+  xmap ac <plug>(textobj-python-class-a)
+  omap ac <plug>(textobj-python-class-a)
+  xmap ic <plug>(textobj-python-class-i)
+  omap ic <plug>(textobj-python-class-i)
 
   call neobundle#untap()
+endif
+
+" for text object brace
+if neobundle#tap('textobj-brace')
+  xmap ak <plug>(textobj-brace-a)
+  xmap ik <plug>(textobj-brace-i)
+  omap ak <plug>(textobj-brace-a)
+  omap ik <plug>(textobj-brace-i)
 endif
 
 " for text object comment
 if neobundle#tap('textobj-comment')
   let g:textobj_comment_no_default_key_mappings = 1
-  omap a<c-c> <plug>(textobj-comment-a)
-  omap i<c-c> <plug>(textobj-comment-i)
-  xmap a<c-c> <plug>(textobj-comment-a)
-  xmap i<c-c> <plug>(textobj-comment-i)
+  " comment Out
+  omap ao <plug>(textobj-comment-a)
+  omap io <plug>(textobj-comment-i)
+  xmap ao <plug>(textobj-comment-a)
+  xmap io <plug>(textobj-comment-i)
 
   call neobundle#untap()
 endif
@@ -692,8 +707,8 @@ if neobundle#tap('surround')
   nmap yss    <plug>Yssurround
   nmap ySs    <plug>YSsurround
   nmap ySS    <plug>YSsurround
-  xmap S      <plug>VSurround
-  xmap gS     <plug>VgSurround
+  xmap s      <plug>VSurround
+  xmap gs     <plug>VgSurround
   imap <c-s>  <plug>Isurround
   imap <c-g>s <plug>Isurround
   imap <c-g>S <plug>ISurround
@@ -760,7 +775,8 @@ if neobundle#tap('incsearch')
     IncSearchNoreMap <c-j> <down>
     IncSearchNoreMap <c-k> <up>
     IncSearchNoreMap <c-f> <bs>
-    IncSearchNoreMap <tab> <Over>(buffer-complete)
+    IncSearchNoreMap <tab>   <Over>(buffer-complete)
+    IncSearchNoreMap <S-Tab> <Over>(buffer-complete-prev)
   endfunction
 
   " let g:incsearch#auto_nohlsearch = 1
@@ -797,10 +813,10 @@ if neobundle#tap('easy-motion')
   vmap <silent> f   <plug>(easymotion-f)
   nmap <silent> F   <plug>(easymotion-F)
   vmap <silent> F   <plug>(easymotion-F)
-  nmap <silent> S   <plug>(easymotion-s)
+  nmap <silent> ss  <plug>(easymotion-s)
   nmap <silent> sj  <plug>(easymotion-j)
   nmap <silent> sk  <plug>(easymotion-k)
-  nmap <silent> ss  <plug>(easymotion-bd-jk)
+  nmap <silent> si  <plug>(easymotion-bd-jk)
   omap <silent> z   <plug>(easymotion-f)
   omap <silent> Z   <plug>(easymotion-F)
 
@@ -915,6 +931,13 @@ endif
 " settings for tmux-complete{{{2
 if neobundle#tap('tmux-complete')
   let g:tmuxcomplete#trigger = 'omnifunc'
+
+  call neobundle#untap()
+endif
+
+" settings for view-doc{{{2
+if neobundle#tap('view-doc')
+  let g:viewdoc_open = "belowright vnew"
 
   call neobundle#untap()
 endif

@@ -170,7 +170,7 @@ set background=dark
 " name of syntax highlighting used
 syntax enable
 
-" color: ~/.vim/bundle/molokai/colors/molokai.vim
+" color: ~/.vim/bundle/molokai-colorscheme/colors/molokai.vim
 " change line 187 to: hi PmenuSel        ctermfg=red ctermbg=16    cterm=bold
 colorscheme molokai
 let base16colorspace=256
@@ -616,7 +616,8 @@ set softtabstop=4
 set expandtab
 
 " don't expand <tab> in .snippets file
-autocmd VimConfig bufenter *.snippets setlocal noexpandtab
+autocmd VimConfig bufread *.snippets
+      \ setlocal tabstop=8 shiftwidth=8 nosmarttab softtabstop=8 noexpandtab
 
 " automatically set the indent of a new line
 set autoindent

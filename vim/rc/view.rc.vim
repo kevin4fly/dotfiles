@@ -10,7 +10,8 @@ nnoremap <silent> <c-j> :bprevious<cr>
 " quit window or tab with buffer saved
 " nnoremap <silent> <c-w>q    :quit<cr>
 nnoremap <silent> <leader>q  :quit<cr>
-nnoremap <silent> <leader>z  :quit<cr>
+" nnoremap <silent> <leader>z  :quit<cr>
+nnoremap <silent> <c-q>      :quit<cr>
 " save all the files and then quit
 nnoremap <silent> <leader>ca    :wqa<cr>
 nnoremap <silent> <leader><c-q> :wqa<cr>
@@ -25,21 +26,21 @@ nnoremap <silent> <c-w>X     :qall!<cr>
 "set viminfo^=%
 
 " useful mappings for managing tab and window
-" new tab
-nnoremap <silent> <c-w>t :tabnew<cr>
+" new tabpage
+nnoremap <silent> <c-w>p :tabnew<cr>
 " new window
 nnoremap <silent> <c-w>v :vnew<cr>
 nnoremap <silent> <c-w>s :new<cr>:wincmd J<cr>
 " new buffer
-nnoremap <silent> <c-w>b :enew<cr>
+nnoremap <silent> <c-w>f :enew<cr>
 " tab only
 nnoremap <silent> <leader>to :tabonly<cr>
 " tab next/previous
 nnoremap <silent> <c-h> :tabprevious<cr>
 nnoremap <silent> <c-l> :tabnext<cr>
 " swap tabs
-nnoremap <silent> <c-w>< :tabmove -1<cr>
-nnoremap <silent> <c-w>> :tabmove +1<cr>
+nnoremap <silent> <c-w>[ :tabmove -1<cr>
+nnoremap <silent> <c-w>] :tabmove +1<cr>
 
 " switch cwd to the directory of the open buffer
 nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>

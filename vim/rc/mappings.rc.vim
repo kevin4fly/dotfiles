@@ -30,7 +30,6 @@ onoremap jj <ESC>
 cnoremap <c-a> <c-b>
 
 " remap vim 0 to first non-blank character
-nnoremap 0 ^
 nnoremap H ^
 vnoremap H ^
 nnoremap L $
@@ -44,7 +43,8 @@ inoremap <expr><c-j>    pumvisible() ? "\<c-n>" : "\<down>"
 inoremap <expr><c-k>    pumvisible() ? "\<c-p>" : "\<up>"
 inoremap <expr><Enter>  pumvisible() ? "\<c-y>" : "\<Enter>"
 inoremap <c-o> <esc>lDa
-noremap! <c-l> <right>
+inoremap <expr><c-l>    pumvisible() ? "\<c-y>"  : "\<right>"
+cnoremap <c-l> <right>
 noremap! <c-h> <left>
 cnoremap <c-j> <down>
 cnoremap <c-k> <up>
@@ -119,7 +119,7 @@ nnoremap <silent> <leader>so :w !sudo tee % >/dev/null<cr>
 " autoload man.vim
 " autocmd VimConfig bufreadpost,bufnewfile *.c,*.h,*.cpp,*.sh runtime! ftplugin/man.vim
 runtime! ftplugin/man.vim
-autocmd VimConfig filetype * nnoremap <silent> K :Man <cword><cr>
+nnoremap <silent> K :Man <cword><cr>
 
 " show this kinds of file on the right side
 " set the local buftype for golden view plugin

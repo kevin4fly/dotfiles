@@ -28,12 +28,12 @@ NeoBundle 'tomasr/molokai', {
 
 " waiting for https://github.com/chriskempson/base16-builder/issues/179{{{2
 " add base16-vim colorscheme
-" NeoBundleLazy 'chriskempson/base16-vim', {
+" NeoBundle 'chriskempson/base16-vim', {
 "             \ 'name' : 'base16-colorscheme',
 "             \ }
 
 " add more vim colorscheme
-" NeoBundleLazy 'flazz/vim-colorschemes', {
+" NeoBundle 'flazz/vim-colorschemes', {
 "             \ 'name' : 'flazz-colorschemes',
 "             \ }
 
@@ -131,6 +131,33 @@ NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {
             \ 'name'      : 'cpp-enhanced-highlight',
             \ 'filetypes' : ['c', 'cpp', 'cxx', 'C', 'h', 'hpp'],
             \ }
+
+" vim script related{{{1
+
+" provide commands for working with vim script easily{{{2
+NeoBundleLazy 'tpope/vim-scriptease', {
+            \ 'name'      : 'vim-scriptease',
+            \ 'filetypes' : ['vim'],
+            \ }
+
+" check vim syntax{{{2
+NeoBundleLazy 'syngan/vim-vimlint', {
+            \ 'name'     : 'vim-vimlint',
+            \ 'filetype' : ['vim'],
+            \ 'depends'  : 'ynkdir/vim-vimlparser',
+            \ }
+
+" provide vim script libraries for break-points plugin below{{{2
+" NeoBundleLazy 'vim-scripts/genutils', {
+"             \ 'name' : 'genutils',
+"             \ }
+
+" set/view Vim breakpoints and browse functions visually{{{2
+" NeoBundleLazy 'vim-scripts/BreakPts', {
+"             \ 'name'      : 'break-points',
+"             \ 'filetypes' : ['vim'],
+"             \ 'depends'   : 'genutils',
+"             \ }
 
 " python related{{{1
 
@@ -466,8 +493,8 @@ NeoBundleLazy 'kana/vim-textobj-indent', {
             \ 'name'     : 'textobj-indent',
             \ 'depends'  : 'textobj-user',
             \ 'mappings' : [
-            \              ['ox', '<plug>(textobj-indent-'],
-            \             ],
+            \               ['ox', '<plug>(textobj-indent-'],
+            \              ],
             \ }
 NeoBundleLazy 'kana/vim-textobj-function', {
             \ 'name'     : 'textobj-function',
@@ -512,7 +539,7 @@ NeoBundleLazy 'kevin4fly/vim-textobj-brace', {
             \ 'name'     : 'textobj-brace',
             \ 'depends'  : 'textobj-user',
             \ 'mappings' : [
-            \               ['ox', 'ij', 'aj'],
+            \               ['ox', '<plug>(textobj-brace-'],
             \              ],
             \ }
 NeoBundleLazy 'beloglazov/vim-textobj-quotes', {
@@ -591,9 +618,9 @@ NeoBundleLazy 'tpope/vim-surround', {
             \ }
 
 " format text{{{2
-NeoBundle 'reedes/vim-pencil', {
-            \ 'name'     : 'pencil',
-            \ }
+" NeoBundle 'reedes/vim-pencil', {
+"             \ 'name'     : 'pencil',
+"             \ }
 
 " repeat your mapping in normal mode{{{2
 NeoBundleLazy 'tpope/vim-repeat', {
@@ -642,10 +669,10 @@ NeoBundle 'kshenoy/vim-signature', {
             \ }
 
 " provide incremental highlighting for all pattern matches{{{2
-" NeoBundleLazy 'haya14busa/incsearch.vim', {
-"             \ 'name'     : 'incsearch',
-"             \ 'mappings' : ['<plug>(incsearch-'],
-"             \ }
+NeoBundleLazy 'haya14busa/incsearch.vim', {
+            \ 'name'     : 'incsearch',
+            \ 'mappings' : ['<plug>(incsearch-'],
+            \ }
 
 " show details of the position of the search result{{{2
 NeoBundleLazy 'henrik/vim-indexed-search', {
@@ -716,9 +743,9 @@ NeoBundle 'ConradIrwin/vim-bracketed-paste', {
             \ 'name' : 'bracketed-paste',
             \ }
 
-NeoBundle 'thinca/vim-ref', {
-            \ 'name' : 'vim-ref',
-            \ }
+" NeoBundle 'thinca/vim-ref', {
+"             \ 'name' : 'vim-ref',
+"             \ }
 
 " change the content of quickfix{{{2
 NeoBundleLazy 'thinca/vim-qfreplace', {
@@ -766,5 +793,9 @@ NeoBundle 'vim-scripts/vis', {
 NeoBundle 'navicore/vissort.vim', {
             \ 'name' : 'vis-sort',
             \ }
+
+" NeoBundle 'powerman/vim-plugin-viewdoc', {
+"             \ 'name' : 'view-doc',
+"             \ }
 
 " vim:tw=78:ts=2:sw=2:sts=2:et:fdm=marker
