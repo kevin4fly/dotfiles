@@ -23,7 +23,7 @@ for DIR in "${NEW_DIRS[@]}"; do
     fi
 done
 
-# a list of files need to be put into $HOME
+# a list of files have to be removed
 SIMPLE_FILES[0]="bash/bashrc"
 SIMPLE_FILES[1]="bash/bash_aliases"
 SIMPLE_FILES[2]="bash/bash_after"
@@ -50,7 +50,7 @@ for FILE in "${SIMPLE_FILES[@]}"; do
     rm -rf "$HOME/.$FILE_BASENAME"
 done
 
-# a list of files need to be put into $HOME
+# a list of files have to be removed
 EXTENDED_FILES[0]="w3m/keymap"
 EXTENDED_FILES[1]="w3m/config"
 EXTENDED_FILES[2]="ipython/profile_default/startup/ipythonstartup.ipy"
@@ -59,7 +59,7 @@ for FILE in "${EXTENDED_FILES[@]}"; do
     rm -rf "$HOME/.$FILE"
 done
 
-# a list of directories need to be put into $HOME
+# a list of directories have to be removed
 EXTENDED_DIRS[0]="fonts/powerline-fonts"
 EXTENDED_DIRS[1]="cgdb/cgdbrc"
 EXTENDED_DIRS[2]="vim/spell"

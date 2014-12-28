@@ -9,3 +9,8 @@ my config dotfiles
 3. `git pull && git submodule update --init --recursive`
 4. read file in `vim/README.md` for vim settings
 5. read file in `mutt/README.md` for mutt settings
+
+###Uninstalling
+The uninstalling only removes the config files which are symbolic links
+located in the $HOME directory
+`cd dotfiles && ./uninstall.sh`
