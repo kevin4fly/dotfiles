@@ -1,7 +1,6 @@
 " mappings
 
 " set map leader for easy combination
-let mapleader   = ","
 let g:mapleader = ","
 
 " fast saving
