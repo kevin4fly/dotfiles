@@ -213,6 +213,11 @@ nnoremap <silent> <leader>cc :if &colorcolumn             \|
                             \    setlocal colorcolumn=78  \|
                             \ endif<cr>
 
+" disable colorcolumn for vimpager
+if exists('vimpager')
+  setlocal colorcolumn=0
+endif
+
 " spell	highlight spelling mistakes
 set nospell
 

@@ -125,7 +125,7 @@ nnoremap <silent> K :Man <cword><cr>
 " set the local buftype for golden view plugin
 autocmd VimConfig filetype man,qf
       \ wincmd L                  |
-      \ if &filetype=='man'       |
+      \ if &filetype == 'man'     |
       \   setlocal buftype=help   |
       \   setlocal colorcolumn=0  |
       \ endif
