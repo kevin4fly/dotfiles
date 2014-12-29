@@ -556,6 +556,14 @@ if neobundle#tap('split-join')
   call neobundle#untap()
 endif
 
+" for niceblock
+if neobundle#tap('niceblock')
+  xmap I  <plug>(niceblock-I)
+  xmap A  <plug>(niceblock-A)
+
+  call neobundle#untap()
+endif
+
 " settings for text-object-user{{{2
 " for text-object-indent
 if neobundle#tap('textobj-indent')
@@ -579,6 +587,17 @@ if neobundle#tap('textobj-function')
   call neobundle#untap()
 endif
 
+" for text-object-functioncall
+if neobundle#tap('textobj-functioncall')
+  let g:textobj_functioncall_no_default_key_mappings = 1
+	omap aF	<plug>(textobj-functioncall-a)
+	omap iF	<plug>(textobj-functioncall-i)
+	xmap aF	<plug>(textobj-functioncall-a)
+	xmap iF	<plug>(textobj-functioncall-i)
+
+  call neobundle#untap()
+endif
+
 " for text-object-anyblock
 if neobundle#tap('textobj-anyblock')
   let g:textobj_anyblock_no_default_key_mappings = 1
@@ -590,10 +609,13 @@ if neobundle#tap('textobj-anyblock')
   call neobundle#untap()
 endif
 
-" for niceblock
-if neobundle#tap('niceblock')
-  xmap I  <plug>(niceblock-I)
-  xmap A  <plug>(niceblock-A)
+" for text-object-parameter
+if neobundle#tap('textobj-parameter')
+  let g:textobj_parameter_no_default_key_mappings = 1
+	omap a,	<plug>(textobj-parameter-a)
+	omap i,	<plug>(textobj-parameter-i)
+	xmap a,	<plug>(textobj-parameter-a)
+	xmap i,	<plug>(textobj-parameter-i)
 
   call neobundle#untap()
 endif

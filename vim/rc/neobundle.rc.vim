@@ -498,6 +498,12 @@ NeoBundleLazy 'AndrewRadev/splitjoin.vim', {
             \              ],
             \ }
 
+" insert and append in visual-block mode more useful
+NeoBundleLazy 'kana/vim-niceblock', {
+            \ 'name'     : 'niceblock',
+            \ 'mappings' : '<plug>(niceblock-',
+            \ }
+
 " create your own text objects{{{2
 NeoBundleLazy 'kana/vim-textobj-user', {
             \ 'name' : 'textobj-user',
@@ -516,6 +522,13 @@ NeoBundleLazy 'kana/vim-textobj-function', {
             \               ['ox', '<plug>(textobj-function-'],
             \              ],
             \ }
+NeoBundle 'machakann/vim-textobj-functioncall', {
+            \ 'name'     : 'textobj-functioncall',
+            \ 'depends'  : 'textobj-user',
+            \ 'mappings' : [
+            \               ['ox', '<plug>(textobj-functioncall-'],
+            \              ],
+            \ }
 NeoBundleLazy 'rhysd/vim-textobj-anyblock', {
             \ 'name'     : 'textobj-anyblock',
             \ 'depends'  : 'textobj-user',
@@ -523,15 +536,11 @@ NeoBundleLazy 'rhysd/vim-textobj-anyblock', {
             \               ['ox', '<plug>(textobj-anyblock-'],
             \              ],
             \ }
-NeoBundleLazy 'kana/vim-niceblock', {
-            \ 'name'     : 'niceblock',
-            \ 'mappings' : '<plug>(niceblock-',
-            \ }
 NeoBundleLazy 'sgur/vim-textobj-parameter', {
             \ 'name'     : 'textobj-parameter',
             \ 'depends'  : 'textobj-user',
             \ 'mappings' : [
-            \               ['ox', 'i,', 'a,'],
+            \               ['ox', '<plug>(textobj-parameter-'],
             \              ],
             \ }
 NeoBundleLazy 'machakann/vim-textobj-delimited', {
@@ -572,17 +581,23 @@ NeoBundleLazy 'bps/vim-textobj-python', {
 NeoBundleLazy 'thinca/vim-textobj-comment', {
             \ 'name'     : 'textobj-comment',
             \ 'depends'  : 'textobj-user',
-            \ 'mappings' : '<plug>(textobj-comment-',
+            \ 'mappings' : [
+            \               ['ox', '<plug>(textobj-comment-'],
+            \              ],
             \ }
 NeoBundleLazy 'kana/vim-textobj-line', {
             \ 'name'     : 'textobj-line',
             \ 'depends'  : 'textobj-user',
-            \ 'mappings' : '<plug>(textobj-line-',
+            \ 'mappings' : [
+            \               ['ox', '<plug>(textobj-line-'],
+            \              ],
             \ }
 NeoBundleLazy 'kana/vim-textobj-entire', {
             \ 'name'     : 'textobj-entire',
             \ 'depends'  : 'textobj-user',
-            \ 'mappings' : '<plug>(textobj-entire-',
+            \ 'mappings' : [
+            \               ['ox', '<plug>(textobj-entire-'],
+            \              ],
             \ }
 NeoBundleLazy 'whatyouhide/vim-textobj-xmlattr', {
             \ 'name'     : 'textobj-xml-attribute',
@@ -592,12 +607,16 @@ NeoBundleLazy 'whatyouhide/vim-textobj-xmlattr', {
 NeoBundleLazy 'mattn/vim-textobj-url', {
             \ 'name'     : 'textobj-url',
             \ 'depends'  : 'textobj-user',
-            \ 'mappings' : '<plug>(textobj-url-',
+            \ 'mappings' : [
+            \               ['ox', '<plug>(textobj-url-'],
+            \              ],
             \ }
 NeoBundle 'kana/vim-textobj-fold', {
             \ 'name'     : 'textobj-fold',
             \ 'depends'  : 'textobj-user',
-            \ 'mappings' : '<plug>(textobj-fold-',
+            \ 'mappings' : [
+            \               ['ox', '<plug>(textobj-fold-'],
+            \              ],
             \ }
 
 NeoBundleLazy 'kana/vim-operator-user', {
