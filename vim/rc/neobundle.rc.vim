@@ -143,7 +143,7 @@ NeoBundleLazy 'tpope/vim-scriptease', {
 " check vim syntax{{{2
 NeoBundleLazy 'syngan/vim-vimlint', {
             \ 'name'     : 'vim-vimlint',
-            \ 'filetype' : ['vim'],
+            \ 'filetypes' : ['vim'],
             \ 'depends'  : 'ynkdir/vim-vimlparser',
             \ }
 
