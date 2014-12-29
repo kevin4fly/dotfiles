@@ -140,11 +140,24 @@ NeoBundleLazy 'tpope/vim-scriptease', {
             \ 'filetypes' : ['vim'],
             \ }
 
+NeoBundleLazy 'ynkdir/vim-vimlparser', {
+            \ 'name' : 'vim-viml-parser',
+            \ }
+
+NeoBundleLazy 'osyo-manga/shabadou.vim', {
+            \ 'name'  : 'shadadou',
+            \ }
+
+NeoBundleLazy 'osyo-manga/vim-watchdogs', {
+            \ 'name'    : 'vim-watchdogs',
+            \ 'depends' : ['quickrun', 'vimproc', 'shadadou'],
+            \ }
+
 " check vim syntax{{{2
 NeoBundleLazy 'syngan/vim-vimlint', {
-            \ 'name'     : 'vim-vimlint',
+            \ 'name'      : 'vim-vimlint',
             \ 'filetypes' : ['vim'],
-            \ 'depends'  : 'ynkdir/vim-vimlparser',
+            \ 'depends'   : ['vim-watchdogs', 'vim-viml-parser'],
             \ }
 
 " provide vim script libraries for break-points plugin below{{{2
@@ -570,6 +583,21 @@ NeoBundleLazy 'kana/vim-textobj-entire', {
             \ 'name'     : 'textobj-entire',
             \ 'depends'  : 'textobj-user',
             \ 'mappings' : '<plug>(textobj-entire-',
+            \ }
+NeoBundleLazy 'whatyouhide/vim-textobj-xmlattr', {
+            \ 'name'     : 'textobj-xml-attribute',
+            \ 'filetypes': ['html', 'xml'],
+            \ 'depends'  : 'textobj-user',
+            \ }
+NeoBundleLazy 'mattn/vim-textobj-url', {
+            \ 'name'     : 'textobj-url',
+            \ 'depends'  : 'textobj-user',
+            \ 'mappings' : '<plug>(textobj-url-',
+            \ }
+NeoBundle 'kana/vim-textobj-fold', {
+            \ 'name'     : 'textobj-fold',
+            \ 'depends'  : 'textobj-user',
+            \ 'mappings' : '<plug>(textobj-fold-',
             \ }
 
 NeoBundleLazy 'kana/vim-operator-user', {

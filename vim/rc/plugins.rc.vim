@@ -621,7 +621,7 @@ if neobundle#tap('textobj-delimited')
   call neobundle#untap()
 endif
 
-" for text object python
+" for text-object-python
 if neobundle#tap('textobj-python')
   " python Method
   xmap am <plug>(textobj-python-function-a)
@@ -637,7 +637,7 @@ if neobundle#tap('textobj-python')
   call neobundle#untap()
 endif
 
-" for text object brace
+" for text-object-brace
 if neobundle#tap('textobj-brace')
   xmap ak <plug>(textobj-brace-a)
   xmap ik <plug>(textobj-brace-i)
@@ -645,7 +645,7 @@ if neobundle#tap('textobj-brace')
   omap ik <plug>(textobj-brace-i)
 endif
 
-" for text object comment
+" for text-object-comment
 if neobundle#tap('textobj-comment')
   let g:textobj_comment_no_default_key_mappings = 1
   " comment Out
@@ -657,7 +657,7 @@ if neobundle#tap('textobj-comment')
   call neobundle#untap()
 endif
 
-" for text object line
+" for text-object-line
 if neobundle#tap('textobj-line')
   let g:textobj_line_no_default_key_mappings    = 1
   omap al <plug>(textobj-line-a)
@@ -668,13 +668,35 @@ if neobundle#tap('textobj-line')
   call neobundle#untap()
 endif
 
-" for text object entire
+" for text-object-entire
 if neobundle#tap('textobj-entire')
   let g:textobj_entire_no_default_key_mappings  = 1
   omap ae <plug>(textobj-entire-a)
   omap ie <plug>(textobj-entire-i)
   xmap ae <plug>(textobj-entire-a)
   xmap ie <plug>(textobj-entire-i)
+
+  call neobundle#untap()
+endif
+
+" for text-object-url
+if neobundle#tap('textobj-url')
+  let g:textobj_url_no_default_key_mappings  = 1
+  omap au <plug>(textobj-url-a)
+  omap iu <plug>(textobj-url-i)
+  xmap au <plug>(textobj-url-a)
+  xmap iu <plug>(textobj-url-i)
+
+  call neobundle#untap()
+endif
+
+" for text-obj-fold
+if neobundle#tap('textobj-fold')
+  let g:textobj_fold_no_default_key_mappings = 1
+  omap az <plug>(textobj-fold-a)
+  omap iz <plug>(textobj-fold-i)
+  xmap az <plug>(textobj-fold-a)
+  xmap iz <plug>(textobj-fold-i)
 
   call neobundle#untap()
 endif
