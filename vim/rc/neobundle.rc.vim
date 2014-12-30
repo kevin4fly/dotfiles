@@ -522,7 +522,7 @@ NeoBundleLazy 'kana/vim-textobj-function', {
             \               ['ox', '<plug>(textobj-function-'],
             \              ],
             \ }
-NeoBundle 'machakann/vim-textobj-functioncall', {
+NeoBundleLazy 'machakann/vim-textobj-functioncall', {
             \ 'name'     : 'textobj-functioncall',
             \ 'depends'  : 'textobj-user',
             \ 'mappings' : [
@@ -611,7 +611,7 @@ NeoBundleLazy 'mattn/vim-textobj-url', {
             \               ['ox', '<plug>(textobj-url-'],
             \              ],
             \ }
-NeoBundle 'kana/vim-textobj-fold', {
+NeoBundleLazy 'kana/vim-textobj-fold', {
             \ 'name'     : 'textobj-fold',
             \ 'depends'  : 'textobj-user',
             \ 'mappings' : [

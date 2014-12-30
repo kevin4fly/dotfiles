@@ -1,5 +1,7 @@
 " options
 
+scriptencoding utf-8
+
 " run :options to compare the result and take it as a reference
 
 " 1 important{{{1
@@ -173,7 +175,11 @@ syntax enable
 " color: ~/.vim/bundle/molokai-colorscheme/colors/molokai.vim
 " change line 187 to: hi PmenuSel        ctermfg=red ctermbg=16    cterm=bold
 colorscheme molokai
-let base16colorspace=256
+" set the gnome-terminal corresponding colorscheme when changing vim's color
+" scheme
+" let g:base16_shell_path =
+"       \ "~/.ghq/github.com/kevin4fly/dotfiles/base16-gnome-terminal"
+let g:base16colorspace=256
 " popup menu for terminal: red frontgroud and black backgroud
 highlight PmenuSel ctermfg=red ctermbg=16 cterm=bold
 " set comment font to italic
@@ -623,6 +629,9 @@ set expandtab
 " don't expand <tab> in .snippets file
 autocmd VimConfig bufread *.snippets
       \ setlocal tabstop=8 shiftwidth=8 nosmarttab softtabstop=8 noexpandtab
+
+" set options for vim files
+autocmd VimConfig filetype vim setlocal shiftwidth=2 softtabstop=2
 
 " automatically set the indent of a new line
 set autoindent
