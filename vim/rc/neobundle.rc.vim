@@ -217,6 +217,25 @@ NeoBundleLazy 'hdima/python-syntax', {
             \ 'filetypes' : 'python',
             \ }
 
+" xml/html related{{{1
+
+" highlight the XML/HTML tags that enclose your cursor location{{{2
+NeoBundleLazy 'valloric/MatchTagAlways', {
+            \ 'name'      : 'match-tag-always',
+            \ 'filetypes' : ['html', 'xml'],
+            \ }
+
+NeoBundleLazy 'whatyouhide/vim-textobj-xmlattr', {
+            \ 'name'     : 'textobj-xml-attribute',
+            \ 'filetypes': ['html', 'xml', 'xhtml', 'php'],
+            \ 'depends'  : 'textobj-user',
+            \ }
+
+NeoBundleLazy 'sukima/xmledit', {
+            \ 'name'      : 'xml-edit',
+            \ 'filetypes' : ['html', 'xml', 'xhtml', 'php'],
+            \ }
+
 " lisp related{{{1
 
 " lisp env{{{2
@@ -599,11 +618,6 @@ NeoBundleLazy 'kana/vim-textobj-entire', {
             \               ['ox', '<plug>(textobj-entire-'],
             \              ],
             \ }
-NeoBundleLazy 'whatyouhide/vim-textobj-xmlattr', {
-            \ 'name'     : 'textobj-xml-attribute',
-            \ 'filetypes': ['html', 'xml'],
-            \ 'depends'  : 'textobj-user',
-            \ }
 NeoBundleLazy 'mattn/vim-textobj-url', {
             \ 'name'     : 'textobj-url',
             \ 'depends'  : 'textobj-user',
@@ -694,12 +708,6 @@ NeoBundle 'bling/vim-airline', {
 " set the status line{{{2
 " NeoBundleLazy 'Lokaltog/vim-powerline'
 
-" highlight the XML/HTML tags that enclose your cursor location{{{2
-NeoBundleLazy 'valloric/MatchTagAlways', {
-            \ 'name'      : 'match-tag-always',
-            \ 'filetypes' : ['html', 'xml'],
-            \ }
-
 NeoBundle 'vim-scripts/matchit.zip', {
             \ 'name'     : 'match-it',
             \ 'mappings' : [['nxo', '%', 'g%']],
@@ -722,17 +730,29 @@ NeoBundleLazy 'haya14busa/incsearch.vim', {
             \ }
 
 " show details of the position of the search result{{{2
-NeoBundleLazy 'henrik/vim-indexed-search', {
-            \ 'name'     : 'indexed-search',
-            \ 'commands' : [
-            \               {'name': 'ShowSearchIndex'},
-            \              ],
+" NeoBundleLazy 'henrik/vim-indexed-search', {
+"             \ 'name'     : 'indexed-search',
+"             \ 'commands' : [
+"             \               {'name': 'ShowSearchIndex'},
+"             \              ],
+"             \ }
+
+" show the index of the matched searching results
+NeoBundleLazy 'osyo-manga/vim-anzu', {
+            \ 'name'     : 'vim-anzu',
+            \ 'mappings' : ['<plug>(anzu-'],
+            \ }
+
+" improve star motions
+NeoBundleLazy 'haya14busa/vim-asterisk', {
+            \ 'name'     : 'asterisk',
+            \ 'mappings' : ['<plug>(asterisk-'],
             \ }
 
 " provide star feature in visual-mode{{{2
 NeoBundleLazy 'thinca/vim-visualstar', {
             \ 'name'     : 'visual-star',
-            \ 'mappings' : '<plug>(visualstar-',
+            \ 'mappings' : ['<plug>(visualstar-'],
             \ }
 
 " sytax highlight for nginx{{{2

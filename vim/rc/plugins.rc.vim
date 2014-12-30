@@ -1,5 +1,7 @@
 " plugins
 
+scriptencoding utf-8
+
 " neobundle related{{{1
 
 " settings for neobundle {{{2
@@ -190,6 +192,15 @@ if neobundle#tap('simply-fold')
   call neobundle#untap()
 endif
 
+" xml/html related{{{1
+
+" settings for xml-edit
+if neobundle#tap('xml-edit')
+  let g:xml_tag_completion_map = "/"
+  let g:xmledit_enable_html    = 1
+
+  call neobundle#untap()
+endif
 " tags related{{{1
 
 " settings for tagbar{{{2
@@ -243,8 +254,8 @@ if neobundle#tap('unite')
   let g:unite_source_history_yank_save_clipboard = 1
   let g:unite_source_mark_marks = "abcdefghijklmnopqrstuvwxyz"
         \ . "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.'`^<>[]{}()\""
-  let g:yankring_replace_n_pkey                  = 'gp'
-  let g:yankring_replace_n_nkey                  = 'gn'
+  let g:yankring_replace_n_pkey                  = 'tp'
+  let g:yankring_replace_n_nkey                  = 'tn'
   let g:unite_marked_icon                        = '✓'
   " use ag in unite grep source
   if executable('ag')
@@ -827,12 +838,24 @@ if neobundle#tap('incsearch')
   nmap /  <plug>(incsearch-forward)
   nmap ?  <plug>(incsearch-backward)
   nmap g/ <plug>(incsearch-stay)
-  nmap n  <plug>(incsearch-nohl-n)zv:ShowSearchIndex<cr>
-  nmap N  <plug>(incsearch-nohl-N)zv:ShowSearchIndex<cr>
-  nmap *  <plug>(incsearch-nohl-*)
-  nmap #  <plug>(incsearch-nohl-#)
-  nmap g* <plug>(incsearch-nohl-g*)
-  nmap g# <plug>(incsearch-nohl-g#)
+  " nmap n  <plug>(incsearch-nohl-n)zv:ShowSearchIndex<cr>
+  " nmap N  <plug>(incsearch-nohl-N)zv:ShowSearchIndex<cr>
+  nmap n  <plug>(incsearch-nohl)<plug>(anzu-n-with-echo)
+  nmap N  <plug>(incsearch-nohl)<plug>(anzu-n-with-echo)
+  " nmap *  <plug>(incsearch-nohl-*)
+  " nmap #  <plug>(incsearch-nohl-#)
+  " nmap g* <plug>(incsearch-nohl-g*)
+  " nmap g# <plug>(incsearch-nohl-g#)
+
+  map *   <plug>(incsearch-nohl)<plug>(asterisk-*)
+  map g*  <plug>(incsearch-nohl)<plug>(asterisk-g*)
+  map #   <plug>(incsearch-nohl)<plug>(asterisk-#)
+  map g#  <plug>(incsearch-nohl)<plug>(asterisk-g#)
+
+  map z*  <plug>(incsearch-nohl0)<plug>(asterisk-z*)
+  map gz* <plug>(incsearch-nohl0)<plug>(asterisk-gz*)
+  map z#  <plug>(incsearch-nohl0)<plug>(asterisk-z#)
+  map gz# <plug>(incsearch-nohl0)<plug>(asterisk-gz#)
 
   call neobundle#untap()
 endif
