@@ -195,12 +195,12 @@ endif
 " xml/html related{{{1
 
 " settings for xml-edit
-if neobundle#tap('xml-edit')
-  let g:xml_tag_completion_map = "/"
-  let g:xmledit_enable_html    = 1
-
-  call neobundle#untap()
-endif
+" if neobundle#tap('xml-edit')
+"   let g:xml_tag_completion_map = "/"
+"   let g:xmledit_enable_html    = 1
+"
+"   call neobundle#untap()
+" endif
 " tags related{{{1
 
 " settings for tagbar{{{2
@@ -838,14 +838,8 @@ if neobundle#tap('incsearch')
   nmap /  <plug>(incsearch-forward)
   nmap ?  <plug>(incsearch-backward)
   nmap g/ <plug>(incsearch-stay)
-  " nmap n  <plug>(incsearch-nohl-n)zv:ShowSearchIndex<cr>
-  " nmap N  <plug>(incsearch-nohl-N)zv:ShowSearchIndex<cr>
   nmap n  <plug>(incsearch-nohl)<plug>(anzu-n-with-echo)
   nmap N  <plug>(incsearch-nohl)<plug>(anzu-n-with-echo)
-  " nmap *  <plug>(incsearch-nohl-*)
-  " nmap #  <plug>(incsearch-nohl-#)
-  " nmap g* <plug>(incsearch-nohl-g*)
-  " nmap g# <plug>(incsearch-nohl-g#)
 
   map *   <plug>(incsearch-nohl)<plug>(asterisk-*)
   map g*  <plug>(incsearch-nohl)<plug>(asterisk-g*)
@@ -856,16 +850,6 @@ if neobundle#tap('incsearch')
   map gz* <plug>(incsearch-nohl0)<plug>(asterisk-gz*)
   map z#  <plug>(incsearch-nohl0)<plug>(asterisk-z#)
   map gz# <plug>(incsearch-nohl0)<plug>(asterisk-gz#)
-
-  call neobundle#untap()
-endif
-
-" settings for visual-star{{{2
-if neobundle#tap('visual-star')
-	vmap * <plug>(visualstar-*)N
-	vmap # <plug>(visualstar-#)N
-	vmap g* <plug>(visualstar-g*)N
-	vmap g# <plug>(visualstar-g#)N
 
   call neobundle#untap()
 endif

@@ -231,10 +231,10 @@ NeoBundleLazy 'whatyouhide/vim-textobj-xmlattr', {
             \ 'depends'  : 'textobj-user',
             \ }
 
-NeoBundleLazy 'sukima/xmledit', {
-            \ 'name'      : 'xml-edit',
-            \ 'filetypes' : ['html', 'xml', 'xhtml', 'php'],
-            \ }
+" NeoBundleLazy 'sukima/xmledit', {
+"             \ 'name'      : 'xml-edit',
+"             \ 'filetypes' : ['html', 'xml', 'xhtml', 'php'],
+"             \ }
 
 " lisp related{{{1
 
@@ -724,18 +724,10 @@ NeoBundle 'kshenoy/vim-signature', {
             \ }
 
 " provide incremental highlighting for all pattern matches{{{2
-NeoBundleLazy 'haya14busa/incsearch.vim', {
+NeoBundle 'haya14busa/incsearch.vim', {
             \ 'name'     : 'incsearch',
             \ 'mappings' : ['<plug>(incsearch-'],
             \ }
-
-" show details of the position of the search result{{{2
-" NeoBundleLazy 'henrik/vim-indexed-search', {
-"             \ 'name'     : 'indexed-search',
-"             \ 'commands' : [
-"             \               {'name': 'ShowSearchIndex'},
-"             \              ],
-"             \ }
 
 " show the index of the matched searching results
 NeoBundleLazy 'osyo-manga/vim-anzu', {
@@ -747,12 +739,6 @@ NeoBundleLazy 'osyo-manga/vim-anzu', {
 NeoBundleLazy 'haya14busa/vim-asterisk', {
             \ 'name'     : 'asterisk',
             \ 'mappings' : ['<plug>(asterisk-'],
-            \ }
-
-" provide star feature in visual-mode{{{2
-NeoBundleLazy 'thinca/vim-visualstar', {
-            \ 'name'     : 'visual-star',
-            \ 'mappings' : ['<plug>(visualstar-'],
             \ }
 
 " sytax highlight for nginx{{{2

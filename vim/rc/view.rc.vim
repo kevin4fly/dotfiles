@@ -22,9 +22,6 @@ nnoremap <silent> <leader>X  :qall!<cr>
 nnoremap <silent> <c-w>Q     :qall!<cr>
 nnoremap <silent> <c-w>X     :qall!<cr>
 
-" close help docs with q
-autocmd VimConfig filetype help nnoremap <silent> q :close<cr>
-
 " remember info about open buffers on close
 "set viminfo^=%
 
