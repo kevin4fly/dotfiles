@@ -724,7 +724,7 @@ NeoBundle 'kshenoy/vim-signature', {
             \ }
 
 " provide incremental highlighting for all pattern matches{{{2
-NeoBundle 'haya14busa/incsearch.vim', {
+NeoBundleLazy 'haya14busa/incsearch.vim', {
             \ 'name'     : 'incsearch',
             \ 'mappings' : ['<plug>(incsearch-'],
             \ }

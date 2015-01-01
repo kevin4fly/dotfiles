@@ -839,7 +839,7 @@ if neobundle#tap('incsearch')
   nmap ?  <plug>(incsearch-backward)
   nmap g/ <plug>(incsearch-stay)
   nmap n  <plug>(incsearch-nohl)<plug>(anzu-n-with-echo)
-  nmap N  <plug>(incsearch-nohl)<plug>(anzu-n-with-echo)
+  nmap N  <plug>(incsearch-nohl)<plug>(anzu-N-with-echo)
 
   map *   <plug>(incsearch-nohl)<plug>(asterisk-*)
   map g*  <plug>(incsearch-nohl)<plug>(asterisk-g*)
