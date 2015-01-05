@@ -678,8 +678,8 @@ set copyindent
 " folds with a level higher than this number will be closed
 set foldlevel=0
 
-" due to incompatible with simply-fold plugin if set foldlevel to 0
-autocmd VimConfig filetype python setlocal foldlevel=99
+" walk around it https://github.com/tmhedberg/SimpylFold/issues/29
+autocmd VimConfig filetype python setlocal foldopen+=insert
 
 " value for 'foldlevel' when starting to edit a file
 " set foldlevelstart=
