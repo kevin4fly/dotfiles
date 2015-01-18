@@ -773,7 +773,7 @@ NeoBundleLazy 'bkad/CamelCaseMotion', {
 " accelerate j/k motion{{{2
 NeoBundleLazy 'rhysd/accelerated-jk', {
             \ 'name'     : 'accelerated-jk',
-            \ 'mappings' : '<Plug>(accelerated_jk_',
+            \ 'mappings' : '<plug>(accelerated_jk_',
             \ }
 
 " open URI with your favorite browser{{{2
@@ -825,7 +825,7 @@ NeoBundle 'Shougo/vimshell.vim', {
             \                 'complete' : 'customlist,vimshell#complete',
             \               },
             \              ],
-            \ 'mappings' : '<Plug>'
+            \ 'mappings' : '<plug>'
             \ }
 
 " turn a Vim buffer into a terminal emulator{{{2
@@ -850,5 +850,11 @@ NeoBundle 'navicore/vissort.vim', {
 " NeoBundle 'powerman/vim-plugin-viewdoc', {
 "             \ 'name' : 'view-doc',
 "             \ }
+
+" show ascii table
+NeoBundleLazy 'vim-scripts/CharTab', {
+            \ 'filetypes' : 'all',
+            \ 'name'      : 'ascii-table',
+            \ }
 
 " vim:tw=78:ts=2:sw=2:sts=2:et:fdm=marker
