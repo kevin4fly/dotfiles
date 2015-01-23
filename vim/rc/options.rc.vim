@@ -808,11 +808,11 @@ set autowrite
 " as 'autowrite', but works with more commands
 set autowriteall
 
-" always write without asking for confirmation
-set writeany
+" always write with asking for confirmation
+" set nowriteany
 
-" automatically read a file when it was modified outside of Vim
-set autoread
+" show confirmation if buffer gets changed outside of vim
+" set noautoread
 
 " keep oldest version of a file; specifies file name extension
 " set patchmode=
