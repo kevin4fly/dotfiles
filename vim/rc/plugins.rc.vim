@@ -326,8 +326,8 @@ if neobundle#tap('unite')
     nmap <silent> <buffer> ;         <plug>(unite_choose_action)
     nmap <silent> <buffer> h         <plug>(unite_exit)
     nmap <silent> <buffer> H         <plug>(unite_all_exit)
-    nmap <silent> <buffer> <c-o>     <plug>(unite_redraw)
-    imap <silent> <buffer> <c-o>     <plug>(unite_redraw)
+    nmap <silent> <buffer> <c-p>     <plug>(unite_redraw)
+    imap <silent> <buffer> <c-p>     <plug>(unite_redraw)
     imap <silent> <buffer> <c-j>     <plug>(unite_select_next_line)
     imap <silent> <buffer> <c-k>     <plug>(unite_select_previous_line)
     imap <silent> <buffer> <tab>     <plug>(unite_complete)
@@ -372,9 +372,10 @@ if neobundle#tap('vimfiler')
   " change mappings <c-j> <c-l> to avoid confliction
   function! neobundle#hooks.on_post_source(bundle)
     function! s:vimfiler_settings()
-      " nnoremap <silent><buffer> <c-j> <nop>
-      nnoremap <silent><buffer> <c-l> <nop>
-      nnoremap <silent><buffer> <c-o> <plug>(vimfiler_redraw_screen)
+      " nmap <silent><buffer> <c-j> <nop>
+      nmap <silent><buffer> <c-k> <nop>
+      nmap <silent><buffer> <c-l> :tabnext<cr>
+      nmap <silent><buffer> <c-p> <plug>(vimfiler_redraw_screen)
     endfunction
     autocmd VimConfig filetype vimfiler call s:vimfiler_settings()
   endfunction
@@ -870,6 +871,8 @@ if neobundle#tap('easy-motion')
   nmap <silent> si  <plug>(easymotion-bd-jk)
   omap <silent> z   <plug>(easymotion-f)
   omap <silent> Z   <plug>(easymotion-F)
+  nmap ;            <plug>(easymotion-next)
+  nmap ,            <plug>(easymotion-prev)
 
   call neobundle#untap()
 endif
