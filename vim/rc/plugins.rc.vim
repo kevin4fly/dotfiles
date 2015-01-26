@@ -806,7 +806,7 @@ if neobundle#tap('airline')
   let g:airline_section_c                    = '%F'
   let g:airline_section_z                    =
     \'%3p%% %{g:airline_symbols.linenr}%#__accent_bold#%l/%L' .
-    \'%#__restore__#:%3c%V'
+    \'%#__restore__# col:%2c%V'
 
   call neobundle#untap()
 endif
