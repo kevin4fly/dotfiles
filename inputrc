@@ -30,6 +30,7 @@ set show-all-if-unmodified on
 "\C-u": unix-line-discard
 "\C-o": kill-line
 "\C-x": kill-whole-line
+"\C-b": delete-char
 "\C-f": backward-delete-char
 
 $if mode=vi
