@@ -31,7 +31,7 @@ cnoremap <c-a> <c-b>
 " remap vim 0 to first non-blank character
 nnoremap H ^
 vnoremap H ^
-nnoremap L $
+nnoremap L g_
 vnoremap L g_
 
 " treat long lines as break lines
@@ -48,7 +48,8 @@ noremap! <c-h> <left>
 cnoremap <c-j> <down>
 cnoremap <c-k> <up>
 
-" delete a char in insert and command mode
+" delete a char backward/forward in insert and command mode
+noremap! <c-b> <del>
 noremap! <c-f> <bs>
 snoremap <c-f> <bs>i
 " kill line from the current position to the last
@@ -60,9 +61,16 @@ cnoremap <c-x> <c-\>e ''<cr>
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
 inoremap <c-n> <esc>o
+" delete the whole line in insert mode, however <c-x> is used to trigger
+" insert-completion
+" inoremap <c-x> <esc>0C
+
+" backspace to delete character
+nnoremap <bs> X
 
 " for easy search
-nnoremap <leader>/ ?
+" we do Not use nnoremap here is for the plugin incsearch to work correctly
+nmap <leader>/ ?
 
 " uniform copy
 nnoremap Y y$
