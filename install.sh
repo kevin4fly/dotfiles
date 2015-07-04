@@ -87,4 +87,7 @@ source monokai-gnome-terminal.sh
 cd terminal-italic-font/
 source italic.sh
 
+# show DONE!
+echo -e "\nGood luck, it's Done!\n"
+
 # vim:ts=4:sw=8:sts=4:et:fdm=marker:ft=sh
