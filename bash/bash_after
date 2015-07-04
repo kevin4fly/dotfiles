@@ -31,8 +31,7 @@ eval "$(rbenv init -)"
 
 # for nvm
 source ~/.nvm/nvm.sh
-NVM_VER=$(cat ~/.nvmrc)
-nvm use $NVM_VER 1 > /dev/null
+nvm use stable 1 > /dev/null
 [[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 # for npm completion
