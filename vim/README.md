@@ -46,6 +46,7 @@ productive.
 2. code complete engine: [YouCompleteMe]
 3. status line: [airline with powerline fancy]
 4. instant show markdown: [vim-instant-markdown]
+5. show manual inside vim: [vimpager]
 
 ###Runnig&installing plugins
 Launch vim and run: `:Unite neobundle/install` to install all plugins via
@@ -92,3 +93,4 @@ better for me.
 [YouCompleteMe]: https://github.com/Valloric/YouCompleteMe#full-installation-guide
 [airline with powerline fancy]: https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation
 [vim-instant-markdown]: https://github.com/suan/vim-instant-markdown
+[vimpager]: https://github.com/rkitover/vimpager
