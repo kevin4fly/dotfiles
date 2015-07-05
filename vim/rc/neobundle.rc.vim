@@ -245,10 +245,10 @@ NeoBundleLazy 'kovisoft/slimv', {
             \ }
 
 " rainbow{{{2
-NeoBundleLazy 'amdt/vim-niji', {
-            \ 'filetypes' : ['lisp', 'ruby', 'python'],
-            \ 'name'      : 'niji',
-            \ }
+" NeoBundleLazy 'amdt/vim-niji', {
+"             \ 'filetypes' : ['lisp', 'ruby', 'python'],
+"             \ 'name'      : 'niji',
+"             \ }
 
 " highlight syntax{{{2
 " NeoBundleLazy 'newlisp'
