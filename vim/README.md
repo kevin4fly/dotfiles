@@ -38,6 +38,11 @@ It is pretty nice thing to install the plugins which make our job more
 productive.
 
 1. vim plugin manager: [neobundle]
+
+    ```bash
+    mkdir -p ~/.vim/bundle
+    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle
+    ```
 2. code complete engine: [YouCompleteMe]
 3. status line: [airline with powerline fancy]
 4. instant show markdown: [vim-instant-markdown]
