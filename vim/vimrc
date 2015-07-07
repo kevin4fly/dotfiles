@@ -1,5 +1,5 @@
 " Note: Skip initialization for vim-tiny or vim-small.
-if !1 | finish | endif
+if 0 | endif
 
 function! s:source_rc(path)
   execute 'source' fnameescape(expand('~/.vim/rc/' . a:path))
@@ -7,7 +7,9 @@ endfunction
 
 if has('vim_starting')
   " recommanded
-  set nocompatible
+  if &compatible
+    set nocompatible
+  endif
   " required
   set runtimepath+=~/.vim/bundle/neobundle/
 endif
@@ -21,9 +23,7 @@ call s:source_rc('init.rc.vim')
 let s:bundles_path = expand('~/.vim/bundle')
 call neobundle#begin(s:bundles_path)
 
-if neobundle#has_cache()
-  NeoBundleLoadCache
-else
+if neobundle#load_cache()
   call s:source_rc('neobundle.rc.vim')
   NeoBundleSaveCache
 endif
@@ -35,8 +35,11 @@ call neobundle#end()
 " required!
 filetype plugin indent on
 
-" Installation check.
-NeoBundleCheck
+" installation check.
+if !has('vim_starting')
+  " Installation check.
+  NeoBundleCheck
+endif
 
 " helper functions
 call s:source_rc('helper.rc.vim')
