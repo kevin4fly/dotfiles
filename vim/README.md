@@ -133,5 +133,5 @@ There is a variant of issue after installation, and we list some here.
 [airline with powerline fancy]: https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation
 [vim-instant-markdown]: https://github.com/suan/vim-instant-markdown
 [vimpager]: https://github.com/rkitover/vimpager
-[change icon]:
-http://askubuntu.com/questions/80627/how-can-i-change-the-icon-of-an-application-in-the-unity-launcher
+[gvim warning]: http://askubuntu.com/questions/361180/gvim-glib-gobject-warning-in-ubuntu-13-10
+[change icon]: http://askubuntu.com/questions/80627/how-can-i-change-the-icon-of-an-application-in-the-unity-launcher
