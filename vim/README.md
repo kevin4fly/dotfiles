@@ -59,7 +59,7 @@ better for me.
 
 #####1.YouCompleteMe
    - for semantic completion support, we have to copy the generated
-       libclang.so to the correct path
+     libclang.so to the correct path
 
     ```bash
     mkdir ~/Downloads/ycm_build
@@ -78,8 +78,47 @@ better for me.
     vim ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py
     ```
 
-    for c language, change line 55: from `'-std=c++11',` to `'-std=c99',` and
-    change line 62: from `'c++',` to `'c',`. or vice visa for C++ language.
+     for c language, change line 55: from `'-std=c++11',` to `'-std=c99',` and
+     change line 62: from `'c++',` to `'c',`. or vice visa for C++ language.
+
+   - for ycm's submodule, due to it is to large for `neobundle` to download
+     all stuff in time, we could run these instead:
+
+    ```bash
+    cd ~/.vim/bundle/YouCompleteMe
+    git submodule update --init --recursive
+    ```
+
+###Misc
+
+There is a variant of issue after installation, and we list some here.
+
+####1. Gvim warning
+   - get gvim warning if we compile vim with `--enable-gui=gnome2`, using
+     `--enable-gui=gtk2` to fix it. refer to [here][gvim warning] for more
+     details.
+
+    ```bash
+    (gvim:4054): GLib-GObject-WARNING **: Attempt to add property GnomeProgram::sm-connect after class was initialised
+    (gvim:4054): GLib-GObject-WARNING **: Attempt to add property GnomeProgram::show-crash-dialog after class was initialised
+    (gvim:4054): GLib-GObject-WARNING **: Attempt to add property GnomeProgram::display after class was initialised
+    (gvim:4054): GLib-GObject-WARNING **: Attempt to add property GnomeProgram::default-icon after class was initialised`
+    ```
+
+####2. Gvim icon
+   - change the gvim icon if it is not showed correctly.
+
+    ```bash
+    cp ~/Downloads/vim/runtime/vim16x16.png \
+                ~/.local/share/icons/hicolor/16x16/apps/vim.png
+    cp ~/Downloads/vim/runtime/vim32x32.png \
+                ~/.local/share/icons/hicolor/32x32/apps/vim.png
+    cp ~/Downloads/vim/runtime/vim48x48.png \
+                ~/.local/share/icons/hicolor/48x48/apps/vim.png
+    ```
+
+     change the icon by running `vim ~/.local/share/applications/gvim.desktop`
+     and `Icon=vim`.  refer to [here][change icon] for details.
 
 [git]: https://gist.github.com/kevin4fly/f74344649d09f903eb1b
 [chrome]: https://gist.github.com/kevin4fly/fd9c971278de368ac47b#google-chrome-browser
@@ -94,3 +133,5 @@ better for me.
 [airline with powerline fancy]: https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation
 [vim-instant-markdown]: https://github.com/suan/vim-instant-markdown
 [vimpager]: https://github.com/rkitover/vimpager
+[change icon]:
+http://askubuntu.com/questions/80627/how-can-i-change-the-icon-of-an-application-in-the-unity-launcher
