@@ -7,7 +7,10 @@ scriptencoding utf-8
 " settings for neobundle {{{2
 if neobundle#tap('neobundle')
   " utilize 8 processes for installing/updating async
-  let g:neobundle#install_max_processes = 8
+  let g:neobundle#install_max_processes   = 8
+  " set timeout seconds for updating and installing to 300s due to
+  " YouCompleteme, there are many submodules for it
+  let g:neobundle#install_process_timeout = 1800
 
   " run :NeoBundleClearCache after writing buffer
   autocmd VimConfig bufwritepost neobundle.rc.vim NeoBundleClearCache
