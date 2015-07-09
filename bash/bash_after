@@ -40,5 +40,7 @@ eval "$(npm completion)"
 # for go
 export PATH="$HOME/.goenv/bin:$PATH"
 eval "$(goenv init -)"
+export GOPATH="$HOME/work/go"
+export PATH=$PATH:$GOPATH/bin
 
 # vim:tw=78:ts=4:sw=4:sts=4:et:fdm=marker:ft=sh
