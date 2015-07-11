@@ -843,18 +843,22 @@ if neobundle#tap('incsearch')
   nmap /  <plug>(incsearch-forward)
   nmap ?  <plug>(incsearch-backward)
   nmap g/ <plug>(incsearch-stay)
-  nmap n  <plug>(incsearch-nohl)<plug>(anzu-n-with-echo)zv
-  nmap N  <plug>(incsearch-nohl)<plug>(anzu-N-with-echo)zv
+  nmap n  <plug>(incsearch-nohl)<plug>(anzu-n-with-echo)zzzv
+  nmap N  <plug>(incsearch-nohl)<plug>(anzu-N-with-echo)zzzv
 
-  map *   <plug>(incsearch-nohl)<plug>(asterisk-*)zv
-  map g*  <plug>(incsearch-nohl)<plug>(asterisk-g*)zv
-  map #   <plug>(incsearch-nohl)<plug>(asterisk-#)zv
-  map g#  <plug>(incsearch-nohl)<plug>(asterisk-g#)zv
+  map *   <plug>(incsearch-nohl)<plug>(asterisk-*)zzzv
+  map g*  <plug>(incsearch-nohl)<plug>(asterisk-g*)zzzv
+  map #   <plug>(incsearch-nohl)<plug>(asterisk-#)zzzv
+  map g#  <plug>(incsearch-nohl)<plug>(asterisk-g#)zzzv
 
   map z*  <plug>(incsearch-nohl0)<plug>(asterisk-z*)
   map gz* <plug>(incsearch-nohl0)<plug>(asterisk-gz*)
   map z#  <plug>(incsearch-nohl0)<plug>(asterisk-z#)
   map gz# <plug>(incsearch-nohl0)<plug>(asterisk-gz#)
+
+  " customize highlight
+  highlight IncSearchCursor ctermfg=0 ctermbg=9 guifg=#000000 guibg=#FF0000
+  " highlight IncSearchUnderline ctermfg=0 ctermbg=9 guifg=#000000 guibg=#FF0000
 
   call neobundle#untap()
 endif
