@@ -1004,4 +1004,13 @@ if neobundle#tap('view-doc')
   call neobundle#untap()
 endif
 
+" settings for vimpager{{{2
+if exists('vimpager')
+  " launch vimpager in vim mode instead of less mode
+  let g:vimpager_less_mode = 0
+
+  " disable internal mapping of z conflicted with incsearch and anzu
+  unmap z
+endif
+
 " vim:tw=78:ts=2:sw=2:sts=2:et:fdm=marker
