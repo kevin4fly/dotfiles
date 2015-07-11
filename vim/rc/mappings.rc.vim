@@ -91,6 +91,7 @@ vnoremap Q gq
 " keep search matches in the middle of the window.
 " zz centers the screen on the cursor, zv unfolds any fold if the cursor
 " suddenly appears inside a fold.
+" replaced by the incsearch/anzu plugins
 nnoremap * *zzzv
 nnoremap # #zzzv
 nnoremap n nzzzv
