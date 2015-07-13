@@ -114,12 +114,11 @@ if ! shopt -oq posix; then
 fi
 
 set -o vi
-export EDITOR=/usr/bin/vim
+[[ -x /usr/bin/vim ]] && export EDITOR=/usr/bin/vim
 export LC_ALL=en_US.utf-8
 export LANG="$LC_ALL"
 export TERM=xterm-256color-italic
-export CDPATH=$HOME/.ghq/github.com/kevin4fly/
-export PAGER=/usr/local/bin/vimpager
+[[ -x /usr/local/bin/vimpager ]] && export PAGER=/usr/local/bin/vimpager
 
 # details: http://unix.stackexchange.com/questions/12107/how-to-unfreeze-after-accidentally-pressing-ctrl-s-in-a-terminal
 stty -ixon
