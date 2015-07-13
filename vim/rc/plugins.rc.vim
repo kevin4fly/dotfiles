@@ -1009,6 +1009,9 @@ if exists('vimpager')
   " launch vimpager in vim mode instead of less mode
   let g:vimpager_less_mode = 0
 
+  " set no colorcolomn for vimpager
+  set colorcolumn=0
+
   " disable internal mapping of z conflicted with incsearch and anzu
   unmap z
 endif
