@@ -92,10 +92,15 @@ vnoremap Q gq
 " zz centers the screen on the cursor, zv unfolds any fold if the cursor
 " suddenly appears inside a fold.
 " replaced by the incsearch/anzu plugins
-nnoremap * *zzzv
-nnoremap # #zzzv
-nnoremap n nzzzv
-nnoremap N Nzzzv
+" nnoremap * *zzzv
+" nnoremap # #zzzv
+" nnoremap n nzzzv
+" nnoremap N Nzzzv
+
+" keep jump point in central position of the screen
+nnoremap <silent> <c-]> <c-]>zzzv
+nnoremap <silent> <c-i> <c-i>zzzv
+nnoremap <silent> <c-o> <c-o>zzzv
 
 " these create newlines like o and O but stay in normal mode
 nnoremap <silent> zj o<Esc>k
