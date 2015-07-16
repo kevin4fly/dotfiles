@@ -283,15 +283,19 @@ if neobundle#tap('unite')
   nnoremap <silent>  [unite]b :<c-u>Unite -toggle -buffer-name=file
                                         \ file<cr><c-u>
   nnoremap <silent>  [unite]c :<c-u>Unite -toggle -buffer-name=command\ history
-                                        \ history/command history/search<cr>
+                                        \ history/command<cr>
   nnoremap <silent>  [unite]d :<c-u>Unite -toggle -buffer-name=mru\ directory
                                         \ neomru/directory<cr><c-u>
+  nnoremap <silent>  [unite]e :<c-u>Unite -toggle -buffer-name=search\ history
+                                        \ history/search<cr>
   nnoremap <silent>  [unite]f :<c-u>Unite -toggle -buffer-name=buffer
                                         \ buffer<cr><c-u>
   nnoremap <silent>  [unite]g :<c-u>Unite -toggle -buffer-name=grep
                                         \ grep:<cr>
   nnoremap <silent>  [unite]h :<c-u>Unite -toggle -buffer-name=yank\ history
                                         \ history/yank register<cr><c-u>
+  nnoremap <silent>  [unite]j :<c-u>Unite -toggle -buffer-name=jumps
+                                        \ jumps<cr><c-u>
   nnoremap <silent>  [unite]l :<c-u>Unite -toggle -buffer-name=line
                                         \ line<cr><c-u>
   nnoremap <silent>  [unite]m :<c-u>Unite -toggle -buffer-name=mark
@@ -857,7 +861,8 @@ if neobundle#tap('incsearch')
   map gz# <plug>(incsearch-nohl0)<plug>(asterisk-gz#)
 
   " customize highlight
-  highlight IncSearchCursor ctermfg=0 ctermbg=9 guifg=#000000 guibg=#FF0000
+  highlight IncSearchCursor cterm=bold ctermfg=none ctermbg=red
+        \ gui=bold guifg=#000000 guibg=#FF0000
   " highlight IncSearchUnderline ctermfg=0 ctermbg=9 guifg=#000000 guibg=#FF0000
 
   call neobundle#untap()
@@ -881,6 +886,9 @@ if neobundle#tap('easy-motion')
   omap <silent> Z   <plug>(easymotion-F)
   nmap ;            <plug>(easymotion-next)
   nmap ,            <plug>(easymotion-prev)
+
+  highlight EasyMotionMoveHL cterm=bold,italic ctermfg=red ctermbg=none
+        \ gui=bold,italic guifg=red guibg=bg
 
   call neobundle#untap()
 endif

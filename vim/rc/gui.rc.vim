@@ -3,8 +3,9 @@
 " list of font names to be used in the GUI
 set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 " set guifont=Inconsolata-dz\ for\ Powerline\ 10.5
-highlight PmenuSel        guifg=red guibg=black gui=bold
+highlight PmenuSel        guifg=red guibg=black gui=bold,italic
 highlight Comment                               gui=italic
+highlight MatchParen      guifg=bg  guibg=red   gui=bold,italic
 
 " list of font names to be used for double-wide characters
 " set guifontwide=

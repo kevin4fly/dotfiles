@@ -161,6 +161,7 @@ set norelativenumber
 " 5 syntax, highlighting and spelling{{{1
 
 " number of terminal colors
+"details: http://stackoverflow.com/questions/15375992/vim-difference-between-t-co-256-and-term-xterm-256color-in-conjunction-with-tmu/15378816#15378816
 set t_Co=256
 
 " "dark" or "light"; the background color brightness
@@ -181,10 +182,13 @@ colorscheme molokai
 "       \ "~/.ghq/github.com/kevin4fly/dotfiles/base16-gnome-terminal"
 let g:base16colorspace=256
 " popup menu for terminal: red frontgroud and black backgroud
-highlight PmenuSel ctermfg=red ctermbg=16 cterm=bold
-" set comment font to italic
-highlight Comment                         cterm=italic
+highlight PmenuSel    ctermfg=red  ctermbg=black   cterm=bold,italic
+" set comment font
+highlight Comment                                  cterm=italic
+" set match parentheses
+highlight MatchParen  ctermfg=none ctermbg=red     cterm=bold,italic
 
+" clear uses the current background color
 "see also: http://superuser.com/questions/399296/256-color-support-for-vim-background-in-tmux/562423#562423
 set t_ut=
 
