@@ -708,11 +708,6 @@ NeoBundle 'bling/vim-airline', {
 " set the status line{{{2
 " NeoBundleLazy 'Lokaltog/vim-powerline'
 
-NeoBundle 'vim-scripts/matchit.zip', {
-            \ 'name'     : 'match-it',
-            \ 'mappings' : [['nxo', '%', 'g%']],
-            \ }
-
 " show vertical lines at indentation{{{2
 NeoBundle 'Yggdroot/indentLine', {
             \ 'name' : 'indent-line',

@@ -17,10 +17,6 @@ nnoremap <silent> <leader>ee :e $MYVIMRC<cr>
 " autocmd VimConfig bufwritepost .vimrc,*.rc.vim
 "       \ source $MYVIMRC | filetype detect | redraw | echo $MYVIMRC "autoloaded"
 
-" goto command line mode
-nnoremap <leader><leader> :
-vnoremap <leader><leader> :
-
 " mapping jj to esc on insert/command/operator-pending mode
 noremap! jj <c-c>
 onoremap jj <ESC>
@@ -133,6 +129,9 @@ nnoremap <silent> <leader>so :w !sudo tee % >/dev/null<cr>
 " autocmd VimConfig bufreadpost,bufnewfile *.c,*.h,*.cpp,*.sh runtime! ftplugin/man.vim
 runtime! ftplugin/man.vim
 nnoremap <silent> K :Man <cword><cr>
+
+" autoload matchit.vim
+runtime! macros/matchit.vim
 
 " show this kinds of file on the right side
 " set the local buftype for golden view plugin
