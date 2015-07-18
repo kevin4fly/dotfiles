@@ -201,7 +201,7 @@ set t_ut=
 " highlight all matches for the last used search pattern
 set hlsearch
 
-" trigger highlight or not after searching
+" toggle highlight or not after searching
 nnoremap <silent> <leader><cr> :setlocal hlsearch!<cr>
 
 " highlight the screen column of the cursor

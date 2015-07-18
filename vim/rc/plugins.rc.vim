@@ -292,8 +292,6 @@ if neobundle#tap('unite')
                                         \ buffer<cr><c-u>
   nnoremap <silent>  [unite]g :<c-u>Unite -toggle -buffer-name=grep
                                         \ grep:<cr>
-  nnoremap <silent>  [unite]h :<c-u>Unite -toggle -buffer-name=yank\ history
-                                        \ history/yank register<cr><c-u>
   nnoremap <silent>  [unite]j :<c-u>Unite -toggle -buffer-name=jumps
                                         \ jumps<cr><c-u>
   nnoremap <silent>  [unite]l :<c-u>Unite -toggle -buffer-name=line
@@ -314,6 +312,8 @@ if neobundle#tap('unite')
                                         \ tag<cr><c-u>
   nnoremap <silent>  [unite]u :<c-u>Unite -toggle -buffer-name=mru\ file
                                         \ neomru/file<cr><c-u>
+  nnoremap <silent>  [unite]y :<c-u>Unite -toggle -buffer-name=yank\ history
+                                        \ history/yank register<cr><c-u>
   " add more handy actions
   autocmd VimConfig filetype unite call s:unite_settings()
 
