@@ -6,6 +6,9 @@ set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 10
 highlight PmenuSel        guifg=red guibg=black gui=bold,italic
 highlight Comment                               gui=italic
 highlight MatchParen      guifg=bg  guibg=red   gui=bold,italic
+" set search color
+highlight IncSearch       guifg=red guibg=black gui=bold,italic
+highlight Search          guifg=red guibg=black gui=bold,italic
 
 " list of font names to be used for double-wide characters
 " set guifontwide=

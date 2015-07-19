@@ -182,11 +182,14 @@ colorscheme molokai
 "       \ "~/.ghq/github.com/kevin4fly/dotfiles/base16-gnome-terminal"
 let g:base16colorspace=256
 " popup menu for terminal: red frontgroud and black backgroud
-highlight PmenuSel    ctermfg=red  ctermbg=black   cterm=bold,italic
+highlight PmenuSel    ctermfg=red   ctermbg=black cterm=bold,italic
 " set comment font
-highlight Comment                                  cterm=italic
+highlight Comment                                 cterm=italic
 " set match parentheses
-highlight MatchParen  ctermfg=none ctermbg=red     cterm=bold,italic
+highlight MatchParen  ctermfg=none  ctermbg=red   cterm=bold,italic
+" set search color
+highlight IncSearch   ctermfg=red   ctermbg=black cterm=bold,italic
+highlight Search      ctermfg=red   ctermbg=black cterm=bold,italic
 
 " clear uses the current background color
 "see also: http://superuser.com/questions/399296/256-color-support-for-vim-background-in-tmux/562423#562423

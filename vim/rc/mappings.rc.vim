@@ -64,10 +64,6 @@ inoremap <c-n> <esc>o
 " backspace to delete character
 nnoremap <bs> X
 
-" for easy search
-" we do Not use nnoremap here is for the plugin incsearch to work correctly
-nmap <leader>/ ?
-
 " uniform copy
 nnoremap Y y$
 
