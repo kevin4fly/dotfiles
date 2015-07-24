@@ -24,6 +24,7 @@ such as: git, ruby, python support and so on. And now, let's install them:
    [libclang]
 7. Exuberant Ctags: [tag]
    - install ctags via package manager: `sudo apt-get install ctags`
+8. grep replacement for Unit: [ag]
 
 
 ###Building Vim from source
@@ -132,6 +133,7 @@ There is a variant of issue after installation, and we list some here.
 [YouCompleteMe]: https://github.com/Valloric/YouCompleteMe#full-installation-guide
 [airline with powerline fancy]: https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation
 [vim-instant-markdown]: https://github.com/suan/vim-instant-markdown
+[ag]: https://github.com/ggreer/the_silver_searcher
 [vimpager]: https://github.com/rkitover/vimpager
 [gvim warning]: http://askubuntu.com/questions/361180/gvim-glib-gobject-warning-in-ubuntu-13-10
 [change icon]: http://askubuntu.com/questions/80627/how-can-i-change-the-icon-of-an-application-in-the-unity-launcher
