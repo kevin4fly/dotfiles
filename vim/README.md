@@ -25,6 +25,7 @@ such as: git, ruby, python support and so on. And now, let's install them:
 7. Exuberant Ctags: [tag]
    - install ctags via package manager: `sudo apt-get install ctags`
 8. grep replacement for Unit: [ag]
+   - install the-silver-searcher: `sudo apt-get install silversearcher-ag`
 
 
 ###Building Vim from source
