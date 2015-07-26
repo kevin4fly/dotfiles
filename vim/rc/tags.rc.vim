@@ -3,7 +3,13 @@
 " generating tags in current directory
 nnoremap <silent> <leader>o
   \ :!ctags -R --sort=foldcase --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
-" adding tags in current directory or above and in all subdirectories
+" use tags file in directory of current file: ./tags
+" and search tags file upward untile a tags file found or searched to root
+" directory
+" Note: the difference between currect directory returned by :pwd and
+" directory of current file/buffer. for most time, of course, we want to
+" search the tags file of the current buffer which sometimes isn't equal to
+" current directory
 set tags=./tags,tags;
 
 " set tags for the standard C library libc6
