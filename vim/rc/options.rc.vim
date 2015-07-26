@@ -606,8 +606,8 @@ set matchpairs=(:),[:],{:},<:>
 " keep it here since blinking cursor is quite annoying when matched
 " let loaded_matchparen = 1
 
-" use two spaces after '.' when joining a line
-" set joinspaces
+" use only one space after '.' when joining a line
+set joinspaces
 
 " "alpha", "octal" and/or "hex"; number formats recognized for CTRL-A and
 " CTRL-X commands

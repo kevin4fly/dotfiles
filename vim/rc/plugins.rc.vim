@@ -920,14 +920,6 @@ if neobundle#tap('camelcase-motion')
   call neobundle#untap()
 endif
 
-" settings for accelerated-jk{{{2
-if neobundle#tap('accelerated-jk') "{{{
-  nmap <silent>j <Plug>(accelerated_jk_gj)
-  nmap <silent>k <Plug>(accelerated_jk_gk)
-
-  call neobundle#untap()
-endif "}}}
-
 " settings for openbrowser{{{2
 if neobundle#tap('open-browser')
   nmap <silent> [b <plug>(openbrowser-open)\|

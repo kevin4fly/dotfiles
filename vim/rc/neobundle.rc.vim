@@ -10,16 +10,16 @@ NeoBundleFetch 'Shougo/neobundle.vim', {
 " colorscheme related{{{1
 
 " manage colorscheme with unite{{{2
-" NeoBundleLazy 'ujihisa/unite-colorscheme', {
-"             \ 'name'    : 'unite-colorscheme',
-"             \ 'depends' : 'unite',
-"             \ }
+NeoBundleLazy 'ujihisa/unite-colorscheme', {
+            \ 'name'    : 'unite-colorscheme',
+            \ 'depends' : 'unite',
+            \ }
 
 " manage font with unite
-" NeoBundleLazy 'ujihisa/unite-font', {
-"             \ 'name' : 'unite-font',
-"             \ 'depends' : 'unite',
-"             \ }
+NeoBundleLazy 'ujihisa/unite-font', {
+            \ 'name' : 'unite-font',
+            \ 'depends' : 'unite',
+            \ }
 
 " add molokai colorscheme(default)
 NeoBundle 'tomasr/molokai', {
@@ -28,14 +28,14 @@ NeoBundle 'tomasr/molokai', {
 
 " waiting for https://github.com/chriskempson/base16-builder/issues/179{{{2
 " add base16-vim colorscheme
-" NeoBundle 'chriskempson/base16-vim', {
-"             \ 'name' : 'base16-colorscheme',
-"             \ }
+NeoBundle 'chriskempson/base16-vim', {
+            \ 'name' : 'base16-colorscheme',
+            \ }
 
 " add more vim colorscheme
-" NeoBundle 'flazz/vim-colorschemes', {
-"             \ 'name' : 'flazz-colorschemes',
-"             \ }
+NeoBundle 'flazz/vim-colorschemes', {
+            \ 'name' : 'flazz-colorschemes',
+            \ }
 
 " version-controlling related{{{1
 
@@ -766,9 +766,9 @@ NeoBundleLazy 'bkad/CamelCaseMotion', {
             \ }
 
 " accelerate j/k motion{{{2
-NeoBundleLazy 'rhysd/accelerated-jk', {
+" NeoBundleLazy 'mappings' : '<plug>(accelerated_jk_' will conflict mksession
+NeoBundle 'rhysd/accelerated-jk', {
             \ 'name'     : 'accelerated-jk',
-            \ 'mappings' : '<plug>(accelerated_jk_',
             \ }
 
 " open URI with your favorite browser{{{2
