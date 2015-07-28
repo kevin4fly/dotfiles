@@ -582,7 +582,7 @@ set completeopt=menu,menuone,longest
 " set thesaurus=
 
 " adjust case of a keyword completion match
-" set noinfercase
+set infercase
 
 " enable entering digraps with c1 <BS> c2
 " set nodigraph

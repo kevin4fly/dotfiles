@@ -846,6 +846,10 @@ NeoBundle 'navicore/vissort.vim', {
 "             \ 'name' : 'view-doc',
 "             \ }
 
+" NeoBundle 'joeytwiddle/sexy_scroller.vim', {
+"             \ 'name'   : 'sexy-scroller',
+"             \ }
+
 " show ascii table
 NeoBundleLazy 'vim-scripts/CharTab', {
             \ 'filetypes' : 'all',

@@ -79,7 +79,10 @@ let g:ycm_global_ycm_extra_conf               =
 let g:ycm_min_num_identifier_candidate_chars  = 4
 " let g:ycm_seed_identifiers_with_syntax        = 1
 let g:ycm_complete_in_comments                = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
+" the ycm issue: https://github.com/Valloric/YouCompleteMe/issues/595
+" Large RAM usage when loading tags files, the identifiers cannot be showed
+" up, there is even no popup menu if add the tags file
+" let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax        = 1
 
 nnoremap [g :YcmCompleter GoTo<cr>
