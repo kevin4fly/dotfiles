@@ -689,9 +689,9 @@ NeoBundleLazy 'tpope/vim-repeat', {
             \ 'mappings' : '.',
             \ }
 " repeat your mapping in visual mode{{{2
-" NeoBundle 'vim-scripts/visualrepeat', {
-"             \ 'name': 'visual-repeat',
-"             \ }
+NeoBundle 'vim-scripts/visualrepeat', {
+            \ 'name': 'visual-repeat',
+            \ }
 
 " mark, marker and highlight{{{1
 

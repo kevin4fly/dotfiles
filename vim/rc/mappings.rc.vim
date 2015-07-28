@@ -37,15 +37,7 @@ nnoremap k gk
 inoremap <expr><c-j>    pumvisible() ? "\<c-n>" : "\<down>"
 inoremap <expr><c-k>    pumvisible() ? "\<c-p>" : "\<up>"
 inoremap <expr><Enter>  pumvisible() ? "\<c-y>" : "\<Enter>"
-function! JustifyCursor()
-  if col('.') == 1
-    call cursor(line('.'), 1)
-  else
-    call cursor(line('.'), col('.') + 1)
-  endif
-  return ''
-endfunction
-inoremap <c-o> <c-r>=g:JustifyCursor()<cr><esc>C
+inoremap <c-o> <c-o>D
 inoremap <expr><c-l>    pumvisible() ? "\<c-y>"  : "\<right>"
 cnoremap <c-l> <right>
 noremap! <c-h> <left>

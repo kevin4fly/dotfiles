@@ -925,7 +925,7 @@ endif
 
 " settings for openbrowser{{{2
 if neobundle#tap('open-browser')
-  nmap <silent> [b <plug>(openbrowser-open)\|
+  nmap <silent> gx <plug>(openbrowser-open)\|
           \:call repeat#set("\<plug>(openbrowser-open)", v:count)<cr>
   " vmap <silent> [b <plug>(openbrowser-open)\|
   "         \:call visualrepeat#set("\<plug>(openbrowser-open)", v:count)<cr>
