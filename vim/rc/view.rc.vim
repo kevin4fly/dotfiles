@@ -51,6 +51,19 @@ autocmd VimConfig bufreadpost *
       \   execute "normal! g`\""                       |
       \ endif
 
+" show this kinds of file on the right side
+" set the local buftype for golden view plugin
+autocmd VimConfig filetype man,qf
+      \ wincmd L                  |
+      \ if &filetype == 'man'     |
+      \   setlocal buftype=help   |
+      \   setlocal colorcolumn=0  |
+      \ endif
+
+" show grep related and make output in quickfix window
+autocmd VimConfig quickfixcmdpost *grep* cwindow
+autocmd VimConfig quickfixcmdpost make   cwindow
+
 " auto wipe out empty buffers
 autocmd VimConfig bufhidden * call CleanEmptyBuffers()
 

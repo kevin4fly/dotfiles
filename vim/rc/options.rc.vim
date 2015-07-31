@@ -170,6 +170,12 @@ set background=dark
 " type of file; triggers the FileType event when set
 " set filetype=
 
+" run spell checking for markdown and gitcommit
+autocmd VimConfig filetype markdown,gitcommit setlocal spell spelllang=en_us
+
+" set the filetype to sh for bash file
+autocmd VimConfig filetype bash setlocal filetype=sh
+
 " name of syntax highlighting used
 syntax enable
 
@@ -616,7 +622,7 @@ set joinspaces
 " 15 tabs and indenting{{{1
 
 " number of spaces a <Tab> in the text stands for
-set tabstop=8
+set tabstop=4
 
 " number of spaces used for each step of (auto)indent
 set shiftwidth=4
@@ -633,9 +639,12 @@ set softtabstop=4
 " expand <Tab> to spaces in Insert mode
 set expandtab
 
-" don't expand <tab> in .snippets file
-autocmd VimConfig bufread *.snippets
-      \ setlocal tabstop=8 shiftwidth=8 nosmarttab softtabstop=8 noexpandtab
+" don't expand <tab> and a <tab> insert 'tabstop' spaces
+autocmd VimConfig bufread *.snippets setlocal noexpandtab nosmarttab
+autocmd VimConfig filetype make      setlocal noexpandtab nosmarttab
+
+" prevent vim from interpreting Makefile as a modeline
+autocmd VimConfig filetype make setlocal modelines=0
 
 " set options for vim files
 autocmd VimConfig filetype vim setlocal shiftwidth=2 softtabstop=2

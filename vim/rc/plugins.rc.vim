@@ -500,7 +500,7 @@ endif
 " settings for easy-align{{{2
 if neobundle#tap('easy-align')
   vmap <enter>   <plug>(EasyAlign)
-  nmap <leader>a <plug>(EasyAlign)
+  nmap ga <plug>(EasyAlign)
 
   call neobundle#untap()
 endif

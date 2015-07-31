@@ -129,27 +129,6 @@ nnoremap <silent> K :Man <cword><cr>
 " autoload matchit.vim
 runtime! macros/matchit.vim
 
-" show this kinds of file on the right side
-" set the local buftype for golden view plugin
-autocmd VimConfig filetype man,qf
-      \ wincmd L                  |
-      \ if &filetype == 'man'     |
-      \   setlocal buftype=help   |
-      \   setlocal colorcolumn=0  |
-      \ endif
-
-" show grep result
-autocmd VimConfig QuickFixCmdPost *grep* cwindow
-
-" run spell checking for markdown and gitcommit
-autocmd VimConfig filetype markdown,gitcommit setlocal spell spelllang=en_us
-
-" set the filetype to sh for bash file
-autocmd VimConfig filetype bash setlocal filetype=sh
-
-" prevent vim from interpreting Makefile as a modeline
-autocmd VimConfig filetype make setlocal modelines=0
-
 " mapping to vimgrep
 nnoremap <leader><space> :vimgrep /
 
